@@ -1,0 +1,91 @@
+\documentclass[11pt,a4paper,fleqn]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[frenchb]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{tabularx}
+\usepackage[pdftex,colorlinks=true,pdfstartview=FitB,hyperindex=true]{hyperref}
+\setlength{\mathindent}{23pt}
+
+%\usepackage{calc}
+%\newlength\dlf
+%\newcommand\alignedbox[2]{
+%  % #1 = before alignment
+%  % #2 = after alignment
+%  &
+%  \begingroup
+%  \settowidth\dlf{$\displaystyle #1$}
+%  \addtolength\dlf{\fboxsep+\fboxrule}
+%  \hspace{-\dlf}
+%  \boxed{#1 #2}
+%  \endgroup
+%}
+
+\newtheorem*{theorem}{Théorème}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remarque}
+\newtheorem*{remarks}{Remarques}
+
+
+\newcommand{\para}{
+\ensuremath
+\mbox{\textbf{\tiny /\!/}}
+}
+
+\newcommand{\nab}{
+\ensuremath
+\vec{\nabla}
+}
+
+\newcommand{\rot}{
+\ensuremath
+\overrightarrow{\text{rot}}
+}
+
+\author{Christophe \textsc{Winisdoerffer}}
+\title{Électrodynamique}
+\date{}
+
+\renewcommand{\thesection}{\arabic{section}}
+\setcounter{secnumdepth}{3}
+
+\begin{document}
+ 	
+
+
+
+\thispagestyle{empty}
+\newgeometry{left=3cm,right=3cm,top=8cm,bottom=2cm}
+\makeatletter
+
+\begin{flushleft}
+	\Huge \@title
+\end{flushleft}
+\hrule height 6pt
+\begin{flushright}
+	Master sciences de la matière\\
+	Semestre 1, ENS Lyon
+\end{flushright}
+
+\vfill
+\noindent
+\begin{tabularx}{\textwidth}{l X r}
+	Cours de :  & & Retranscrit par : \\
+	\@author & & Simon \textsc{Zugmeyer} \\
+	\href{mailto:cwinisdo@ens-lyon.fr}{\tt cwinisdo@ens-lyon.fr} & &
+\end{tabularx}
+
+\makeatother
+\restoregeometry
+
+\tableofcontents
+\pagebreak
+
+\input{chapitre1}
+\input{chapitre2}
+\end{document}
