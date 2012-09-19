@@ -9,84 +9,97 @@
 \subsection{Transformation de Galilée}
 
 On considère deux référentiels $\mathcal{R}$ et $\mathcal{R}'$ en translation rectiligne uniforme l'un par rapport à l'autre, et pour lesquels on a choisi les origines spatiales et temporelles de telle façon que le système de coordonnées s'écrive :
-\begin{align*}
-	t'&=t\\
-	\vec{r'}&=\vec{r}-\vec{v}t, \left\{ \begin{array}{r@{\;}l}
-			x'&=x-v_{x}t \\
-			y'&=y-v_{y}t \\
-			z'&=z-v_{z}t \\
-		\end{array} \right.
-\end{align*}
+$$
+	\begin{array}{r@{\;}l}
+		t'&=t\\
+		\vec{r'}&=\vec{r}-\vec{v}t, \left\{ \begin{array}{r@{\;}l}
+				x'&=x-v_{x}t \\
+				y'&=y-v_{y}t \\
+				z'&=z-v_{z}t \\
+			\end{array} \right.
+	\end{array}
+$$
 On a alors :
-\begin{align*}
-	\frac{\partial}{\partial t}&=\frac{\partial t'}{\partial t} \frac{\partial}{\partial t'}
-			+\frac{\partial x'}{\partial t} \frac{\partial}{\partial x'}
-			+\frac{\partial y'}{\partial t} \frac{\partial}{\partial y'}
-			+\frac{\partial z'}{\partial t} \frac{\partial}{\partial z'}\\
-	&=\frac{\partial}{\partial t'} - v_{x} \frac{\partial}{\partial x'}
-			- v_{y} \frac{\partial}{\partial y'}
-			- v_{z} \frac{\partial}{\partial z'}\\
-	&=\frac{\partial}{\partial t'} - \vec{v}\cdot \vec{\nabla '}\\[10pt]
-	\frac{\partial}{\partial x}&=\frac{\partial t'}{\partial x} \frac{\partial}{\partial t'}
-			+\frac{\partial x'}{\partial x} \frac{\partial}{\partial x'}
-			+\frac{\partial y'}{\partial x} \frac{\partial}{\partial y'}
-			+\frac{\partial z'}{\partial x} \frac{\partial}{\partial z'}\\
-	&=\frac{\partial}{\partial x'}\\
-	\frac{\partial}{\partial y}&=\frac{\partial}{\partial y'}\\
-	\frac{\partial}{\partial z}&=\frac{\partial}{\partial z'}
-\end{align*}
+$$
+	\begin{array}{r@{\;}l}
+		\frac{\partial}{\partial t}&=\frac{\partial t'}{\partial t} \frac{\partial}{\partial t'}
+				+\frac{\partial x'}{\partial t} \frac{\partial}{\partial x'}
+				+\frac{\partial y'}{\partial t} \frac{\partial}{\partial y'}
+				+\frac{\partial z'}{\partial t} \frac{\partial}{\partial z'}\\
+		&=\frac{\partial}{\partial t'} - v_{x} \frac{\partial}{\partial x'}
+				- v_{y} \frac{\partial}{\partial y'}
+				- v_{z} \frac{\partial}{\partial z'}\\
+		&=\frac{\partial}{\partial t'} - \vec{v}\cdot \vec{\nabla '}\\[10pt]
+		\frac{\partial}{\partial x}&=\frac{\partial t'}{\partial x} \frac{\partial}{\partial t'}
+				+\frac{\partial x'}{\partial x} \frac{\partial}{\partial x'}
+				+\frac{\partial y'}{\partial x} \frac{\partial}{\partial y'}
+				+\frac{\partial z'}{\partial x} \frac{\partial}{\partial z'}\\
+		&=\frac{\partial}{\partial x'}\\
+		\frac{\partial}{\partial y}&=\frac{\partial}{\partial y'}\\
+		\frac{\partial}{\partial z}&=\frac{\partial}{\partial z'}
+	\end{array}
+$$
 et donc 
-\begin{align*}
-	\nab\cdot\vec{E}(x,y,z,t)&=\vec{\nabla '}\cdot\vec{E}(x(x',y',z',t'),y(x',y',z',t'),z(x',y',z',t'),t(x',y',z',t'))\\ 
-	\nab\cdot\vec{E}&=\vec{\nabla '}\cdot\vec{E}
-\end{align*}
-
+$$
+	\begin{array}{r@{\;}l}
+		\nab\cdot\vec{E}(x,y,z,t)&=\vec{\nabla '}\cdot\vec{E}(x(x',y',z',t'),y(x',y',z',t'),z(x',y',z',t'),t(x',y',z',t'))\\ 
+		\nab\cdot\vec{E}&=\vec{\nabla '}\cdot\vec{E}
+	\end{array}
+$$
 \subsubsection*{Maxwell-Faraday}
-\begin{align*}
-	\nab\times\vec{E}(\vec{r},t)&=-\frac{\partial \vec{B}}{t}\\
-		&=\vec{\nabla '}\times\vec{E}\\
-		&=-\frac{\partial \vec{B}}{t'} + (\vec{v}\cdot\vec{\nabla '})\vec{B}\\[15pt]
-	\nab\times(\vec{a}\times\vec{b})&=\vec{a}(\nab\cdot\vec{b})
-			-\vec{b}(\nab\cdot\vec{a})
-			+(\vec{b}\cdot\nab)\vec{a}
-			-(\vec{a}\cdot\nab)\vec{b}\\
-	(\vec{v}\cdot\vec{\nabla '})\vec{B}&=\underbrace{\vec{v}(\vec{\nabla '}\cdot\vec{B})}_{=0}
-			-\underbrace{\vec{v}(\vec{\nabla '}\cdot\vec{B})}_{=0}
-			+\underbrace{(\vec{B}\cdot\vec{\nabla '})\vec{v}}_{=0}
-			-\vec{\nabla '}\times(\vec{v}\times\vec{B})\\
-	\vec{\nabla '}\times\vec{E}&=-\frac{\partial \vec{B}}{t'}-\vec{\nabla '}\times(\vec{v}\times\vec{B})
-\end{align*}
-\boxed{\vec{\nabla '}\times(\vec{E}+\vec{v}\times\vec{B})=-\frac{\partial \vec{B}}{t'}}		
-
+$$
+	\begin{array}{r@{\;}l}
+		\nab\times\vec{E}(\vec{r},t)&=-\frac{\partial \vec{B}}{t}\\
+			&=\vec{\nabla '}\times\vec{E}\\
+			&=-\frac{\partial \vec{B}}{t'} + (\vec{v}\cdot\vec{\nabla '})\vec{B}\\[15pt]
+		\nab\times(\vec{a}\times\vec{b})&=\vec{a}(\nab\cdot\vec{b})
+				-\vec{b}(\nab\cdot\vec{a})
+				+(\vec{b}\cdot\nab)\vec{a}
+				-(\vec{a}\cdot\nab)\vec{b}\\
+		(\vec{v}\cdot\vec{\nabla '})\vec{B}&=\underbrace{\vec{v}(\vec{\nabla '}\cdot\vec{B})}_{=0}
+				-\underbrace{\vec{v}(\vec{\nabla '}\cdot\vec{B})}_{=0}
+				+\underbrace{(\vec{B}\cdot\vec{\nabla '})\vec{v}}_{=0}
+				-\vec{\nabla '}\times(\vec{v}\times\vec{B})\\
+		\vec{\nabla '}\times\vec{E}&=-\frac{\partial \vec{B}}{t'}-\vec{\nabla '}\times(\vec{v}\times\vec{B})
+	\end{array}
+$$
+$$
+	\boxed{\vec{\nabla '}\times(\vec{E}+\vec{v}\times\vec{B})=-\frac{\partial \vec{B}}{t'}}	
+$$
 \subsubsection*{Maxwell-Gauss}
-\begin{align*}
-{\nabla}\cdot\vec{E}=\boxed{\frac{\rho}{\epsilon_0}=\vec{\nabla '}\cdot\vec{E}}
-\end{align*}
+$$
+	{\nabla}\cdot\vec{E}=\boxed{\frac{\rho}{\epsilon_0}=\vec{\nabla '}\cdot\vec{E}}
+$$
 
 \subsubsection*{Maxwell-Ampère}
-\begin{align*}
-	\nab\times\vec{B}&=\mu_0\vec{j}+\mu_0\epsilon_0\frac{\partial \vec{E}}{\partial t}\\
-		&=\vec{\nabla '}\times\vec{B}\\
-		&=\mu_0\vec{j}+\mu_0\epsilon_0\frac{\partial \vec{E}}{\partial t'}-\mu_0\epsilon_0(\vec{v}\cdot\vec{\nabla '})\vec{E}\\[15pt]
-	(\vec{v}\cdot\vec{\nabla '})\vec{E}&=\underbrace{\vec{v}(\vec{\nabla '}\cdot\vec{E})}_{=\frac{\rho}{\epsilon_0}}
-			-\underbrace{\vec{v}(\vec{\nabla '}\cdot\vec{E})}_{=0}
-			+\underbrace{(\vec{E}\cdot\vec{\nabla '})\vec{v}}_{=0}
-			-\vec{\nabla '}\times(\vec{v}\times\vec{E})
-\end{align*}
-\boxed{\vec{\nabla '}\times(\vec{B}+\frac{\vec{v}\times\vec{E}}{c^2})=\mu_0(\vec{j}-\rho\vec{v})+\epsilon_0\mu_0\frac{\partial \vec{E}}{t'}}	
-
+$$
+	\begin{array}{r@{\;}l}
+		\nab\times\vec{B}&=\mu_0\vec{j}+\mu_0\epsilon_0\frac{\partial \vec{E}}{\partial t}\\
+			&=\vec{\nabla '}\times\vec{B}\\
+			&=\mu_0\vec{j}+\mu_0\epsilon_0\frac{\partial \vec{E}}{\partial t'}-\mu_0\epsilon_0(\vec{v}\cdot\vec{\nabla '})\vec{E}\\[15pt]
+		(\vec{v}\cdot\vec{\nabla '})\vec{E}&=\underbrace{\vec{v}(\vec{\nabla '}\cdot\vec{E})}_{=\frac{\rho}{\epsilon_0}}
+				-\underbrace{\vec{v}(\vec{\nabla '}\cdot\vec{E})}_{=0}
+				+\underbrace{(\vec{E}\cdot\vec{\nabla '})\vec{v}}_{=0}
+				-\vec{\nabla '}\times(\vec{v}\times\vec{E})
+	\end{array}
+$$
+$$
+	\boxed{\vec{\nabla '}\times(\vec{B}+\frac{\vec{v}\times\vec{E}}{c^2})=\mu_0(\vec{j}-\rho\vec{v})+\epsilon_0\mu_0\frac{\partial \vec{E}}{t'}}	
+$$
 
 \subsubsection*{Conservation de la charge}
-\begin{align*}
-	\frac{\partial\rho}{\partial t}+\nab\cdot\vec{j}=\boxed{0=\frac{\partial\rho}{\partial t'}+\vec{\nabla '}\cdot(\vec{j}-\rho\vec{v})}
-\end{align*}
+$$
+	\begin{array}{r@{\;}l}
+		\frac{\partial\rho}{\partial t}+\nab\cdot\vec{j}=\boxed{0=\frac{\partial\rho}{\partial t'}+\vec{\nabla '}\cdot(\vec{j}-\rho\vec{v})}
+	\end{array}
+$$
 
 \subsubsection*{Conclusion}
 \begin{itemize}
-	\item conservation charge $\left\{ \begin{array}{r@{\;}l}
+	\item {\renewcommand*{\arraystretch}{1.2} conservation charge $\left\{ \begin{array}{r@{\;}l}
 					\rho '&=\rho\\
 					\vec{j'}&=\vec{j}-\rho\vec{v}
-			\end{array} \right.$
+			\end{array} \right.$}
 	\item Maxwell-Gauss $\vec{E '}=\vec{E}$
 	\item Maxwell-flux $\vec{B '}=\vec{B}$
 	\item Maxwell-Faraday $\vec{E '}=\vec{E}+\vec{v}\times\vec{B} si \vec{B'}=\vec{B}$
@@ -97,57 +110,68 @@ Les équations de Maxwell ne sont donc pas invariantes sous une transformation d
 
 \subsection{Transformation de Lorenz}
 On considère deux repères $\mathcal{R}$ et $\mathcal{R}'$ en translation rectiligne uniforme l'un par rapport à l'autre, avec un choix d'origines tel que :
-$\left\{ \begin{array}{r@{\;}l}
+{\renewcommand*{\arraystretch}{1.2}
+$$
+	\left\{ \begin{array}{r@{\;}l}
 		ct'&=\gamma ct-\beta\gamma x\\
 		x'&=-\beta\gamma ct+\gamma x\\
 		y'&=y\\
 		z'&=z
-\end{array} \right.$
+	\end{array} \right.
+$$}
 Dans ce cas,
-\begin{align*}
-	\frac{\partial}{\partial t}&=\frac{\partial t'}{\partial t} \frac{\partial}{\partial t'}
-			+\frac{\partial x'}{\partial t} \frac{\partial}{\partial x'}
-			+\frac{\partial y'}{\partial t} \frac{\partial}{\partial y'}
-			+\frac{\partial z'}{\partial t} \frac{\partial}{\partial z'}\\
-		&=\gamma\frac{\partial}{\partial t'}-\beta\gamma c\frac{\partial}{\partial x'}\\[10pt]
-	\frac{\partial}{\partial x}&=-\frac{\beta\gamma}{c}\frac{\partial}{\partial t'}+\gamma\frac{\partial}{\partial x'}\\
-	\frac{\partial}{\partial y}&=\frac{\partial}{\partial y'}\\
-	\frac{\partial}{\partial z}&=\frac{\partial}{\partial z'}
-\end{align*}
+$$
+	\begin{array}{r@{\;}l}
+		\frac{\partial}{\partial t}&=\frac{\partial t'}{\partial t} \frac{\partial}{\partial t'}
+				+\frac{\partial x'}{\partial t} \frac{\partial}{\partial x'}
+				+\frac{\partial y'}{\partial t} \frac{\partial}{\partial y'}
+				+\frac{\partial z'}{\partial t} \frac{\partial}{\partial z'}\\
+			&=\gamma\frac{\partial}{\partial t'}-\beta\gamma c\frac{\partial}{\partial x'}\\[10pt]
+		\frac{\partial}{\partial x}&=-\frac{\beta\gamma}{c}\frac{\partial}{\partial t'}+\gamma\frac{\partial}{\partial x'}\\
+		\frac{\partial}{\partial y}&=\frac{\partial}{\partial y'}\\
+		\frac{\partial}{\partial z}&=\frac{\partial}{\partial z'}
+	\end{array}
+$$
 
 \subsubsection*{Maxwell-Faraday}
-\begin{align*}
-	\nab\times\vec{E}&=-\frac{\partial \vec{B}}{t}
-\end{align*}
-\indent$
+$$
+	\nab\times\vec{E}=-\frac{\partial \vec{B}}{t}
+$$
+$$
 	\left\{ \begin{array}{l}
 		\partial_yE_z-\partial_zE_y=-\partial_tB_x\\
 		\partial_zE_x-\partial_xE_z=-\partial_tB_y\\
 		\partial_xE_y-\partial_yE_x=-\partial_tB_z\\
-	\end{array} \right.\\[5pt]\indent
+	\end{array} \right.
+$$
+$$
 	\left\{
 	\begin{array}{r@{\;}l}
 		\partial_{y'}E_z-\partial_{z'}E_y&=-\gamma\partial_{t'}B_x+\beta\gamma c\partial_{x'}B_x\\
 		\partial_{z'}E_x-\partial_{x'}(\gamma E_z)+\frac{\beta\gamma}{c}\partial_{t'}E_z&=-\gamma\partial_{t'}B_y+\beta\gamma c\partial_{x'}B_y\\
 		\partial_{x'}E_y-\frac{\beta\gamma}{c}\partial_{t'}E_y-\partial_{y'}E_x&=-\gamma\partial_{t'}B_z+\beta\gamma c\partial{x'}B_z\\
-	\end{array} \right.\\[10pt]\indent
+	\end{array} \right.
+$$
+$$
 	\begin{array}{r@{\;}l}
 		\text{Maxwell-Flux donne : }{\nabla}\cdot\vec{B}=0&=\partial_xBx+\partial_yB_y+\partial_zB_z\\
 		&=-\frac{\beta\gamma}{c}\partial_{t'}B_x+\gamma\partial_{x'}B_x+\partial_{y'}B_y+\partial_zB_z\\
 		\beta\gamma c\partial_{x'}B_x&=\gamma\beta^2\partial_{t'}B_x-\beta c\partial_{y'}B_y-\beta c\partial_{z'}B_z\\[10pt]\indent
 		\gamma&=\frac{1}{\sqrt{1-\beta^2}}\\
 		\gamma(1-\beta^2)&=\frac{1}{\gamma}
-	\end{array}\\[10pt]\indent
+	\end{array}
+$$
+$$
 	\left\{
 	\begin{array}{c@{-}c@{\;}l}
 		\partial_{y'}(\gamma(E_z+\beta cB_y))&\partial_{z'}(\gamma(E_y-\beta cB_z))&=-\partial_{t'}B_x\\
 		\partial_{z'}E_x&\partial_{x'}(\gamma(E_z+\beta cB_y))&=-\partial_{t'}(\gamma(B_y+\frac{\beta}{c}E_z))\\
 		\partial_{x'}(\gamma(E_y-\beta cB_z))&\partial_{y'}E_x&=-\partial_{t'}(\gamma(B_z-\frac{\beta}{c}E_y))\\
 	\end{array} \right.\\
-$
+$$
 
-En faisant le même travail pour les autres équations de Maxwell, on s'aperçoit qu'elles sont invariantes pour :\\
-\indent$
+En faisant le même travail pour les autres équations de Maxwell, on s'aperçoit qu'elles sont invariantes pour :
+$$
 \left\{ \begin{array}{r@{\;}l}
 	c\rho '&=\gamma c\rho-\gamma\vec{\beta}\cdot\vec{j}\\
 	\vec{j'_{\para}}&=-\vec{\beta}\gamma c\rho+\gamma\vec{j_{\para}}\\
@@ -159,7 +183,7 @@ En faisant le même travail pour les autres équations de Maxwell, on s'aperçoi
 	\vec{E'_{\perp}}&=\gamma(\vec{E_{\perp}}+\vec{v}\times\vec{B_{\perp}})\\
 	c\vec{B'_{\perp}}&=\gamma(c\vec{B_{\perp}}-\frac{\vec{v}\times\vec{E_{\perp}}}{c})
 \end{array} \right.\\
-$
+$$
 
 %\[
 %  \begin{array}{r@{\;}l}
@@ -181,99 +205,100 @@ Remarques :
 
 \section{Potentiels et jauges}
 \subsection{Potentiels}
-	Les équations de Maxwell fournissent quatre équation aux dérivées partielles couplées. Les deux équations homogènes ({\it i.e.} sans source, Maxwell-flux et Maxwell-Faraday) peuvent être identiquement résolues en introduisant le potentiel vecteur $\vec{A}(\vec{r},t)$ et le potentiel scalaire $\Phi(\vec{r},t)$ tels que :
-	\begin{align*}
+	Les équations de Maxwell fournissent quatre équation aux dérivées partielles couplées. Les deux équations homogènes ({\it i.e.} sans source, Maxwell-flux et Maxwell-Faraday) peuvent être identiquement résolues en introduisant le potentiel vecteur $\vec{A}(\vec{r},t)$ et le potentiel scalaire $\phi(\vec{r},t)$ tels que :
+$$
+	\begin{array}{r@{\;}l}
 		\vec{B}&=\nab\times\vec{A}\\
-		\vec{E}&=-\nab\Phi-\partial_t\vec{A}\\
+		\vec{E}&=-\nab\phi-\partial_t\vec{A}\\
 		\text{car } \nab\cdot(\nab\times\vec{Z})&=0\\
 		\text{et }\nab\times(\nab Z)&=\vec{0}
-	\end{align*}
+	\end{array}
+$$
 	
 	Les deux autres équations deviennent alors :
 	
-	\begin{align*}
-		\nab\vec{E}=\frac{\rho}{\epsilon_0}&=\nab\cdot(-\nab\Phi-\partial_t\vec{A})\\
-		&=-\nab^2\Phi-\partial_t(\nab\cdot\vec{A})\\[10pt]
+$$
+	\begin{array}{r@{\;}l}
+		\nab\vec{E}=\frac{\rho}{\epsilon_0}&=\nab\cdot(-\nab\phi-\partial_t\vec{A})\\
+		&=-\nab^2\phi-\partial_t(\nab\cdot\vec{A})\\[10pt]
 		\nab\times\vec{B}&=\mu_0\vec{j}+\mu_0\epsilon_0\partial_t\vec{E}\\
 		&=\nab\times(\nab\times\vec{A})\\
 		&=-\nab^2+\nab(\nab\cdot\vec{A})\\
 		&=\mu_0\vec{j}+\mu_0\epsilon_0\partial_t(-\nab\phi-\partial_t\vec{A})\\
-		&=\mu_0\vec{j}+\frac{1}{c^2}\nab(-\partial_t\Phi)-\frac{1}{c^2}\partial_t^2\vec{A}
-	\end{align*}
-	
+		&=\mu_0\vec{j}+\frac{1}{c^2}\nab(-\partial_t\phi)-\frac{1}{c^2}\partial_t^2\vec{A}
+	\end{array}
+$$
 	soit 
+$$
 	\boxed{\left\{ \begin{array}{{r@{\;}l}}
-		\nab^2\vec{A}-\frac{1}{c^2}\partial_t^2\vec{A}&=-\mu_0\vec{j}+\nab(\nab\cdot\vec{A}+\frac{1}{c^2}\partial_t\Phi)\\
-		\nab^2\Phi-\frac{1}{c^2}\partial_t^2\Phi&=-\frac{\rho}{\epsilon_0}-\partial_t(\nab\cdot\vec{A}+\frac{1}{c^2}\partial_t\Phi) 
-	\end{array}\right.}\\
-	
-	On est passé de quatre EDP couplées du premier ordre à deux EDP couplées du second ordre, ce qui, en soit, n'est pas utile. Cependant, on a une liberté dans le choix de $\Phi$ et $\vec{A}$, seuls $\vec{E}$ et $\vec{B}$ sont mesurables. En effet, avec la transformation :\\
-\indent
-	$ 
+		\nab^2\vec{A}-\frac{1}{c^2}\partial_t^2\vec{A}&=-\mu_0\vec{j}+\nab(\nab\cdot\vec{A}+\frac{1}{c^2}\partial_t\phi)\\
+		\nab^2\phi-\frac{1}{c^2}\partial_t^2\phi&=-\frac{\rho}{\epsilon_0}-\partial_t(\nab\cdot\vec{A}+\frac{1}{c^2}\partial_t\phi) 
+	\end{array}\right.}
+$$	
+	On est passé de quatre EDP couplées du premier ordre à deux EDP couplées du second ordre, ce qui, en soit, n'est pas utile. Cependant, on a une liberté dans le choix de $\phi$ et $\vec{A}$, seuls $\vec{E}$ et $\vec{B}$ sont mesurables. En effet, avec la transformation :\\
+$$
 		\begin{array}{r@{\;}l}
 				\vec{A'} &=\vec{A}+\nab\lambda(\vec{r},t)\\
-			\Phi'&=\Phi-\partial_t\lambda(\vec{r},t)
+			\phi'&=\phi-\partial_t\lambda(\vec{r},t)
 		\end{array}\\
-	$	
+$$	
 	Si $\lambda$ est suffisament régulier,\\
-\indent
-	$
+$$
 		\begin{array}{r@{\;}l}
 			\nab\times(\vec{A')}&=(\vec{A}+\nab\times(\nab\lambda)\\ 
 			&=\vec{B}
-		\end{array}\\[5pt]\indent
+		\end{array}
+$$
+$$
 		\begin{array}{r@{\;}l}
-			-\nab\Phi-\partial_{t'}\vec{A'}&=-\nab\Phi-\partial_t\vec{A}+\nab\partial_t\lambda-\partial_t\nab\lambda\\
+			-\nab\phi-\partial_{t'}\vec{A'}&=-\nab\phi-\partial_t\vec{A}+\nab\partial_t\lambda-\partial_t\nab\lambda\\
 			&=\vec{E}
 		\end{array}
-	$
+$$
 	
-	$(\vec{A'},\Phi')$ correspondent aux m\^emes champs $(\vec{E},\vec{B})$ que $(\vec{A},\Phi)$. Cette liberté s'appelle \emph{invariance de jauge}, et la transformation précédente \emph{transformation de jauge}. Seuls $\vec{E}$ et $\vec{B}$ sont observables ({\it i.e.} mesurables avec un détecteur local, en regardant le mouvement d'une charge), alors que $\Phi$ et $\vec{A}$ sont des intermédiaires de calcul. On se sert donc de cette liberté pour simplifier les équations.
+	$(\vec{A'},\phi')$ correspondent aux m\^emes champs $(\vec{E},\vec{B})$ que $(\vec{A},\phi)$. Cette liberté s'appelle \emph{invariance de jauge}, et la transformation précédente \emph{transformation de jauge}. Seuls $\vec{E}$ et $\vec{B}$ sont observables ({\it i.e.} mesurables avec un détecteur local, en regardant le mouvement d'une charge), alors que $\phi$ et $\vec{A}$ sont des intermédiaires de calcul. On se sert donc de cette liberté pour simplifier les équations.
 \begin{remark}
-	On ne perd rien en écrivant $\vec{E}$ et $\vec{B}$ avec $\vec{A}$ et $\Phi$. Si $\vec{E}$ et $\vec{B}$ sont solution des équations de Maxwell avec les conditions aux limites, alors on peut toujours trouver $\vec{A}$ et $\Phi$ vérifiant :
-	\indent
-	$
+	On ne perd rien en écrivant $\vec{E}$ et $\vec{B}$ avec $\vec{A}$ et $\phi$. Si $\vec{E}$ et $\vec{B}$ sont solution des équations de Maxwell avec les conditions aux limites, alors on peut toujours trouver $\vec{A}$ et $\phi$ vérifiant :
+$$
 		\left\{ \begin{array}{r@{\;}l}
 			\vec{B}&=\nab\times\vec{A}\\
-			\vec{E}&=-\nab\Phi-\partial_t\vec{A}\\
+			\vec{E}&=-\nab\phi-\partial_t\vec{A}\\
 		\end{array} \right.
-	$
+$$
 \end{remark}
 
 \subsection{Jauges}
 \subsubsection{Jauge de Lorenz}
-	La jauge de Lorenz consiste à imposer \boxed{\nab\cdot\vec{A}+\frac{1}{c^2}\partial_t\Phi=0}
+	La jauge de Lorenz consiste à imposer \boxed{\nab\cdot\vec{A}+\frac{1}{c^2}\partial_t\phi=0}
 	Dans ce cas, les équations deviennent :
-	\indent
-	$
+$$
 		\left\{ \begin{array}{c@{-}c@{\;}l}
-			\nab^2\Phi&\frac{1}{c^2}\partial_t^2\Phi&=-\frac{\rho}{\epsilon_0}\\
+			\nab^2\phi&\frac{1}{c^2}\partial_t^2\phi&=-\frac{\rho}{\epsilon_0}\\
 			\nab^2\vec{A}&\frac{1}{c^2}\partial_t^2\vec{A}&=-\mu_0\vec{j}
 		\end{array} \right.
-	$
+$$
 	\emph{i.e.} les équations sont découplées.
 
 	\begin{theorem}
-		On peut toujours trouver un couple $(\vec{A},\Phi)$ qui satisfait la jauge de Lorenz.
+		On peut toujours trouver un couple $(\vec{A},\phi)$ qui satisfait la jauge de Lorenz.
 	\end{theorem}
 	
 	\begin{proof}
-		Soit $(\vec{A},\Phi)$ qui ne satisfait pas la jauge de Lorenz. On cherche $(\vec{A'},\Phi')$ relié à $(\vec{A},\Phi)$ par une transformation de jauge tel qu'il satisfasse la jauge de Lorenz.\\
-\indent
-	$ 
+		Soit $(\vec{A},\phi)$ qui ne satisfait pas la jauge de Lorenz. On cherche $(\vec{A'},\phi')$ relié à $(\vec{A},\phi)$ par une transformation de jauge tel qu'il satisfasse la jauge de Lorenz.\\
+$$
 		\begin{array}{r@{\;}l}
 				\vec{A'} &=\vec{A}+\nab\lambda(\vec{r},t)\\
-			\Phi'&=\Phi-\partial_t\lambda(\vec{r},t)
-		\end{array}\\[10pt]\indent
-		\begin{array}{r@{\;}l}
-			\nab\cdot\vec{A'}+\frac{1}{c^2}\partial_t\Phi'&=0\\
-			&=\nab\cdot(\vec{A}+\nab\lambda)+\frac{1}{c^2}\partial_t(\Phi-\partial_t\lambda)\\
-			&=\nab\cdot\vec{A}+\nab^2\lambda+\frac{1}{c^2}\partial_t\Phi-\frac{\partial_t}{c^2}\lambda
+			\phi'&=\phi-\partial_t\lambda(\vec{r},t)
 		\end{array}
-	$	
-	\medskip
-	
-	Il faut résoudre $\nab^2\lambda-\frac{1}{c^2}\partial_t\lambda=-(\nab\cdot\vec{A}+\frac{1}{c^2}\partial_t\Phi)$ qui admet toujours une solution. \qedhere
+$$
+$$
+		\begin{array}{r@{\;}l}
+			\nab\cdot\vec{A'}+\frac{1}{c^2}\partial_t\phi'&=0\\
+			&=\nab\cdot(\vec{A}+\nab\lambda)+\frac{1}{c^2}\partial_t(\phi-\partial_t\lambda)\\
+			&=\nab\cdot\vec{A}+\nab^2\lambda+\frac{1}{c^2}\partial_t\phi-\frac{\partial_t}{c^2}\lambda
+		\end{array}
+$$
+	Il faut résoudre $\nab^2\lambda-\frac{1}{c^2}\partial_t\lambda=-(\nab\cdot\vec{A}+\frac{1}{c^2}\partial_t\phi)$ qui admet toujours une solution. \qedhere
 	\end{proof}
 	
 	
@@ -281,28 +306,28 @@ Remarques :
 		\begin{itemize}
 			\item La simplicité des équations sur les potentiels est telle qu'on peut aisément les résoudre à l'aide de la technique des fonctions de Green (\emph{cf.} potentiels de Liénard-Wiechert).
 			\item Cette jauge est dite covariante, car on peut montrer (\emph{cf.} plus loin que si elle est satisfaite dans $\mathcal{R}$, alors elle est satisfaite dans $\mathcal{R}'$ en translation rectiligne uniforme par rapport à $\mathcal{R}$. Elle est donc particulièrement adaptée pour une description relativiste de l'électromagnétique.
-			\item On remarque la relation suivante :\\
-			 $-\square(\underbrace{\nab\cdot\vec{A}+\frac{1}{c^2}\partial_t\Phi}_{\text{jauge}})=\mu_0(\underbrace{\partial_t\rho+\nab\cdot\vec{j}}_{\text{conservation  charge}})$
-			\hspace{1cm} où
-			 $\square=\nab^2-\frac{1}{c^2}\partial_t^2$
+			\item On remarque la relation suivante :
+$$
+	-\square(\underbrace{\nab\cdot\vec{A}+\frac{1}{c^2}\partial_t\phi}_{\text{jauge}})=\mu_0(\underbrace{\partial_t\rho+\nab\cdot\vec{j}}_{\text{conservation  charge}})\text{\hspace{1cm}où }\square=\nab^2-\frac{1}{c^2}\partial_t^2
+$$	 
 		\end{itemize}
 	\end{remarks}
 	
 	\subsubsection{Jauge de Coulomb}
 	
 	La jauge de Coulomb s'écrit \boxed{\nab\cdot\vec{A}=0}
-	Les équations deviennent :\\
-	\indent
-	$\left\{ \begin{array}{l}
-		\nab^2\Phi=-\frac{\rho}{\epsilon_0} \text{ \hspace{1cm} dont la solution est } \Phi(\vec{r},t)=\frac{1}{4\pi\epsilon_0}\int_Vd^3\vec{r'}\frac{\rho(\vec{r},t)}{\parallel\vec{r}-\vec{r'}\parallel}\\
-		\nab^2-\frac{1}{c^2}\partial_t^2\vec{A}=-\mu_0\vec{j}+\nab(\frac{1}{c^2}\partial_t\Phi)	
+	Les équations deviennent :
+$$
+	\left\{ \begin{array}{l}
+		\nab^2\phi=-\frac{\rho}{\epsilon_0} \text{ \hspace{1cm} dont la solution est } \phi(\vec{r},t)=\frac{1}{4\pi\epsilon_0}\bigintsss_Vd^3\vec{r'}\frac{\rho(\vec{r},t)}{\parallel\vec{r}-\vec{r'}\parallel}\\
+		\nab^2-\frac{1}{c^2}\partial_t^2\vec{A}=-\mu_0\vec{j}+\nab(\frac{1}{c^2}\partial_t\phi)	
 	\end{array} \right.
-	$
+$$
 	
 	\begin{remarks}
 		\hspace{1pt}
 		\begin{itemize}
-			\item On sait que les signaux électromagnétiques se propagent dans le vide à la vitesse $c$, alors que $\Phi$ se "propage" instantanément. Il est à noter, à nouveau, que seuls $\vec{E}$ et $\vec{B}$ sont observables.
+			\item On sait que les signaux électromagnétiques se propagent dans le vide à la vitesse $c$, alors que $\phi$ se "propage" instantanément. Il est à noter, à nouveau, que seuls $\vec{E}$ et $\vec{B}$ sont observables.
 			\item Cette jauge n'est pas covariante, car la variable temporelle n'intervient pas.
 		\end{itemize}
 	\end{remarks}
@@ -312,35 +337,38 @@ Remarques :
 	\end{theorem}
 	
 	\begin{proof}
-		Soit $(\vec{A},\Phi)$ qui ne satisfait pas la jauge de Coulomb. On cherche $(\vec{A'},\Phi')$ relié à $(\vec{A},\Phi)$ par une transformation de jauge tel que :\\
-\indent
-	$ 
+		Soit $(\vec{A},\phi)$ qui ne satisfait pas la jauge de Coulomb. On cherche $(\vec{A'},\phi')$ relié à $(\vec{A},\phi)$ par une transformation de jauge tel que :
+$$
 		\begin{array}{r@{\;}l}
 				\vec{A'} &=\vec{A}+\nab\lambda(\vec{r},t)\\
-			\Phi'&=\Phi-\partial_t\lambda(\vec{r},t)
-		\end{array}\\[10pt]\indent
+			\phi'&=\phi-\partial_t\lambda(\vec{r},t)
+		\end{array}
+$$
+$$
 		\nab\cdot\vec{A}=0=\nab\cdot\vec{A}+\nab^2\lambda
-	$
-
+$$
 	Il suffit de résoudre l'équation de Poisson $\nab^2\lambda=-\nab\cdot\vec{A}$ \qedhere
 	\end{proof}
 	
 	
 	\begin{remarks}\hspace{1pt}
 		\begin{itemize}
-			\item Cette jauge s'appelle aussi jauge électrostatique, car $\Phi$ vérifie le même type d'équation.
-			\item Cette jauge s'appelle aussi jauge transverse :\\
-			\indent $\begin{array}{r@{\;}l}
+			\item Cette jauge s'appelle aussi jauge électrostatique, car $\phi$ vérifie le même type d'équation.
+			\item Cette jauge s'appelle aussi jauge transverse :
+$$
+	\begin{array}{r@{\;}l}
 					\vec{j}=\vec{j_p}+\vec{j_t} \text{ avec }&\vec{j_p} \text{ longitudinal tel que } \nab\times\vec{j_p}=\vec{0}\\
 					&\vec{j_t} \text{ transverse tel que } \nab\times\vec{j_t}=\vec{0}
-			\end{array}\\[10pt]\indent
+	\end{array}
+$$
+$$
 			\nab^2\vec{A}-\frac{1}{c^2}\partial_t^2\vec{A}=-\mu_0\vec{j_t}\\
-			\text{\hspace{3cm} avec }\vec{j_t}=\frac{1}{4\pi}\nab\times\nab\times\int\frac{\vec{j}(\vec{r'},t}{\parallel\vec{r}-\vec{r'}\parallel}d^3\vec{r'}
-			$
-			\item Cette jauge s'appelle aussi jauge de radiation, car si on a un ensemble de charges dans un volume fini de l'espace, alors on peut montrer que le champ $\vec{E}$, $\vec{B}$ contient deux composantes, une en $\frac{1}{r}$ et l'autre en $\frac{1}{R^2}$ lorsque $R\rightarrow+\infty$. Si les charges ne sont pas accélérées, \emph{i.e.} c'est un problème de statique, alors seul le terme en $\frac{1}{r^2}$ subsiste. Le terme en $\frac{1}{R}$ est dit de radiation. Dans cette jauge, il provient exclusivement de l'équation sur $\vec{A}$ (car sur $\Phi$, c'est une équation de Poissson). C'est une jauge particulièrement bien adaptée pour la quantification du champ électromagnétique.
-			\item Comme précédemment, on a :\\
-					 $-\square(\underbrace{\nab\cdot\vec{A}}_{\text{jauge}})=\mu_0(\underbrace{\partial_t\rho+\nab\cdot\vec{j}}_{\text{conservation  charge}})$
-			\hspace{1cm} où
-			 $\square=\nab^2-\frac{1}{c^2}\partial_t^2$
+			\text{\hspace{1cm} avec }\vec{j_t}=\frac{1}{4\pi}\nab\times\nab\times\bigintsss_V\frac{\vec{j}(\vec{r'},t)}{\parallel\vec{r}-\vec{r'}\parallel}d^3\vec{r'}
+$$
+			\item {\everymath{\textstyle} Cette jauge s'appelle aussi jauge de radiation, car si on a un ensemble de charges dans un volume fini de l'espace, alors on peut montrer que le champ $\vec{E}$, $\vec{B}$ contient deux composantes, une en $\frac{1}{r}$ et l'autre en $\frac{1}{R^2}$ lorsque $R\rightarrow+\infty$. Si les charges ne sont pas accélérées, \emph{i.e.} c'est un problème de statique, alors seul le terme en $\frac{1}{r^2}$ subsiste. Le terme en $\frac{1}{R}$ est dit de radiation. Dans cette jauge, il provient exclusivement de l'équation sur $\vec{A}$ (car sur $\phi$, c'est une équation de Poissson). C'est une jauge particulièrement bien adaptée pour la quantification du champ électromagnétique.}
+			\item Comme précédemment, on a :
+$$
+	-\square(\underbrace{\nab\cdot\vec{A}}_{\text{jauge}})=\mu_0(\underbrace{\partial_t\rho+\nab\cdot\vec{j}}_{\text{conservation  charge}})\text{\hspace{1cm}où }\square=\nab^2-\frac{1}{c^2}\partial_t^2
+$$
 		\end{itemize}
 	\end{remarks}

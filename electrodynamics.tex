@@ -1,15 +1,16 @@
-\documentclass[11pt,a4paper,fleqn]{report}
+\documentclass[11pt,a4paper]{report}
 \usepackage[utf8]{inputenc}
 \usepackage[frenchb]{babel}
 \usepackage[T1]{fontenc}
-\usepackage{amsmath}
+\usepackage[intlimits]{amsmath}
 \usepackage{amsthm}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \usepackage{tabularx}
 \usepackage[pdftex,colorlinks=true,pdfstartview=FitB,hyperindex=true]{hyperref}
-\setlength{\mathindent}{23pt}
+\usepackage{bigints}
+
 
 %\usepackage{calc}
 %\newlength\dlf
@@ -24,12 +25,20 @@
 %  \boxed{#1 #2}
 %  \endgroup
 %}
-
+\theoremstyle{plain}
 \newtheorem*{theorem}{Théorème}
+\newtheorem*{postulat}{Postulat}
+
+\theoremstyle{definition}
+\newtheorem*{ex}{Exemple}
+\newtheorem*{cons}{Conséquence}
 
 \theoremstyle{remark}
 \newtheorem*{remark}{Remarque}
 \newtheorem*{remarks}{Remarques}
+
+
+
 
 
 \newcommand{\para}{
@@ -53,6 +62,9 @@
 
 \renewcommand{\thesection}{\arabic{section}}
 \setcounter{secnumdepth}{3}
+
+\everymath{\displaystyle}
+\renewcommand*{\arraystretch}{1.7}
 
 \begin{document}
  	
