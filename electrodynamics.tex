@@ -25,6 +25,13 @@
 %  \boxed{#1 #2}
 %  \endgroup
 %}
+
+
+\newenvironment{mat}[1][1]
+{\renewcommand*{\arraystretch}{#1} \begin{pmatrix}}
+{\end{pmatrix}}
+
+
 \theoremstyle{plain}
 \newtheorem*{theorem}{Théorème}
 \newtheorem*{postulat}{Postulat}
@@ -32,14 +39,19 @@
 \theoremstyle{definition}
 \newtheorem*{ex}{Exemple}
 \newtheorem*{cons}{Conséquence}
+\newtheorem*{corol}{Corollaire}
+\newtheorem*{conc}{Conclusion}
 
 \theoremstyle{remark}
 \newtheorem*{remark}{Remarque}
 \newtheorem*{remarks}{Remarques}
+\newtheorem*{rappel}{Rappel}
 
 
 
-
+\newcommand{\txt}{
+\everymath{\textstyle}
+}
 
 \newcommand{\para}{
 \ensuremath
@@ -49,11 +61,6 @@
 \newcommand{\nab}{
 \ensuremath
 \vec{\nabla}
-}
-
-\newcommand{\rot}{
-\ensuremath
-\overrightarrow{\text{rot}}
 }
 
 \author{Christophe \textsc{Winisdoerffer}}

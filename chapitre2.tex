@@ -22,17 +22,18 @@
 \begin{cons}
 	L'invariance formelle des lois de la physique est automatiquement satisfaite si on les écrit sous forme temporelle (condition suffisante), sachant que les transformations à considérer sont les transformations du groupe de Lorentz, qui recouvre les translations spatiales et temporelles, les rotations, les renversements d'axe, et les boosts de Lorentz.
 $$
-	x'^{\mu}=\mathcal{L}^{\mu}_{\nu}x^{\mu} \text{ avec }\mathcal{L}^{\mu}_{\nu}=\begin{pmatrix}
+	x'^{\mu}=\mathcal{L}^{\mu}_{\nu}x^{\mu} \text{ avec }\mathcal{L}^{\mu}_{\nu}=\begin{mat}
 	\gamma & -\beta\gamma & \hspace*{0.2cm}0\hspace*{0.2cm} \\
 	-\beta\gamma & \gamma & \hspace*{0.2cm}0\hspace*{0.2cm} \\
 	0 & 0 & \hspace*{0.2cm}1\hspace*{0.2cm}
-	\end{pmatrix}
+	\end{mat}
 $$
 \end{cons}
 
 
 \subsection{Quadrivecteur courant}
-On cherche à construire un quadrivecteur à partir de $\rho$ et $\vec{j}$. Ainsi, on considère une charge $q$ dans un référentiel $\mathcal{R}$, que l'on modélise comme une distribution de charge $\rho$ dans un volume $dV=\frac{q}{\rho}$. Dans $\mathcal{R}'$ en translation rectiligne uniforme par rapport à $\mathcal{R}$, cette charge $q$ occupe $dV'$ et correspond à $\rho'$. D'après le postulat d'invariance de la charge, on a : $\rho dV=q=\rho' dV'$. Dans $\mathcal{R}$, la charge est en mouvement et est donc associée à un vecteur densité de courant :
+{\txt
+On cherche à construire un quadrivecteur à partir de $\rho$ et $\vec{j}$. Ainsi, on considère une charge $q$ dans un référentiel $\mathcal{R}$, que l'on modélise comme une distribution de charge $\rho$ dans un volume $dV=\frac{q}{\rho}$. Dans $\mathcal{R}'$ en translation rectiligne uniforme par rapport à $\mathcal{R}$, cette charge $q$ occupe $dV'$ et correspond à $\rho'$. D'après le postulat d'invariance de la charge, on a : $\rho dV=q=\rho' dV'$. Dans $\mathcal{R}$, la charge est en mouvement et est donc associée à un vecteur densité de courant :}
 $$
 	\vec{j}=\begin{cases}
 		\rho\vec{v}&\text{si }\vec{r}\in dV\\
@@ -40,4 +41,177 @@ $$
 	\end{cases}
 $$
 
-Pendant un intervalle de temps $dt$ dans $\mathcal{R}$, la charge se déplace de $dx^\mu=(dt,d\vec{r})$. $dx^\mu$ étant un quadrivecteur, il en est de m\^eme pour $\rho dVdx^\mu$. On considère alors $\rho\frac{cdtdV}{c}$
+{\txt
+Pendant un intervalle de temps $dt$ dans $\mathcal{R}$, la charge se déplace de $dx^\mu=(dt,d\vec{r})$. $dx^\mu$ étant un quadrivecteur, il en est de m\^eme pour $\rho dVdx^\mu$. On considère alors $\rho\frac{cdtdV}{c}\frac{dx^\mu}{dt}$}.
+
+\begin{postulat}
+	$cdtdV$ est un invariant.
+\end{postulat}
+
+\begin{proof}
+	$cdtdV$ étant l'élément d'intégration dans l'espace de Minkovski, on considère la matrice jacobienne.
+\begin{rappel}
+	Soit $\varphi:(x,y,z)\longrightarrow \vec{\varphi}(x,y,z)=\begin{mat}
+		u(x,y,z)\\
+		v\\
+		w
+	\end{mat}$
+	
+	$$
+		\text{Jac}_\varphi=\frac{D(u,v,w)}{D(x,y,z)}=\begin{mat}
+			\partial_xu & \partial_yu & \partial_zu\\
+			\partial_xv & \partial_yv & \partial_zv\\
+			\partial_xw & \partial_yw & \partial_zw
+		\end{mat}\\
+	$$
+	$$
+		J_\varphi=\det(\text{Jac}_\varphi)
+	$$
+	$$
+		\text{alors }\bigintssss_{\varphi(x)}f(u_1,...u_n)\,du_1...du_n=\bigintssss_Xf\circ\varphi(x_1,...x_n)|J_\varphi|\,dx_1...dx_n
+	$$
+\end{rappel}
+Pour un boost de Lorentz, on a :
+$$
+	\begin{mat}
+		ct' \\ x' \\ t' \\ z'
+	\end{mat}
+	=
+	\begin{mat}
+		\gamma & -\beta\gamma & 0 & 0\\
+		-\beta\gamma & \gamma & 0 & 0\\
+		0 & 0 & 1 & 0\\
+		0 & 0 & 0 & 1
+	\end{mat}
+	\begin{mat}
+		ct \\ x \\ y \\ z
+	\end{mat}
+	\text{ et par conséquent }J_{boost}=1
+$$
+$$
+	\begin{array}{r@{\;}l}
+		\text{d'où\hspace*{0.5cm}} cdtdxdydz&=cdt'dx'dy'dz'\\
+		cdtdV&=cdt'dV'
+	\end{array}
+$$
+\end{proof}
+
+\begin{remark}
+{\txt Attention aux démonstrations avec $dt'=\gamma dt$ et $dx'=\frac{1}{\gamma}dx$}
+\end{remark}
+
+\begin{corol}
+	{\txt $cdtdxdydz$ est invariant et donc $\rho\frac{dx^\mu}{dt}$ est un quadrivecteur.}\\
+	On pose $J^\mu=\rho\frac{dx^\mu}{dt}$ le quadrivecteur courant (composantes contravariantes).\\
+	$J^\mu=(\rho c,\vec{j})=(\rho c,\rho \vec{v})=\rho_0(\gamma c,\gamma\vec{v})$ où $\rho_0$ est la densité de charges dans le référentiel propre de la particule.
+\end{corol}
+
+\subsection{Formulation covariante de l'électromagnétisme}
+\subsubsection{Retour sur un opérateur}
+
+On a vu que $\nabla$ est un quadrivecteur dont les composantes covariantes sont $\partial_a=\frac{\partial}{\partial{x^a}}$ soit :
+$$ 
+	\nabla=\left(\frac{1}{c}\frac{\partial}{\partial t},\frac{\partial}{\partial x},\frac{\partial}{\partial y},\frac{\partial}{\partial z}\right)
+$$
+et ses composantes contravariantes s'écrivent : $\left(\frac{1}{c}\frac{\partial}{\partial t},-\frac{\partial}{\partial x},-\frac{\partial}{\partial y},-\frac{\partial}{\partial z}\right)$\\
+$\partial^a\partial_a$ est un tenseur d'ordre 0 obtenu par contraction de deux tenseurs de rang 1 et est donc invariant.
+$$
+	\begin{array}{r@{\;}l}
+			\partial^a\partial_a&=\partial^0\partial_0+\partial^1\partial_1+\partial^2\partial_2+\partial^3\partial_3\\
+		&=\frac{1}{c^2}\frac{\partial^2}{\partial t^2}-\frac{\partial^2}{\partial x^2}-\frac{\partial^2}{\partial y^2}-\frac{\partial^2}{\partial z^2} = -\square
+	\end{array}	
+$$
+
+\subsubsection{Quadrivecteur potentiel}
+En jauge de Lorenz ($\nab\cdot\vec{A}+\frac{1}{c^2}\partial_t\phi=0$), les équations satisfaites par les potentiels sont :
+$$
+	\left\{ \begin{array}{r@{\;}l}
+		\nab^2\phi - \frac{1}{c^2}\partial_t^2\phi&=-\frac{\rho}{\epsilon_0}\\
+		\nab^2\vec{A}-\frac{1}{c^2}\partial_t^2\vec{A}&=-\mu_0\vec{j}\\
+		\square\,\frac{\phi}{c}&=-\frac{\rho}{c\epsilon_0}=-\mu_0\rho c\\
+		\square\,\vec{A}&=-\mu_0\vec{j}
+	\end{array} \right.
+$$
+{\txt On est amené à considérer $(\frac{\phi}{c},\vec{A})$ comme les composantes contravariantes d'un quadrivecteur, le quadripotentiel.}
+$$
+	\square\,\phi^\mu=-\mu_0J^\mu
+	\text{ avec } \phi^\mu=(\frac{\phi}{c},\vec{A})
+$$
+En ce qui concerne la jauge de Lorenz,
+$$
+	\begin{array}{r@{\;}l}
+		0&=\nab\cdot\vec{A}+\frac{1}{c^2}\partial_t\phi=\partial_\mu\phi^\mu\\
+		&=\partial_0\phi^0+\partial_1\phi^1+\partial_2\phi^2+\partial_3\phi^3\\
+		&=\frac{1}{c}\partial_t\left(\frac{\phi}{c}\right)+\underbrace{\partial_xA_x+\partial_yA_y+\partial_zA_z}_{\nab\cdot\vec{A}}
+	\end{array}
+$$
+La jauge est covariante.
+
+\begin{conc}
+	On a été capable de reformuler l'électromagnétique sous forme covariante :
+	$$
+		\left\{ \begin{array}{r@{\;}l}
+			\partial_\mu\phi^\mu&=0\text{\hspace{1cm}(jauge)}\\
+			\square\,\phi^\mu&=-\mu_0J^\mu
+		\end{array} \right.
+	$$
+\end{conc}
+
+\subsubsection{Équation de Maxwell-Lorentz}
+	Les quadrivecteurs ont quatre composantes, alors que $\vec{E}$ et $\vec{B}$ n'en ont chacun que trois. Il est nécessaire de considérer un tenseur d'ordre supérieur ou égal à 2. On part de l'expression de $\vec{E}$ et $\vec{B}$ avec les potentiels :
+
+$$
+	\vec{B}\nab\times\vec{A}\text{\hspace{1cm}et\hspace{1cm}}\vec{E}=-\nab\phi-\partial_t\vec{A}
+$$
+$$
+	\begin{array}{r@{\;}l@{\;}l}
+		B_x&=\partial_yA_z-\partial_zA_y=\partial_2\phi^3-\partial_3\phi^2&=-(\partial_3\phi^2-\partial_2\phi^3)\\
+		B_y&=&=-(\partial_3\phi^1-\partial_1\phi^3)\\
+		B_z&=&=-(\partial_1\phi^2-\partial_2\phi^1)\\	E_x&=-\partial_x\phi-\partial_tA_x=\partial_1\phi^0-\partial_0\phi^1&=-(\partial_0\phi^1-\partial_1\phi^0)\\
+		E_y&=&=-(\partial_0\phi^2-\partial_2\phi^0)\\
+		E_z&=&=-(\partial_0\phi^3-\partial_3\phi^0)
+	\end{array}
+$$
+
+{\txt $\frac{E_x}{c}$,$\frac{E_y}{c}$,$\frac{E_z}{c}$,$B_x$,$B_y$,$B_z$ apparaissent donc comme les composantes d'un tenseur d'ordre deux asymétrique :}
+$$
+	\begin{array}{r@{\;}l}
+		F^{\mu\nu}&=\partial^\mu\phi^\nu-\partial^\nu\phi^\mu\\
+		F^{\mu\nu}&=\begin{mat}[1.7]
+			0 & -\frac{E_x}{c} & -\frac{E_y}{c} & -\frac{E_z}{c}\\
+			\frac{E_x}{c} & 0 & -B_z & B_y \\
+			\frac{E_y}{c} & B_z & 0 & -B_x \\
+			\frac{E_z}{c} & -B_y & B_x & 0 
+		\end{mat}
+	\end{array}
+$$
+
+Les coordonnées covariantes de ce tenseur sont :
+$$
+	F_{\mu\nu}=g_{\mu\alpha}g_{\nu\beta}F^{\alpha\beta}=\begin{mat}[1.7]
+		0 & \frac{E_x}{c} & \frac{E_y}{c} & \frac{E_z}{c}\\
+		-\frac{E_x}{c} & 0 & -B_z & B_y \\
+		-\frac{E_y}{c} & B_z & 0 & -B_x \\
+		-\frac{E_z}{c} & -B_y & B_x & 0
+	\end{mat}
+$$
+
+On retrouve les équations de Maxwell :
+$$
+	\nab\cdot\vec{E}=\frac{\rho}{\epsilon_0} \text{\hspace{1.5cm}}
+	\begin{array}{r@{\;}l}
+		\partial_\mu F^{\mu 0}&=\partial_0F^{00}+\partial_1F^{10}+\partial_2F^{20}+\partial_3F^{30}\\
+		&=0+\partial_x\left(\frac{E_x}{c}\right)+\partial_y\left(\frac{E_y}{c}\right)+\partial_z\left(\frac{E_z}{c}\right)\\
+		&=\frac{1}{c}\nab\cdot\vec{E}=\frac{\rho}{c\epsilon_0}=\mu_0J^0
+	\end{array}
+$$
+$$
+	\nab\times\vec{B}=\mu_0\vec{j}+\mu_0\epsilon_0\partial_t\vec{E} \text{\hspace{1cm}}
+	\begin{array}{r@{\;}l}
+		\partial_\mu F^{\mu 1}&=\partial_0F^{01}+\partial_1F^{11}+\partial_2F^{21}+\partial_3F^{31}\\
+		&=\partial_x\left(-\frac{E_x}{c}\right)+0+\partial_yB_z+\partial_z\left(-B_y\right)\\
+		&=\nab\times\vec{B}\mid_x-\frac{1}{c^2}\partial_t\vec{E}\mid_x=\mu_0J_x
+	\end{array}
+$$
+
+De la m\^eme manière, $\partial_\mu F^{\mu 2}$ et $\partial_\mu F^{\mu 3}$ donnent les composantes $x$ et $y$ de l'équation de Maxwell-Ampère.
