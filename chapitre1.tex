@@ -20,6 +20,7 @@ $$
 	\end{array}
 $$
 On a alors :
+{\renewcommand*{\arraystretch}{2}
 $$
 	\begin{array}{r@{\;}l}
 		\frac{\partial}{\partial t}&=\frac{\partial t'}{\partial t} \frac{\partial}{\partial t'}
@@ -29,7 +30,11 @@ $$
 		&=\frac{\partial}{\partial t'} - v_{x} \frac{\partial}{\partial x'}
 				- v_{y} \frac{\partial}{\partial y'}
 				- v_{z} \frac{\partial}{\partial z'}\\
-		&=\frac{\partial}{\partial t'} - \vec{v}\cdot \vec{\nabla '}\\[10pt]
+		&=\frac{\partial}{\partial t'} - \vec{v}\cdot \vec{\nabla '}
+	\end{array}
+$$		
+$$
+	\begin{array}{r@{\;}l}
 		\frac{\partial}{\partial x}&=\frac{\partial t'}{\partial x} \frac{\partial}{\partial t'}
 				+\frac{\partial x'}{\partial x} \frac{\partial}{\partial x'}
 				+\frac{\partial y'}{\partial x} \frac{\partial}{\partial y'}
@@ -38,7 +43,7 @@ $$
 		\frac{\partial}{\partial y}&=\frac{\partial}{\partial y'}\\
 		\frac{\partial}{\partial z}&=\frac{\partial}{\partial z'}
 	\end{array}
-$$
+$$}
 et donc 
 $$
 	\begin{array}{r@{\;}l}
@@ -68,7 +73,7 @@ $$
 $$
 \subsubsection*{Maxwell-Gauss}
 $$
-	{\nabla}\cdot\vec{E}=\boxed{\frac{\rho}{\epsilon_0}=\vec{\nabla '}\cdot\vec{E}}
+	\nab\cdot\vec{E}=\boxed{\frac{\rho}{\epsilon_0}=\vec{\nabla '}\cdot\vec{E}}
 $$
 
 \subsubsection*{Maxwell-Ampère}
@@ -120,6 +125,7 @@ $$
 	\end{array} \right.
 $$}
 Dans ce cas,
+{\renewcommand*{\arraystretch}{2}
 $$
 	\begin{array}{r@{\;}l}
 		\frac{\partial}{\partial t}&=\frac{\partial t'}{\partial t} \frac{\partial}{\partial t'}
@@ -131,7 +137,7 @@ $$
 		\frac{\partial}{\partial y}&=\frac{\partial}{\partial y'}\\
 		\frac{\partial}{\partial z}&=\frac{\partial}{\partial z'}
 	\end{array}
-$$
+$$}
 
 \subsubsection*{Maxwell-Faraday}
 $$

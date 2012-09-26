@@ -210,8 +210,38 @@ $$
 	\begin{array}{r@{\;}l}
 		\partial_\mu F^{\mu 1}&=\partial_0F^{01}+\partial_1F^{11}+\partial_2F^{21}+\partial_3F^{31}\\
 		&=\partial_x\left(-\frac{E_x}{c}\right)+0+\partial_yB_z+\partial_z\left(-B_y\right)\\
-		&=\nab\times\vec{B}\mid_x-\frac{1}{c^2}\partial_t\vec{E}\mid_x=\mu_0J_x
+		&=\left.\nab\times\vec{B}\right|_x-\frac{1}{c^2}\partial_t\left.\vec{E}\right|_x=\mu_0J_x
 	\end{array}
 $$
 
 De la m\^eme manière, $\partial_\mu F^{\mu 2}$ et $\partial_\mu F^{\mu 3}$ donnent les composantes $x$ et $y$ de l'équation de Maxwell-Ampère.
+
+Pour les équations de Maxwell avec sources, on a donc :
+$$
+	\boxed{\partial_\mu F^{\mu\nu}=\mu_0J^\nu}
+$$
+sous forme covariante. Intéressons-nous aux équations de Maxwell homogènes :
+$$
+	\begin{array}{r@{\;}l}
+		\partial_1F_{23}+\partial_2F_{31}+\partial_3F_{12}&=\partial_x(-B_x)+\partial_y(-B_y)+\partial_z(-B_z)\\
+			&= -\nab\cdot\vec{B}\\
+			&= 0 \\[10pt]
+		\partial_0F_{32}+\partial_3F_{20}+\partial_2F_{03}&=\frac{\partial}{c\partial t}B_x+\partial_z\left(-\frac{E_y}{c}\right)+\partial_y\left(\frac{E_z}{c}\right)\\
+			&=\left.\frac{\nab\cdot\vec{E}}{c}\right|_x+\frac{1}{c}\left.\frac{\partial \vec{B}}{\partial t}\right|_x
+	\end{array}
+$$
+M\^eme chose pour $y$ et $z$. Ces équations s'écrivent alors :
+$$
+	\boxed{\partial_\alpha F_{\beta\gamma} + \partial_\beta F_{\gamma\alpha} + \partial_\gamma F_{\alpha\beta} = 0}
+$$
+
+\subsubsection*{Équation de Lorentz}
+
+$$
+	\begin{array}{r@{\;}l}
+		m\frac{d}{dt}\frac{\vec{v}}{\sqrt{1-\frac{v^2}{c^2}}}&=q(\vec{E}+\vec{v}\times\vec{B})\\
+		m\frac{d}{dt}\gamma\vec{v}&=q(\vec{E}+\vec{v}\times\vec{B})\\
+		\frac{d}{dt}(\gamma m \vec{v})&=q(\vec{E}+\vec{v}\times\vec{B})\\
+		\frac{d}{dt}(\gamma m c^2)&=
+	\end{array}
+$$
