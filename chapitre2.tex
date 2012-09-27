@@ -300,3 +300,98 @@ Après avois introduit
 		\end{mat}$$
 \end{itemize}
 les équations de Maxwell prennent la forme covariante suivante :
+$$
+	\boxed{\square\phi^\mu+\partial^\mu(\partial_\nu\phi^\nu)=-\mu_0J^\mu}
+$$
+{\renewcommand*{\arraystretch}{1.2}$$
+	\begin{array}{r@{\;}l}
+		\iff& \left\{ \begin{array}{l}
+			\square\phi^\mu=-\mu_0J^\mu\\
+			\partial_\nu\phi^\nu=0\text{\hspace{0.5cm}(jauge de Lorenz)}
+		\end{array}\right.\\[15pt]
+		\iff& \left\{ \begin{array}{l}
+			F^{\mu\nu}=\partial^\mu\phi^\nu-\partial^\nu\phi^\mu\\
+			\partial_\mu F^{\mu\nu}=\mu_0J^\nu\\
+			\partial_\alpha F_{\beta\gamma} + \partial_\beta F_{\gamma\alpha} + \partial_\gamma F_{\alpha\beta}=0
+		\end{array}\right.
+	\end{array}
+$$}
+
+En ce qui concerne l'équation de Lorentz associée à l'équation de conservation de l'énergie, elle s'écrit sous la forme covariante suivante :
+$$
+	\boxed{\frac{dP^\mu}{d\tau}=qF^{\mu\nu}U_\nu}
+$$
+{\renewcommand*{\arraystretch}{1.2}
+$$
+	\begin{array}{lr@{\;}l}
+		\text{o\`u }&P^\mu&=(\gamma mc,\gamma m\vec{v})=mU^\mu\\
+		&U^\mu&=(\gamma c,\gamma\vec{v})\\
+		&U_\mu&=(\gamma c,-\gamma\vec{v})
+	\end{array}
+$$}
+
+\begin{remark}
+	La conservation de la charge s'écrit de façon covariante $\partial_\mu J^\mu=0$, équation bien satisfaite car $F^{\mu\nu}$ est antisymétrique.
+\end{remark}
+
+\section{Applications}
+\subsection[\texorpdfstring{Formules de transformation des champs $\vec{E}$ et $\vec{B}$}{Formules de transformation des champs E et B}]{Formules de transformation des champs $\boldsymbol{\vec{E}}$ et $\boldsymbol{\vec{B}}$}
+On sait comment se transforme $F^{\mu\nu}$
+$$
+	F'^{\mu\nu}=\frac{\partial x'^\mu}{\partial x^\alpha}\frac{\partial x'^\nu}{\partial x^\beta}F^{\alpha\beta}
+$$
+et on considère le boost de Lorentz correspondant à
+{\renewcommand*{\arraystretch}{1.2}$$
+	\left\{ \begin{array}{r@{\;}l}
+		ct'&=\gamma ct-\beta\gamma x\\
+		x'&=-\beta\gamma ct+\gamma x\\
+		y'&=y\\
+		z'&=z
+	\end{array} \right.
+$$}
+{\renewcommand*{\arraystretch}{2}$$
+	\begin{array}{r@{\;}l}
+		F'^{01}=&-\frac{E'_x}{c}\\
+			=&\frac{\partial x'^0}{\partial x^\alpha}\frac{\partial x'^1}{\partial x^\beta}F^{\alpha\beta}
+			=\frac{\partial ct'}{\partial x^\alpha}\frac{\partial x'}{\partial x^\beta}F^{\alpha\beta}\\
+			=&\frac{\partial ct'}{\partial ct}\frac{\partial x'}{\partial ct}\underbrace{F^{00}}_{=0}
+				+\frac{\partial ct'}{\partial ct}\frac{\partial x'}{\partial x}F^{01}
+				+\frac{\partial ct'}{\partial ct}\underbrace{\frac{\partial x'}{\partial y}}_{=0}F^{02}
+				+\frac{\partial ct'}{\partial ct}\underbrace{\frac{\partial x'}{\partial z}}_{=0}F^{03}\\
+			&+\frac{\partial ct'}{\partial x}\frac{\partial x'}{\partial ct}F^{10}
+				+\frac{\partial ct'}{\partial x}\frac{\partial x'}{\partial x}\underbrace{F^{11}}_{=0}
+				+\frac{\partial ct'}{\partial x}\underbrace{\frac{\partial x'}{\partial y}}_{=0}F^{12}
+				+\frac{\partial ct'}{\partial x}\underbrace{\frac{\partial x'}{\partial z}}_{=0}F^{13}\\
+			&+\left(\text{4 termes en }\frac{\partial ct'}{\partial y}\right)
+				+\left(\text{4 termes en }\frac{\partial ct'}{\partial z}\right)\\
+			=&\gamma^2\left( -\frac{E_x}{c} \right)+(-\beta\gamma)^2\left( \frac{E_x}{c} \right)\\
+			=&-\frac{E_x}{c}\underbrace{(\gamma^2-\gamma^2\beta^2)}_{=1}\\
+			=&-\frac{E_x}{c}\\[15pt]
+		F'^{02}=&-\frac{E'_y}{c}\\
+			=&\frac{\partial ct'}{\partial x^\alpha}\frac{\partial y'}{\partial x^\beta}F^{\alpha\beta}
+			=\frac{\partial ct'}{\partial ct}F^{02}+\frac{\partial ct'}{\partial x}F^{12}\\
+			=&\gamma\left(-\frac{E_x}{c}\right)-\beta\gamma(-B_z)\\
+			=&-\gamma\left(\frac{E_y}{c}-\beta B_z\right)
+	\end{array} 
+$$}
+
+Finalement,
+$$
+\begin{array}{l}
+	\left\{ \begin{array}{r@{\;}l}
+		\vec{E'_{\para}}&=\vec{E_{\para}}\\
+		\vec{E'_{\perp}}&=\gamma (\vec{E_{\perp}}+\vec{v}\times\vec{B_{\perp}})\\
+		\vec{B'_{\para}}&=\vec{B_{\para}}\\
+		\vec{B'_{\perp}}&=\gamma \left(\vec{B_{\perp}}-\frac{\vec{v}\times\vec{E_{\perp}}}{c^2}\right)
+	\end{array} \right.
+	\text{\hspace{1cm} avec }\vec{v}=\vec{v_{\mathcal{R'}/\mathcal{R}}}\\[50pt]	
+	\left\{ \begin{array}{r@{\;}l}
+		\vec{E'}&=\gamma (\vec{E}+\vec{v}\times\vec{B})-\frac{\gamma^2}{\gamma +1}\vec{\beta}(\vec{\beta}\cdot\vec{E})\\
+		\vec{B'}&=\gamma\left(\vec{B}-\frac{\vec{v}\times\vec{E}}{c^2}\right)-\frac{\gamma^2}{\gamma +1}\vec{\beta}(\vec{\beta}\cdot\vec{B})
+	\end{array} \right.
+\end{array}
+$$
+
+\begin{app}
+	On cherche le champ électromagnétique vu par un observateur fixe $P$ fixe (dans $\mathcal{R}$) par rapport auquel une charge se déplace à la vitesse $\vec{v}=\text{constante}$. On introduit $\mathcal{R'}$ tel que la particule se trouve en $0'$. $\mathcal{R'}$ est en translation rectiligne uniforme par rapport à $\mathcal{R}$ à la vitesse $\vec{v}=\vec{v_{\mathcal{R'}/\mathcal{R}}}$. Les coordonnées de $P$ dans $\mathcal{R}$ sont : $(ct=ct,x=0,y=0,z=0)$.
+\end{app}
