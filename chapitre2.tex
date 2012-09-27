@@ -238,15 +238,65 @@ $$
 \subsubsection*{Équation de Lorentz}
 
 $$
-	\begin{array}{r@{\;}l}
-		m\frac{d}{dt}\frac{\vec{v}}{\sqrt{1-\frac{v^2}{c^2}}}&=q(\vec{E}+\vec{v}\times\vec{B})\\
-		m\frac{d}{dt}\gamma\vec{v}&=q(\vec{E}+\vec{v}\times\vec{B})\\
-		\frac{d}{dt}(\gamma m \vec{v})&=q(\vec{E}+\vec{v}\times\vec{B})\\
-		\frac{d}{dt}(\gamma m c^2)&=\bigintssss\vec{j}\cdot\vec{E}=q\vec{v}\cdot\vec{E}\\
-		\frac{d}{dt}&=\frac{d\tau}{dt}\frac{d}{d\tau}=\frac{1}{\gamma}\±rac{d}{d\tau}\\
-		\frac{d}{d\tau}\gammam\vec{v}&=q\left(\gamma c\frac{\vec{E}}{c}+\gamma\vec{v}\times\vec{B}\left)\\
-		\frac{d}{d\þau}(\gamma mc)&=q\gamma\vec{v}\frac{\vec{E}}{}{c}
+	m\frac{d}{dt}\frac{\vec{v}}{\sqrt{1-\frac{v^2}{c^2}}}=m\frac{d}{dt}(\gamma\vec{v})=\frac{d}{dt}(\gamma m \vec{v})=q(\vec{E}+\vec{v}\times\vec{B})
 $$
+et
+$$
+	\frac{d}{dt}(\gamma m c^2)=\bigintssss\vec{j}\cdot\vec{E}=q\vec{v}\cdot\vec{E}
+$$
+En utilisant le fait que
+$$
+	\frac{d}{dt}=\frac{d\tau}{dt}\frac{d}{d\tau}=\frac{1}{\gamma}\frac{d}{d\tau}\\
+$$
+on obtient
+$$
+	\frac{d}{d\tau}\gamma\vec{v}=q\left(\gamma c\frac{\vec{E}}{c}+\gamma\vec{v}\times\vec{B}\right)
+$$
+et
+$$
+	\frac{d}{d\tau}(\gamma mc)=q\gamma\vec{v}\cdot\frac{\vec{E}}{c}
+$$
+Soit
+$$
+	\boxed{\frac{dP^\mu}{d\tau}=qF^{\mu\nu}U_\nu}
+$$
+{\renewcommand*{\arraystretch}{1.2}
+$$
+	\begin{array}{lr@{\;}ll}
+		\text{o\`u }&P^\mu&=(\gamma mc,\gamma m\vec{v})=mU^\mu&\text{ composante contravariante de la quadri-impulsion}\\
+		&U^\mu&=(\gamma c,\gamma\vec{v})&\text{ composante contravariante de la quadri-vitesse}\\
+		&U_\mu&=(\gamma c,-\gamma\vec{v})&\text{ composante covariante de la quadri-vitesse}
+	\end{array}
+$$}
 
-Soit $\frac{dP^\mu}{tau}=qF^{\mu\nu}U_\nu$ avec $P^\mu=(\gamma mc,\gamma m\vec{v})=mU^\mu$ composante contravariante de la quadri-impulsion.
-	$U^\mu=(\gamma c,\gamma\vec{v})$ composante contravariante de la quadri-vitesse
+\begin{proof}
+$$
+	\begin{array}{r@{\;}l}
+		F^{0\nu}U_\nu&=F^{00}U_0+F^{01}U_1+F^{02}U_2+F^{03}U_3\\
+			&=0+\left(-\frac{E_x}{c}\right)(-\gamma v_x)+\left(-\frac{E_y}{c}\right)(-\gamma v_y)+\left(-\frac{E_z}{c}\right)(-\gamma v_z)\\
+			&=\gamma\vec{v}\frac{\vec{E}}{c}\\[10pt]
+		F^{\nu}&=...
+	\end{array}
+$$
+\end{proof}
+
+\begin{conc}
+On a formulé les équations de Maxwell ainsi que la force de Lorentz sous forme covariante.
+\end{conc}
+
+\subsection{Résumé}
+
+Après avois introduit
+\begin{itemize}
+	\item le quadrinabla de composantes covariantes $\partial_\mu \equiv \left(\frac{\partial}{c\partial t}, \frac{\partial}{\partial x},\frac{\partial}{\partial y},\frac{\partial}{\partial z}\right)$
+	\item l'opérateur d'Alembertien $\square=\nab^2-\frac{1}{c^2}\frac{\partial^2}{\partial t^2}$
+	\item le quadrivecteur courant de composantes contravariantes $J^\mu=(\rho c,\vec{j})$
+	\item le quadrivecteur potentiel de composantes contravariantes $\phi^\mu=\left(\frac{\phi}{c},\vec{A}\right)$
+	\item le tenseur électromagnétique de composantes contravariantes $$F^{\mu\nu}=\begin{mat}[1.7]
+			0 & -\frac{E_x}{c} & -\frac{E_y}{c} & -\frac{E_z}{c}\\
+			\frac{E_x}{c} & 0 & -B_z & B_y \\
+			\frac{E_y}{c} & B_z & 0 & -B_x \\
+			\frac{E_z}{c} & -B_y & B_x & 0 
+		\end{mat}$$
+\end{itemize}
+les équations de Maxwell prennent la forme covariante suivante :
