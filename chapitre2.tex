@@ -185,7 +185,6 @@ $$
 		\end{mat}
 	\end{array}
 $$
-
 Les coordonnées covariantes de ce tenseur sont :
 $$
 	F_{\mu\nu}=g_{\mu\alpha}g_{\nu\beta}F^{\alpha\beta}=\begin{mat}[1.7]
@@ -393,5 +392,96 @@ $$
 $$
 
 \begin{app}
-	On cherche le champ électromagnétique vu par un observateur fixe $P$ fixe (dans $\mathcal{R}$) par rapport auquel une charge se déplace à la vitesse $\vec{v}=\text{constante}$. On introduit $\mathcal{R'}$ tel que la particule se trouve en $0'$. $\mathcal{R'}$ est en translation rectiligne uniforme par rapport à $\mathcal{R}$ à la vitesse $\vec{v}=\vec{v_{\mathcal{R'}/\mathcal{R}}}$. Les coordonnées de $P$ dans $\mathcal{R}$ sont : $(ct=ct,x=0,y=0,z=0)$.
+	On cherche le champ électromagnétique vu par un observateur fixe $P$ fixe (dans $\mathcal{R}$) par rapport auquel une charge $q$ se déplace à la vitesse $\vec{v}=\text{constante}$. On introduit $\mathcal{R'}$ tel que la particule se trouve en $0'$. $\mathcal{R'}$ est en translation rectiligne uniforme par rapport à $\mathcal{R}$ à la vitesse $\vec{v}=\vec{v_{\mathcal{R'}/\mathcal{R}}}$. Les coordonnées de $P$ dans $\mathcal{R}$ sont : $(ct=ct,x=0,y=0,z=0)$.
+\begin{center}
+	\begin{minipage}{0.45\textwidth}
+		\begin{figure}[H]
+			\centering
+			\input{schemas/repere.pdf_tex}
+			\caption*{Changement de coordonnées}
+		\end{figure}
+	\end{minipage}
+	\begin{minipage}{0.45\textwidth}
+		{\renewcommand*{\arraystretch}{1.2}$$
+			\left\{ \begin{array}{r@{\;}l}
+				ct'&=\gamma ct-\beta\gamma x\\
+				x'&=-\beta\gamma ct+\gamma x\\
+				y'&=y\\
+				z'&=z
+			\end{array} \right.
+		$$}
+	\end{minipage}
+\end{center}
+
+Les coordonnées de $P$ dans $\mathcal{R'}$ sont :
+{\renewcommand*{\arraystretch}{1.2}$$
+	\left\{ \begin{array}{r@{\;}l}
+		ct'&=\gamma ct\\
+		x'&=-\beta\gamma ct=-vt'\\
+		y'&=b\\
+		z'&=0
+	\end{array} \right.
+$$}
+Dans $\mathcal{R'}$, le calcul du champ créé en $P$ est un problème d'électrostatique.
+$$
+	\left\{ \begin{array}{r@{\;}l}
+		E'_x&=\frac{q}{4\pi\epsilon_0}\frac{x'}{r^3}\\
+		E'_y&=\frac{q}{4\pi\epsilon_0}\frac{y'}{r^3}\\
+		E'_z&=\frac{q}{4\pi\epsilon_0}\frac{z'}{r^3}
+	\end{array} \right.	
+	\kern 2cm B'_x=0=B'_y=B'_z\text{ avec }r'=\sqrt{x'^2+y'^2+z'^2}
+$$
+$$
+	\text{Soit en P : }\left\{ \begin{array}{r@{\;}l}
+		\vec{B}&=\vec{0}\\
+		E'_x&=\frac{q}{4\pi\epsilon_0}\frac{-vt'}{\sqrt{(-vt')^2+b^2}^3}\\
+		E'_y&=\frac{q}{4\pi\epsilon_0}\frac{b}{\sqrt{(-vt')^2+b^2}^3}\\
+		E'_z&=0
+	\end{array} \right.
+$$
+et donc, pour le champ électromagnétique dans $\mathcal{R}$ au point $P$ :
+$$
+	\left\{ \begin{array}{r@{\;}l}
+		E_x&=\frac{q}{4\pi\epsilon_0}\frac{-\gamma vt}{\sqrt{(\gamma vt)^2+b^2}^3}\\
+		E_y&=\gamma E'_y=\frac{q}{4\pi\epsilon_0}\frac{\gamma b}{\sqrt{(\gamma vt)^2+b^2}^3}\kern 1cm \text{car }B'=0\\
+		E_z&=0
+	\end{array} \right.	
+$$
+$$
+	\begin{array}{r@{\;}l}
+		B_x&=B'_x=0\\
+		\vec{B_{\perp}}&=\gamma\left(\vec{B'_{\perp}}-\frac{\vec{ v_{\mathcal{R}/\mathcal{R'}}}\times\vec{E'_{\perp}}}{c^2}\right)\\
+		&=\gamma\frac{\vec{ v_{\mathcal{R}/\mathcal{R'}}}\times\vec{E'_{\perp}}}{c^2}\\
+		&=\frac{\vec{v}\times\vec{E}}{c^2}\\
+		B_y&=0\\
+		B_z&=\frac{1}{4\pi\epsilon_0 c^2}\frac{\gamma qvb}{\sqrt{b^2+(\gamma vt)^2}^3}
+	\end{array}
+$$
 \end{app}
+\begin{remarks}\hspace{1pt}
+	\begin{itemize}
+		\item comme $\vec{B'}=\vec{0}$, on a :
+		$$
+			\begin{array}{l@{\;}l}
+				\vec{E_{\para}}&=\vec{E'_{\para}}\\
+				\vec{E_{\perp}}&=\gamma\vec{E'_{\perp}} \kern 1cm \text{\emph{i.e.} la composante orthogonale est amplifiée d'un facteur }\gamma\\
+				\vec{B}&=\frac{\vec{v}\times\vec{E}}{c^2}
+			\end{array}
+		$$
+		\item Dans la limite où $\gamma \longrightarrow 1^+$, on a
+		$$
+			\begin{array}{r@{\;}l}
+				\vec{B}&=B_z\vec{u_z}\\
+				B_z&=\frac{\mu_0}{4\pi}\frac{qvb}{\sqrt{b^2+(vt)^2}^3}\\
+					&=\frac{\mu_0}{4\pi}\frac{q\vec{v}\times\vec{r}}{r^3}
+			\end{array}\\
+		$$\begin{flushright}
+			\small Loi de Biot et Savart
+		\end{flushright}
+		\item {\txt On a $\frac{E_y}{E_z}=-\frac{b}{vt}$ qui est aussi la tangente de l'angle que fait $q\vec{P}$ avec $\vec{Ox}$, \emph{i.e.} les lignes de champ émanent de la position actuelle de la particule (et non la position retardée !)}
+		\item On peut aussi écrire $\vec{E}$ après avoir introduit $\psi=(\vec{O'x'},\vec{O'P})$
+		$$
+			\vec{E}=\frac{q}{4\pi\epsilon_0}\frac{\vec{r}}{\gamma^2r^3(1-\beta^2\sin(\psi)^2)^{\frac{3}{2}}}
+		$$
+	\end{itemize}
+\end{remarks}
