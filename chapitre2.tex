@@ -33,23 +33,23 @@ $$
 
 \subsection{Quadrivecteur courant}
 {\txt
-On cherche à construire un quadrivecteur à partir de $\rho$ et $\vec{j}$. Ainsi, on considère une charge $q$ dans un référentiel $\mathcal{R}$, que l'on modélise comme une distribution de charge $\rho$ dans un volume $dV=\frac{q}{\rho}$. Dans $\mathcal{R}'$ en translation rectiligne uniforme par rapport à $\mathcal{R}$, cette charge $q$ occupe $dV'$ et correspond à $\rho'$. D'après le postulat d'invariance de la charge, on a : $\rho dV=q=\rho' dV'$. Dans $\mathcal{R}$, la charge est en mouvement et est donc associée à un vecteur densité de courant :}
+On cherche à construire un quadrivecteur à partir de $\rho$ et $\vec{j}$. Ainsi, on considère une charge $q$ dans un référentiel $\mathcal{R}$, que l'on modélise comme une distribution de charge $\rho$ dans un volume $\dif V=\frac{q}{\rho}$. Dans $\mathcal{R}'$ en translation rectiligne uniforme par rapport à $\mathcal{R}$, cette charge $q$ occupe $\dif V'$ et correspond à $\rho'$. D'après le postulat d'invariance de la charge, on a : $\rho \,\dif V=q=\rho'\, \dif V'$. Dans $\mathcal{R}$, la charge est en mouvement et est donc associée à un vecteur densité de courant :}
 $$
 	\vec{j}=\begin{cases}
-		\rho\vec{v}&\text{si }\vec{r}\in dV\\
+		\rho\vec{v}&\text{si }\vec{r}\in \dif V\\
 		0&\text{sinon}
 	\end{cases}
 $$
 
 {\txt
-Pendant un intervalle de temps $dt$ dans $\mathcal{R}$, la charge se déplace de $dx^\mu=(dt,d\vec{r})$. $dx^\mu$ étant un quadrivecteur, il en est de m\^eme pour $\rho dVdx^\mu$. On considère alors $\rho\frac{cdtdV}{c}\frac{dx^\mu}{dt}$}.
+Pendant un intervalle de temps $\dif t$ dans $\mathcal{R}$, la charge se déplace de $\dif x^\mu=(\dif t,\dif\vec{r})$. $\dif x^\mu$ étant un quadrivecteur, il en est de m\^eme pour $\rho \,\dif V\dif x^\mu$. On considère alors $\rho\frac{c\,\dif t\,\dif V}{c}\frac{\dif x^\mu}{\dif t}$}.
 
 \begin{postulat}
-	$cdtdV$ est un invariant.
+	$c\,\dif t\,\dif V$ est un invariant.
 \end{postulat}
 
 \begin{proof}
-	$cdtdV$ étant l'élément d'intégration dans l'espace de Minkovski, on considère la matrice jacobienne.
+	$c\,\dif t\,\dif V$ étant l'élément d'intégration dans l'espace de Minkovski, on considère la matrice jacobienne.
 \begin{rappel}
 	Soit $\varphi:(x,y,z)\longrightarrow \vec{\varphi}(x,y,z)=\begin{mat}
 		u(x,y,z)\\
@@ -68,7 +68,7 @@ Pendant un intervalle de temps $dt$ dans $\mathcal{R}$, la charge se déplace de
 		J_\varphi=\det(\text{Jac}_\varphi)
 	$$
 	$$
-		\text{alors }\bigintssss_{\varphi(x)}f(u_1,...u_n)\,du_1...du_n=\bigintssss_Xf\circ\varphi(x_1,...x_n)|J_\varphi|\,dx_1...dx_n
+		\text{alors }\bigintssss_{\varphi(x)}f(u_1,...u_n)\,\dif u_1...\,\dif u_n=\bigintssss_Xf\circ\varphi(x_1,...x_n)|J_\varphi|\,\dif x_1...\,\dif x_n
 	$$
 \end{rappel}
 Pour un boost de Lorentz, on a :
@@ -90,19 +90,19 @@ $$
 $$
 $$
 	\begin{array}{r@{\;}l}
-		\text{d'où\hspace*{0.5cm}} cdtdxdydz&=cdt'dx'dy'dz'\\
-		cdtdV&=cdt'dV'
+		\text{d'où\hspace*{0.5cm}} c\,\dif t\,\dif x\,\dif y\,\dif z&=c\,\dif t'\,\dif x'\,\dif y'\,\dif z'\\
+		c\,\dif t\,\dif V&=c\,\dif t'\,\dif V'
 	\end{array}
 $$
 \end{proof}
 
 \begin{remark}
-{\txt Attention aux démonstrations avec $dt'=\gamma dt$ et $dx'=\frac{1}{\gamma}dx$}
+{\txt Attention aux démonstrations avec $\dif t'=\gamma \dif t$ et $\dif x'=\frac{1}{\gamma}\dif x$}
 \end{remark}
 
 \begin{corol}
-	{\txt $cdtdxdydz$ est invariant et donc $\rho\frac{dx^\mu}{dt}$ est un quadrivecteur.}\\
-	On pose $J^\mu=\rho\frac{dx^\mu}{dt}$ le quadrivecteur courant (composantes contravariantes).\\
+	{\txt $c\,\dif t\,\dif x\,\dif y\,\dif z$ est invariant et donc $\rho\frac{\dif x^\mu}{\dif t}$ est un quadrivecteur.}\\
+	On pose $J^\mu=\rho\frac{\dif x^\mu}{\dif t}$ le quadrivecteur courant (composantes contravariantes).\\
 	$J^\mu=(\rho c,\vec{j})=(\rho c,\rho \vec{v})=\rho_0(\gamma c,\gamma\vec{v})$ où $\rho_0$ est la densité de charges dans le référentiel propre de la particule.
 \end{corol}
 
@@ -194,27 +194,37 @@ $$
 		-\frac{E_z}{c} & -B_y & B_x & 0
 	\end{mat}
 $$
-
 On retrouve les équations de Maxwell :
-$$
-	\nab\cdot\vec{E}=\frac{\rho}{\epsilon_0} \text{\hspace{1.5cm}}
+
+\begin{minipage}{0.35\linewidth}
+$$\nab\cdot\vec{E}=\frac{\rho}{\epsilon_0} \text{\hspace{1.5cm}}$$
+\end{minipage}
+\begin{minipage}{0.55\linewidth}
+$
 	\begin{array}{r@{\;}l}
 		\partial_\mu F^{\mu 0}&=\partial_0F^{00}+\partial_1F^{10}+\partial_2F^{20}+\partial_3F^{30}\\
 		&=0+\partial_x\left(\frac{E_x}{c}\right)+\partial_y\left(\frac{E_y}{c}\right)+\partial_z\left(\frac{E_z}{c}\right)\\
 		&=\frac{1}{c}\nab\cdot\vec{E}=\frac{\rho}{c\epsilon_0}=\mu_0J^0
 	\end{array}
-$$
-$$
-	\nab\times\vec{B}=\mu_0\vec{j}+\mu_0\epsilon_0\partial_t\vec{E} \text{\hspace{1cm}}
+$
+\end{minipage}
+\vspace{0.5cm}
+
+\begin{minipage}{0.35\linewidth}
+$$\nab\times\vec{B}=\mu_0\vec{j}+\mu_0\epsilon_0\partial_t\vec{E} \text{\hspace{1cm}}$$
+\end{minipage}
+\begin{minipage}{0.55\linewidth}
+$
 	\begin{array}{r@{\;}l}
 		\partial_\mu F^{\mu 1}&=\partial_0F^{01}+\partial_1F^{11}+\partial_2F^{21}+\partial_3F^{31}\\
 		&=\partial_x\left(-\frac{E_x}{c}\right)+0+\partial_yB_z+\partial_z\left(-B_y\right)\\
 		&=\left.\nab\times\vec{B}\right|_x-\frac{1}{c^2}\partial_t\left.\vec{E}\right|_x=\mu_0J_x
 	\end{array}
-$$
+$
+\end{minipage}
+\vspace{0.5cm}
 
-De la m\^eme manière, $\partial_\mu F^{\mu 2}$ et $\partial_\mu F^{\mu 3}$ donnent les composantes $x$ et $y$ de l'équation de Maxwell-Ampère.
-
+\noindent De la m\^eme manière, $\partial_\mu F^{\mu 2}$ et $\partial_\mu F^{\mu 3}$ donnent les composantes $x$ et $y$ de l'équation de Maxwell-Ampère.
 Pour les équations de Maxwell avec sources, on a donc :
 $$
 	\boxed{\partial_\mu F^{\mu\nu}=\mu_0J^\nu}
@@ -237,27 +247,27 @@ $$
 \subsubsection*{Équation de Lorentz}
 
 $$
-	m\frac{d}{dt}\frac{\vec{v}}{\sqrt{1-\frac{v^2}{c^2}}}=m\frac{d}{dt}(\gamma\vec{v})=\frac{d}{dt}(\gamma m \vec{v})=q(\vec{E}+\vec{v}\times\vec{B})
+	m\frac{\dif}{\dif t}\frac{\vec{v}}{\sqrt{1-\frac{v^2}{c^2}}}=m\frac{\dif }{\dif t}(\gamma\vec{v})=\frac{\dif }{\dif t}(\gamma m \vec{v})=q(\vec{E}+\vec{v}\times\vec{B})
 $$
 et
 $$
-	\frac{d}{dt}(\gamma m c^2)=\bigintssss\vec{j}\cdot\vec{E}=q\vec{v}\cdot\vec{E}
+	\frac{\dif}{\dif t}(\gamma m c^2)=\bigintssss\vec{j}\cdot\vec{E}=q\vec{v}\cdot\vec{E}
 $$
 En utilisant le fait que
 $$
-	\frac{d}{dt}=\frac{d\tau}{dt}\frac{d}{d\tau}=\frac{1}{\gamma}\frac{d}{d\tau}\\
+	\frac{\dif}{\dif t}=\frac{\dif\tau}{\dif t}\frac{\dif}{\dif\tau}=\frac{1}{\gamma}\frac{\dif}{\dif\tau}\\
 $$
 on obtient
 $$
-	\frac{d}{d\tau}\gamma\vec{v}=q\left(\gamma c\frac{\vec{E}}{c}+\gamma\vec{v}\times\vec{B}\right)
+	\frac{\dif}{\dif\tau}\gamma\vec{v}=q\left(\gamma c\frac{\vec{E}}{c}+\gamma\vec{v}\times\vec{B}\right)
 $$
 et
 $$
-	\frac{d}{d\tau}(\gamma mc)=q\gamma\vec{v}\cdot\frac{\vec{E}}{c}
+	\frac{\dif}{\dif\tau}(\gamma mc)=q\gamma\vec{v}\cdot\frac{\vec{E}}{c}
 $$
 Soit
 $$
-	\boxed{\frac{dP^\mu}{d\tau}=qF^{\mu\nu}U_\nu}
+	\boxed{\frac{\dif P^\mu}{\dif\tau}=qF^{\mu\nu}U_\nu}
 $$
 {\renewcommand*{\arraystretch}{1.2}
 $$
@@ -468,16 +478,14 @@ $$
 				\vec{B}&=\frac{\vec{v}\times\vec{E}}{c^2}
 			\end{array}
 		$$
-		\item Dans la limite où $\gamma \longrightarrow 1^+$, on a
+		\item Dans la limite où $\gamma \longrightarrow 1^+$, on retrouve la loi de Biot et Savart :
 		$$
 			\begin{array}{r@{\;}l}
 				\vec{B}&=B_z\vec{u_z}\\
 				B_z&=\frac{\mu_0}{4\pi}\frac{qvb}{\sqrt{b^2+(vt)^2}^3}\\
 					&=\frac{\mu_0}{4\pi}\frac{q\vec{v}\times\vec{r}}{r^3}
 			\end{array}\\
-		$$\begin{flushright}
-			\small Loi de Biot et Savart
-		\end{flushright}
+		$$
 		\item {\txt On a $\frac{E_y}{E_z}=-\frac{b}{vt}$ qui est aussi la tangente de l'angle que fait $q\vec{P}$ avec $\vec{Ox}$, \emph{i.e.} les lignes de champ émanent de la position actuelle de la particule (et non la position retardée !)}
 		\item On peut aussi écrire $\vec{E}$ après avoir introduit $\psi=(\vec{O'x'},\vec{O'P})$
 		$$
@@ -485,3 +493,194 @@ $$
 		$$
 	\end{itemize}
 \end{remarks}
+
+\subsection{Invariants de Lorentz}
+$F^{\mu\nu}$ est un tenseur gr\^ace auquel on peut construire tout sorte de tenseurs (par contraction, ou avec d'autres tenseurs). Parmi ceux-ci, deux présentent un intér\^et physique.
+$$
+	\begin{array}{l}
+		\boxed{F_{\mu\nu}F^{\mu\nu}}\text{ : scalaire invariant}\\
+		\boxed{\epsilon^{\mu\nu\rho\sigma}F_{\mu\nu}F_{\rho\sigma}}
+	\end{array}		
+$$
+où $\epsilon^{\mu\nu\rho\sigma}$ est le tenseur totalement antisymétrique tel que :
+$$
+	\epsilon^{\mu\nu\rho\sigma}=\begin{cases}
+		+1&\text{si }\mu\nu\rho\sigma\text{ est une permutation paire de }(0,1,2,3)\\
+		-1&\text{si c'est une permutation impaire}\\
+		0&\text{sinon}
+	\end{cases}
+$$
+$$
+	F_{\mu\nu}F^{\mu\nu}=\frac{2}{c^2}(c^2\vec{B}^2-\vec{E}^2)
+$$
+
+\begin{conc}
+	$c^2\vec{B}^2-\vec{E}^2$ est un invariant.\\
+	En particulier, si $c\|\vec{B}\|=\|\vec{E}\|$ dans un référentiel $\mathcal{R}$, alors $c\|\vec{B'}\|=\|\vec{E'}\| \kern 5pt \forall \kern 5pt \mathcal{R'}$ en translation rectiligne uniforme par rapport à $\mathcal{R}$. Cas particulier : pour une onde plane, on a $c\|\vec{B}\|=\|\vec{E}\|$, et donc, sans présumer du caractère plane dans $\mathcal{R'}$ on a : $c\|\vec{B'}\|=\|\vec{E'}\|$
+\end{conc}
+$$
+	\begin{array}{r@{\;}l}
+		\epsilon^{\mu\nu\rho\sigma}F_{\mu\nu}F_{\rho\sigma} &= 4!\text{ tenseurs}\\
+			&=-\frac{8}{c}\vec{E}\cdot\vec{B}
+	\end{array}
+$$
+\begin{conc}
+	$\vec{E}\cdot\vec{B}$ est invariant
+\end{conc}
+\begin{app}
+	Si dans $\mathcal{R}$ le problème est un problème d'électrostatique ($\vec{B}=\vec{0}, \kern 2pt c^2\vec{B}^2-\vec{E}^2<0$) ou de magnétostatique ($\vec{E}=\vec{0}, \kern 2pt c^2\vec{B}^2-\vec{E}^2>0$), alors $\forall \kern 2pt \mathcal{R'}$, on a $\vec{E}\cdot\vec{B}=0$. De m\^eme, pour une onde plane, $\vec{E}\cdot\vec{B}=0$, et donc dans $\mathcal{R'}$, et donc dans $\mathcal{R'}$, $\vec{E'}\cdot\vec{B'}=0$.
+\end{app}
+\begin{exo}
+	Vérifier directement ces propriétés à partir des lois de transformation des champs.
+\end{exo}
+
+\section{Tenseur énergie-impulsion}
+\subsection{Introduction}
+On a été capable de donner une formulation covariante de la conservation de l'énergie-impulsion lorsque le système considéré est une charge :
+$$
+	\frac{dP^\mu}{d\tau}=qF^{\mu\nu}U_\nu
+$$
+Il est aussi possible d'écrire des lois de conservation pour l'énergie et pour l'impulsion lorsque le système considéré est la charge et un champ (\emph{cf.} notes). On essaie donc d'en donner une formulation covariante, d'abord en suivant une approche pédestre, puis en utilisant l'invariance du Lagrangien.
+
+\subsection{Rappel des lois de conservation}
+\begin{itemize}
+	\item Conservation de l'énergie :
+	$$
+		\bigiiintsss \dif^3\vec{r}\left(\frac{\partial u}{\partial t}+\nab\cdot\vec{\Pi}+\vec{j}\cdot\vec{E}\right)=0
+	$$
+	$$
+	\begin{array}{r@{\;}l}
+		\text{avec }u(\vec{r},t)&=\frac{1}{2}\epsilon_0\vec{E}^2+\frac{1}{2\mu_0}\vec{B}^2\\
+		\vec{\Pi}(\vec{r},t)&=\frac{\vec{E}\times\vec{B}}{\mu_0}
+	\end{array}
+	$$
+	\item Conservation de l'impulsion
+	$$
+		\bigiiintsss \dif^3\vec{r}\left(\partial_j \mathcal{T}_{ij}-\partial_t\epsilon_0\left.(\vec{E}\times\vec{B})\right|_i\right)=\left.\frac{\partial\overrightarrow{P^v_{\text{part}}}}{\partial t}\right|_i
+	$$
+	$$
+		\begin{array}{r@{\;}l}
+			\mathcal{T}_{ij}&=\text{tenseur de Maxwell}\\
+				&=\epsilon_0\left(E_iE_j+c^2B_iB_j-\frac{1}{2}(\vec{E}^2+c^2\vec{B}^2)\delta_{ij}\right)\\
+				&\text{\hspace{2cm} avec }i,j\in\{x,y,z\}\\
+			\overrightarrow{P^\nu_{\text{part}}} &= \text{impulsion locale des particules contenues dans }V\\
+			\partial_t\overrightarrow{P^\nu_{\text{part}}}&=\iiint_V d^3\vec{r}\rho(\vec{E}+\vec{v}\times\vec{B})
+		\end{array}
+	$$
+	$$
+	\bigiiintsss \dif^3\vec{r}\left(\partial_j\mathcal{T}_{ij}-\partial_t\epsilon_0\left.(\vec{E}\times\vec{B})\right|_i\right) = \bigiiintsss \dif^3\vec{r}\rho\left.(\vec{E}+\vec{v}\times\vec{B})\right|_i
+	$$
+	Soit finalement :
+	$$
+	\boxed{
+	\begin{array}{c}
+		\frac{\partial u}{\partial t}+\nab\cdot\vec{\Pi} = -\vec{j}\cdot\vec{E}\\
+		\partial_t\epsilon_0\left.(\vec{E}\times\vec{B})\right|_i+\partial_j(-\mathcal{T}_{ij})=-\rho\left	.(\vec{E}+\vec{v}\times\vec{B})\right|_i
+	\end{array}}
+	$$
+\end{itemize}
+
+\subsection{Tenseur énergie-impulsion du champ électromagnétique}
+Calculons la quadri-force de Lorentz :
+$$
+	\boxed{f^\mu=F^{\mu\nu}J_\nu}
+$$
+$$
+	\begin{array}{r@{\;}l}
+		f^0&=F^{00}J_0+F^{01}J_1+F^{02}J_2+F^{03}J_3\\
+			&=0+\left(-\frac{E_x}{c}\right)(-j_x)+\left(-\frac{E_y}{c}\right)(-j_y)+\left(-\frac{E_z}{c}\right)(-j_z)\\
+			&=\frac{\vec{j}\cdot\vec{E}}{c}\\
+		f^1&=F^{10}J_0+...\\
+			&=\frac{E_x}{c}\rho c+0+(-B_z)(-j_y)+N_y(-j_z)\\
+			&=\rho E_x +\rho v_yB_z-\rho v_zB_y\\
+			&=\rho\left.(\vec{E}+\vec{v}\times\vec{B})\right|_x
+	\end{array}
+$$
+Avec des résultats similaires pour $f^2$ et $f^3$. On s'attend par la forme des équations ($\partial t$ et $\nab$) et par analogie à la mécanique des flux (densité volumique de force $\leftrightarrow$ divergence du tenseur des contraintes) à voir apparaître à gauche un terme de la forme $\partial_\mu T^{\mu\nu}$
+
+\begin{minipage}{0.45\linewidth}
+$$
+	\raggedleft
+	\begin{array}{r@{\;}l}
+		\frac{\partial u}{c\partial t}+\nab\cdot\frac{\vec{\Pi}}{c}&=-\frac{\vec{j}\cdot\vec{E}}{c}\\
+			&=-f^0\\
+			&=\partial_{\alpha}T^{0\alpha}
+	\end{array}
+$$
+\end{minipage}\hspace{0.05\linewidth}
+\begin{minipage}{0.40\linewidth}
+$
+	\text{avec }\left\{ \begin{array}{r@{\;}l}
+		T^{00}&=\frac{1}{2}\epsilon_0\vec{E}^2+\frac{\vec{B}^2}{2\mu_0}\\
+		T^{10}&=\frac{\Pi_x}{c}\\
+		T^{20}&=\frac{\Pi_y}{c}\\
+		T^{30}&=\frac{\Pi_z}{c}\\
+	\end{array} \right.
+$
+\end{minipage}
+\vspace{0.5cm}
+
+\begin{minipage}{0.45\linewidth}
+$$
+	\begin{array}{r@{\;}l}
+		\frac{\partial}{c\partial}\left(c\epsilon_0\left.(\vec{E}\times\vec{B})\right|_x\right)+\partial_j(-\mathcal{T}_{ij})&=-f^1\\
+			&=\partial_{\alpha}T^{1\alpha}
+	\end{array}
+$$
+\end{minipage}\hspace{0.05\linewidth}
+\begin{minipage}{0.40\linewidth}
+$
+	\text{avec }\left\{ \begin{array}{r@{\;}l}
+		T^{01}&=c\epsilon_0\left.(\vec{E}\times\vec{B})\right|_x=\frac{\Pi_x}{c}\\
+		T^{11}&=-\mathcal{T}_{xx}\\
+		T^{21}&=-\mathcal{T}_{xy}\\
+		T^{31}&=-\mathcal{T}_{xz}\\
+	\end{array} \right.
+$
+\end{minipage}
+
+On trouve la même chose pour les composantes $y$ et $z$. Finalement, les quatre équations de conservation s'écrivent sous la forme :
+$$
+	\boxed{\partial_\mu T^{\mu\nu}=-F^{\nu\alpha}J_{\alpha}}
+$$
+où
+$$
+	T^{\mu\nu}=	\left( \begin{array}{cccc@{\/}}
+		\frac{1}{2}\epsilon_0\vec{E}^2+\frac{\vec{B}^2}{2\mu_0} \kern 5pt & \kern 5pt \frac{\Pi_x}{c}  \kern 5pt & \kern 5pt  \frac{\Pi_y}{c}  \kern 5pt & \kern 5pt  \frac{\Pi_z}{c} \kern 5pt \\
+		\begin{array}{c}
+			\frac{\Pi_x}{c}\\
+			\frac{\Pi_y}{c}\\
+			\frac{\Pi_z}{c}
+		\end{array} & \multicolumn{3}{c}{\left( \begin{array}{c}
+			\\
+			\kern 0.4cm \mathcal{T}_{\text{\tiny Maxwell}} \kern 0.4cm\\
+			\\
+		\end{array} \right)}
+	\end{array} \right)
+$$
+avec
+$$\mathcal{T}^{ij}_{\text{\tiny Maxwell}}=\epsilon_0\left(E_iE_j+c^2B_iB_j-\frac{1}{2}(\vec{E}^2+c^2\vec{B}^2)\delta_{ij}\right)$$
+
+Il reste à vérifier que $T^{\mu\nu}$ est un tenseur.
+
+\pagebreak
+
+\begin{proof}\hspace*{1pt}
+	\begin{itemize}
+		\item \emph{Exercice.} Directement, en vérifiant que
+		$$
+			\tilde{T}^{\mu\nu}=\frac{\partial \tilde{x}^\mu}{\partial x^{\alpha}} \frac{\partial \tilde{x}^\nu}{\partial x^{\beta}} T^{\alpha\beta}
+		$$
+		\item En vérifiant que
+		$$
+			T^{\alpha\beta}=\frac{1}{\mu_0}\left(g^{\alpha\mu}F_{\mu\lambda}F^{\lambda\beta}+\frac{1}{4} g^{\alpha\beta}F_{\lambda\mu}F^{\lambda\mu}\right)
+		$$
+	\end{itemize}
+\end{proof}
+
+\begin{conc}
+	$T^{\mu\nu}$ est effectivement un tenseur et la conservation de l'énergie-impulsion s'écrit sous forme covariante :
+	$$
+		\boxed{\partial_\mu T^{\mu\nu}=-F^{\nu\alpha}J_{\alpha}}
+	$$
+\end{conc}
