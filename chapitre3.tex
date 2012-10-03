@@ -11,12 +11,55 @@ $$
 	\frac{\dif P^\mu}{\dif \tau}=K^\mu
 $$
 où $K^\mu$ est la quadri-force de Minkowski qui s'écrit en électrodynamique $qF^{\mu\nu}U_{\mu\nu}$. Le but de cette section est de donner une formulation lagrangienne covariante équivalente, \emph{ie.} exhiber un Lagrangien tel que les équations d'Euler-Lagrange soient le principe fondamental de la dynamique.
-\begin{itemize}
-	\item Difficultés : en mécanique analytique classique, on introduit l'action :
-	$$
-		S=\bigintssss_{t_1}^{t_2}\dif (\{q_i\},\{\dot{q_i}\},\{t\})\,\dif t
-	$$
-	et $t$ joue un rôle particulier incompatible avec la relativité. En effet, si $U^\mu=(\gamma c,\gamma \vec{v})$ désigne la quadri-vitesse, $U^\mu U_\mu = c^2$ et les composantes de la quadri-vitesse ne sont pas indépendantes.
+
+\emph{Difficultés }: en mécanique analytique classique, on introduit l'action :
+$$
+	S=\bigintssss_{t_1}^{t_2}\dif (\{q_i\},\{\dot{q_i}\},\{t\})\,\dif t
+$$
+et $t$ joue un rôle particulier incompatible avec la relativité. En effet, si $U^\mu=(\gamma c,\gamma \vec{v})$ désigne la quadri-vitesse, $U^\mu U_\mu = c^2$ et les composantes de la quadri-vitesse ne sont pas indépendantes.
 	
-	\item Retour sur la notion de trajectoire : c'est une courbe paramétrée par un unique paramètre pour lequel la seule contrainte est d'en faire une fonction monotone. En mécanique classique, le choix naturel est $t$. En mécanique relativiste, on introduit un paramètre $\theta$ tel que l'évolution de $\theta$ soit monotone le long de la trajectoire (entendue comme la ligne d'univers suivie par la particule dans l'espace de Minkowski). On impose que $\theta$ soit un invariant de Lorentz. On pourrait prendr
-\end{itemize}
+{\txt \emph{Retour sur la notion de trajectoire }: c'est une courbe paramétrée par un unique paramètre pour lequel la seule contrainte est d'en faire une fonction monotone. En mécanique classique, le choix naturel est $t$. En mécanique relativiste, on introduit un paramètre $\theta$ tel que l'évolution de $\theta$ soit monotone le long de la trajectoire (entendue comme la ligne d'univers suivie par la particule dans l'espace de Minkowski). On impose que $\theta$ soit un invariant de Lorentz. On pourrait prendre le temps propre $\tau$ mais rien ne nous y oblige, et un tel choix ne permettrait pas de décrire une particule sans masse. À partir de là, on introduit un Lagrangien $\Lambda(x^\mu,\frac{\dif x^\mu}{\dif\theta})$ et une action $\mathcal{S}$ :}
+$$
+	\mathcal{S}=\bigintsss_{\text{\tiny évènement 1}}^{\text{\tiny évènement 2}} \Lambda(x^\mu,\frac{\dif x^\mu}{\dif\theta})\,\dif\theta
+$$
+{\txt On pose $\dot{x}=\frac{\dif x}{\dif\theta}$. Il est nécessaire que $S$ soit un invariant de Lorentz pour que la notion d'extrémalisation de $\mathcal{S}$ reste valable quel que soit le référentiel considéré. $\Lambda(x^\mu,\dot{x^\mu})$ est donc un invariant de Lorentz. Le but est alors de l'expliciter sous forme covariante pour que les équations d'Euler-Lagrange soient équivalentes au principe fondamental de la dynamique :}
+$$
+	\frac{\dif}{\dif\theta}\left(\frac{\partial \Lambda}{\partial\dot{x^\mu}}\right)-\frac{\partial\Lambda}{\partial x^\mu}=0
+$$ 
+\begin{remark}
+	$\Lambda(x^\mu,\dot{x^\mu})$ recouvre le cas où $ $ dépend de $t$ explicitement car $x^0=t$.
+\end{remark}
+
+{\txt Un choix naturel pour $\theta$ est de considérer le temps propre $\tau$, mais dans ce cas, $\frac{\dif x^\mu}{\dif\tau}\frac{\dif x_\mu}{\dif\tau}=U^\mu U_\mu=c^2$. Pour prendre en compte cette contrainte, on introduit le multiplicateur de Lagrange $\frac{\lambda}{2}$, on construit :}
+$$
+	\tilde{\Lambda}=\Lambda(x^\mu,\dot{x^\mu})+\frac{\lambda}{2}(U^\mu U_\mu-c^2)
+$$
+et on extrémalise 
+$$
+	\mathcal{S}=\bigintssss_{\tau_1}^{\tau_2} \tilde{\Lambda}(x^\mu,\dot{x^\mu})\,\dif\tau
+$$
+sans contrainte. Les équations de Lagrange s'écrivent alors :
+$$
+	\left\{ \begin{array}{l}
+		\frac{\partial\Lambda}{\partial x^\mu}-\frac{\dif}{\dif\tau}\left(\frac{\partial \Lambda}{\partial\dot{x^\mu}}\right)-\frac{\dif}{\dif\tau}(\lambda U_\mu)=0	\\
+		U^\mu U_\mu-c^2=0
+	\end{array} \right.
+$$
+$$
+	U^\mu \frac{\dif}{\dif\tau}(\lambda U_\mu)=U^\mu\left(\frac{\partial\Lambda}{\partial x^\mu}-\frac{\dif}{\dif\tau}\left(\frac{\partial \Lambda}{\partial U^\mu}\right)\right)
+$$
+$$
+	\begin{array}{lr@{\;}l}
+		\text{D'où}&\frac{\dif \lambda}{\dif\tau}&=U^\mu\left(\frac{\partial\Lambda}{\partial x^\mu}-\frac{\dif}{\dif\tau}\left(\frac{\partial \Lambda}{\partial U^\mu}\right)\right)\\
+		\text{D'où}&\lambda &=\bigintssss\dif\tau\,\left( U^\mu \frac{\partial\Lambda}{\partial x^\mu}-U^\mu \frac{\dif}{\dif\tau}\left(\frac{\partial \Lambda}{\partial U^\mu}\right)\right)\\
+		&&=\bigintssss\dif\tau\,\left(azeazeaze\right)\\
+		&&=\\
+		&&=\Lambda-U^\nu\frac{\partial \Lambda}{\partial U^\nu}
+	\end{array}
+$$
+Les équations d'Euler-Lagrange deviennent :
+$$
+	blablabla
+$$
+
+Soit $\theta$ un paramètre affine convenable.
