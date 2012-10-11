@@ -22,26 +22,26 @@ et $t$ joue un rôle particulier incompatible avec la relativité. En effet, si 
 $$
 	\mathcal{S}=\bigintsss_{\text{\tiny évènement 1}}^{\text{\tiny évènement 2}} \Lambda(x^\mu,\frac{\dif x^\mu}{\dif\theta})\,\dif\theta
 $$
-{\txt On pose $\dot{x}=\frac{\dif x}{\dif\theta}$. Il est nécessaire que $S$ soit un invariant de Lorentz pour que la notion d'extrémalisation de $\mathcal{S}$ reste valable quel que soit le référentiel considéré. $\Lambda(x^\mu,\dot{x^\mu})$ est donc un invariant de Lorentz. Le but est alors de l'expliciter sous forme covariante pour que les équations d'Euler-Lagrange soient équivalentes au principe fondamental de la dynamique :}
+{\txt On pose $\dot{x}=\frac{\dif x}{\dif\theta}$. Il est nécessaire que $S$ soit un invariant de Lorentz pour que la notion d'extrémalisation de $\mathcal{S}$ reste valable quel que soit le référentiel considéré. $\Lambda(x^\mu,\dot{x}^\mu)$ est donc un invariant de Lorentz. Le but est alors de l'expliciter sous forme covariante pour que les équations d'Euler-Lagrange soient équivalentes au principe fondamental de la dynamique :}
 $$
-	\frac{\dif}{\dif\theta}\left(\frac{\partial \Lambda}{\partial\dot{x^\mu}}\right)-\frac{\partial\Lambda}{\partial x^\mu}=0
+	\frac{\dif}{\dif\theta}\left(\frac{\partial \Lambda}{\partial\dot{x}^\mu}\right)-\frac{\partial\Lambda}{\partial x^\mu}=0
 $$ 
 \begin{remark}
-	$\Lambda(x^\mu,\dot{x^\mu})$ recouvre le cas où $ $ dépend de $t$ explicitement car $x^0=t$.
+	$\Lambda(x^\mu,\dot{x}^\mu)$ recouvre le cas où le Lagrangien dépend de $t$ explicitement car $x^0=t$.
 \end{remark}
 
-{\txt Un choix naturel pour $\theta$ est de considérer le temps propre $\tau$, mais dans ce cas, $\frac{\dif x^\mu}{\dif\tau}\frac{\dif x_\mu}{\dif\tau}=U^\mu U_\mu=c^2$. Pour prendre en compte cette contrainte, on introduit le multiplicateur de Lagrange $\frac{\lambda}{2}$, on construit :}
+{\txt Un choix naturel pour $\theta$ est de considérer le temps propre $\tau$, mais dans ce cas, $\frac{\dif x^\mu}{\dif\tau}\frac{\dif x_\mu}{\dif\tau}=U^\mu U_\mu=c^2$. Pour prendre en compte cette contrainte, on introduit le multiplicateur de Lagrange $\frac{\lambda}{2}$ et on construit :}
 $$
-	\tilde{\Lambda}=\Lambda(x^\mu,\dot{x^\mu})+\frac{\lambda}{2}(U^\mu U_\mu-c^2)
+	\tilde{\Lambda}=\Lambda(x^\mu,\dot{x}^\mu)+\frac{\lambda}{2}(U^\mu U_\mu-c^2)
 $$
 et on extrémalise 
 $$
-	\mathcal{S}=\bigintssss_{\tau_1}^{\tau_2} \tilde{\Lambda}(x^\mu,\dot{x^\mu})\,\dif\tau
+	\mathcal{S}=\bigintssss_{\tau_1}^{\tau_2} \tilde{\Lambda}(x^\mu,\dot{x}^\mu)\,\dif\tau
 $$
-sans contrainte. Les équations de Lagrange s'écrivent alors :
+sous contrainte. Les équations de Lagrange s'écrivent alors :
 $$
 	\left\{ \begin{array}{l}
-		\frac{\partial\Lambda}{\partial x^\mu}-\frac{\dif}{\dif\tau}\left(\frac{\partial \Lambda}{\partial\dot{x^\mu}}\right)-\frac{\dif}{\dif\tau}(\lambda U_\mu)=0	\\
+		\frac{\partial\Lambda}{\partial x^\mu}-\frac{\dif}{\dif\tau}\left(\frac{\partial \Lambda}{\partial\dot{x}^\mu}\right)-\frac{\dif}{\dif\tau}(\lambda U_\mu)=0	\\
 		U^\mu U_\mu-c^2=0
 	\end{array} \right.
 $$
@@ -51,15 +51,43 @@ $$
 $$
 	\begin{array}{lr@{\;}l}
 		\text{D'où}&\frac{\dif \lambda}{\dif\tau}&=U^\mu\left(\frac{\partial\Lambda}{\partial x^\mu}-\frac{\dif}{\dif\tau}\left(\frac{\partial \Lambda}{\partial U^\mu}\right)\right)\\
-		\text{D'où}&\lambda &=\bigintssss\dif\tau\,\left( U^\mu \frac{\partial\Lambda}{\partial x^\mu}-U^\mu \frac{\dif}{\dif\tau}\left(\frac{\partial \Lambda}{\partial U^\mu}\right)\right)\\
-		&&=\bigintssss\dif\tau\,\left(azeazeaze\right)\\
-		&&=\\
+		\text{Donc}&\lambda &=\bigintsss\dif\tau\,\left( U^\mu \frac{\partial\Lambda}{\partial x^\mu}-U^\mu \frac{\dif}{\dif\tau}\left(\frac{\partial \Lambda}{\partial U^\mu}\right)\right)\\
+		&&=\bigintsss\dif\tau\,\left(U^\mu \frac{\partial \Lambda}{\partial U^\mu}+ \frac{\dif U^\mu}{\dif\tau}\frac{\partial\Lambda}{\partial U^\mu}-\frac{\dif U^\mu}{\dif\tau}\frac{\partial\Lambda}{\partial U^\mu}-U^\mu \frac{\dif}{\dif\tau}\left(\frac{\partial \Lambda}{\partial U^\mu}\right) \right)\\
+		&&=\bigintsss\dif\tau\,\frac{\dif\Lambda(x^\mu ,U^\mu)}{\dif\tau} - \bigintsss\dif\tau\,\frac{\dif}{\dif\tau}\left(U^\mu\frac{\partial \Lambda}{\partial U^\mu} \right) \\
 		&&=\Lambda-U^\nu\frac{\partial \Lambda}{\partial U^\nu}
 	\end{array}
 $$
 Les équations d'Euler-Lagrange deviennent :
 $$
-	blablabla
+	\frac{\partial\Lambda}{\partial x^\mu}-\frac{\dif}{\dif\tau}\left(\frac{\partial \Lambda}{\partial U^\mu}\right)-\frac{\dif}{\dif\tau}\left(\left(\Lambda-U^\mu\frac{\partial\Lambda}{\partial U^\mu}\right) U^\mu\right)=0
 $$
 
-Soit $\theta$ un paramètre affine convenable.
+Soit $\theta$ un paramètre affine convenable. Alors, pour tout $\sigma \in \mathcal{C}^1$ tel que $\frac{\dif\sigma}{\dif\theta}=\lambda>0$, on impose que :
+$$
+	\mathcal{S}=\bigintsss_{\theta_1}^{\theta_2}\dif\theta\,\Lambda\!\left(x^\mu,\frac{\dif x^\mu}{\dif\theta}\right) \text{ soit égale à } \bigintsss_{\sigma(\theta_1)}^{\sigma(\theta_2)}\dif\sigma\,\Lambda\!\left(x^\mu,\frac{\dif x^\mu}{\dif\sigma}\right) 
+$$
+$\mathcal{S}$ est dite \emph{invariante sous une paramétrisation affine}. On a alors :
+$$
+	\begin{array}{r@{\;}l}
+		\mathcal{S}&=\bigintsss_{\theta_1}^{\theta_2}\dif\theta\,\Lambda\!\left(x^\mu,\frac{\dif x^\mu}{\dif\theta}\right)\\
+			&=\bigintsss_{\sigma(\theta_1)}^{\sigma(\theta_2)}\dif\sigma\,\Lambda\!\left(x^\mu,\frac{\dif x^\mu}{\dif\sigma}\frac{1}{\frac{\dif\sigma}{\dif\theta}}\right)\\
+			&=\bigintsss_{\sigma_1}^{\sigma_2}\dif\sigma\,\Lambda\!\left(x^\mu,\frac{\dif x^\mu}{\dif\sigma}\right)
+	\end{array}
+$$
+
+$ \Lambda(x^\mu,\dot{x}^\mu)$ est une fonction homogène du premier degré par rapport à la vitesse, \emph{i.e.} pour tout $\lambda>0, \Lambda(x^\mu,\lambda\dot{x}^\mu)=\lambda\Lambda(x^\mu,\dot{x}^\mu)$
+Le théorème d'Euler assure que $\Lambda(x^\mu,\dot{x}^\mu)=\dot{x}^\mu\frac{\partial\Lambda}{\partial\dot{x}^\mu}$
+
+Regardons :
+$$
+	\begin{array}{l@{\;}l}
+		\left(\frac{\dif}{\dif\theta}\left(\frac{\partial\Lambda}{\partial\dot{x}^\mu}\right)-\frac{\partial\Lambda}{\partial x^\mu}\right)\dot{x}^\mu&= \frac{\dif}{\dif \theta}\left(\frac{\partial\Lambda}{\partial\dot{x}^\mu}\dot{x}^\mu\right)-\frac{\partial \Lambda}{\partial \dot{x}^\mu}\frac{\dif \dot{x}^\mu}{\dif\theta}-\frac{\partial \Lambda}{\partial x^\mu}\dot{x}^\mu\\
+			&=\frac{\dif}{\dif\theta}\left(\frac{\partial\Lambda}{\partial\dot{x}^\mu}\dot{x}^\mu\right)-\frac{\dif\Lambda}{\dif \theta}\\
+			&=\frac{\dif}{\dif\theta}\left(\dot{x}^\mu\frac{\partial \Lambda}{\partial \dot{x}^\mu}-\Lambda\right)\\
+			&=0
+	\end{array}
+$$
+
+\begin{conc}
+	On retrouve (modulo 
+\end{conc}
