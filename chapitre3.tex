@@ -141,10 +141,41 @@ Soit directement : $\frac{\dif\dot{x^\mu}}{\dif\tau}=0$, en accord avec le princ
 			\begin{array}{r@{\;}l}
 				\dot{x}^\mu\frac{\partial\Lambda}{\partial\dot{x}^\mu}&=\frac{\dot{x}^\mu\dot{x}_\mu}{\sqrt{g_{\alpha\beta}\dot{x}^{\alpha}\dot{x}^{\beta}}}\\
 					&=mc\sqrt{g_{\alpha\beta}\dot{x}^{\alpha}\dot{x}^{\beta}}\\
-					&=\Lambda
+					&=\Lambda \text{ est homogène du premier degré par rapport à la vitesse}
 			\end{array}
 		$$
-		\item Le point clé pour calculer les géodésiques en relativité générale 
-		
+		\item {\txt Le point clé pour calculer les géodésiques en relativité générale consiste à dire que $\tau=\int_{\theta_1}^{\theta_2}\!\dif\theta\sqrt{g_{\alpha\beta}\dot{x}^{\alpha}\dot{x}^{\beta}}$ est stationnaire mais que $g_{\alpha\beta}$ dépend des coordonnées.} 
+		\begin{exo}
+			{\txt De la m\^eme manière, on montre que
+			$$
+				\Lambda=-\left(mc\sqrt{g_{\alpha\beta}\dot{x}^{\alpha}\dot{x}^{\beta}}+qA^\mu\frac{\dif x_\mu}{\dif\tau}\right)\text{\hspace{10pt}avec }A^\mu=\left(\frac{\phi}{c},\vec{A}\right)
+			$$
+			permet de retrouver le principe fondamental de la dynamique $\frac{\dif P^\mu}{\dif\tau}=qF^{\mu\nu}u_\nu$ pour une particule dans un champ électromagnétique.}
+		\end{exo}
+		\item {\txt En mécanique classique, le Lagrangien est défini à $\frac{\dif F(q,t)}{\dif t}$ près ; en mécanique relativiste, $\Lambda$ est défini à $\frac{\dif\Lambda}{\dif\theta}$ près.}
 	\end{itemize}
 \end{remarks}
+
+\subsubsection{Approche hamiltonienne}
+Tout comme en mécanique classique, on introduit 
+\begin{itemize}
+	\item le moment conjugué
+	$$
+		p_{\alpha}=\frac{\partial\Gamma}{\partial\dot{x}^{\alpha}}\text{\hspace{10pt}où 	}\dot{x}^{\alpha}=\frac{\dif x^{\alpha}}{\dif\theta}
+	$$
+	\item le hamiltonien
+	$$
+		\mathcal{H}(x^\mu,p^\mu)=p^{\alpha}\dot{x}_{\alpha}-\Lambda
+	$$
+\end{itemize}
+et on retrouve l'équation de Hamilton :
+$$
+	\left\{ \begin{array}{r@{\;}l}
+		\frac{\partial\mathcal{H}}{\partial x^\mu}&=-\dot{p}^\mu\\
+		\frac{\partial\mathcal{H}}{\partial p^\mu}&=\dot{x}^\mu\\
+	\end{array} \right.
+$$
+
+
+\section{Champ de mécanique analytique}
+On a été capable de retrouver la formulation lagrangienne autant en mécanique classique qu'en mécanique relativiste pour un ensemble de particules éventuellement placé dans un champ. Mais on a également été capable d'expliciter les lois de conservation (pour l'impulsion, l'énergie) lorsque le système considéré est l'ensemble constitué de la particule et du champ. Peut-on formuler sous forme lagrangienne les lois de la dynamique lorsque l'on n'a pas un ensemble dénombrable de degrés de liberté ?
