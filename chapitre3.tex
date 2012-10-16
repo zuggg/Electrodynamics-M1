@@ -16,7 +16,7 @@ où $K^\mu$ est la quadri-force de Minkowski qui s'écrit en électrodynamique $
 $$
 	S=\bigintssss_{t_1}^{t_2}\dif (\{q_i\},\{\dot{q_i}\},\{t\})\,\dif t
 $$
-et $t$ joue un rôle particulier incompatible avec la relativité. En effet, si $U^\mu=(\gamma c,\gamma \vec{v})$ désigne la quadri-vitesse, $U^\mu U_\mu = c^2$ et les composantes de la quadri-vitesse ne sont pas indépendantes.
+et $t$ joue un rôle particulier incompatible avec la relativité. En effet, si $u^\mu=(\gamma c,\gamma \vec{v})$ désigne la quadri-vitesse, $u^\mu u_\mu = c^2$ et les composantes de la quadri-vitesse ne sont pas indépendantes.
 	
 {\txt \emph{Retour sur la notion de trajectoire }: c'est une courbe paramétrée par un unique paramètre pour lequel la seule contrainte est d'en faire une fonction monotone. En mécanique classique, le choix naturel est $t$. En mécanique relativiste, on introduit un paramètre $\theta$ tel que l'évolution de $\theta$ soit monotone le long de la trajectoire (entendue comme la ligne d'univers suivie par la particule dans l'espace de Minkowski). On impose que $\theta$ soit un invariant de Lorentz. On pourrait prendre le temps propre $\tau$ mais rien ne nous y oblige, et un tel choix ne permettrait pas de décrire une particule sans masse. À partir de là, on introduit un Lagrangien $\Lambda(x^\mu,\frac{\dif x^\mu}{\dif\theta})$ et une action $\mathcal{S}$ :}
 $$
@@ -30,9 +30,9 @@ $$
 	$\Lambda(x^\mu,\dot{x}^\mu)$ recouvre le cas où le Lagrangien dépend de $t$ explicitement car $x^0=t$.
 \end{remark}
 
-{\txt Un choix naturel pour $\theta$ est de considérer le temps propre $\tau$, mais dans ce cas, $\frac{\dif x^\mu}{\dif\tau}\frac{\dif x_\mu}{\dif\tau}=U^\mu U_\mu=c^2$. Pour prendre en compte cette contrainte, on introduit le multiplicateur de Lagrange $\frac{\lambda}{2}$ et on construit :}
+{\txt Un choix naturel pour $\theta$ est de considérer le temps propre $\tau$, mais dans ce cas, $\frac{\dif x^\mu}{\dif\tau}\frac{\dif x_\mu}{\dif\tau}=u^\mu u_\mu=c^2$. Pour prendre en compte cette contrainte, on introduit le multiplicateur de Lagrange $\frac{\lambda}{2}$ et on construit :}
 $$
-	\tilde{\Lambda}=\Lambda(x^\mu,\dot{x}^\mu)+\frac{\lambda}{2}(U^\mu U_\mu-c^2)
+	\tilde{\Lambda}=\Lambda(x^\mu,\dot{x}^\mu)+\frac{\lambda}{2}(u^\mu u_\mu-c^2)
 $$
 et on extrémalise 
 $$
@@ -41,25 +41,25 @@ $$
 sous contrainte. Les équations de Lagrange s'écrivent alors :
 $$
 	\left\{ \begin{array}{l}
-		\frac{\partial\Lambda}{\partial x^\mu}-\frac{\dif}{\dif\tau}\left(\frac{\partial \Lambda}{\partial\dot{x}^\mu}\right)-\frac{\dif}{\dif\tau}(\lambda U_\mu)=0	\\
-		U^\mu U_\mu-c^2=0
+		\frac{\partial\Lambda}{\partial x^\mu}-\frac{\dif}{\dif\tau}\left(\frac{\partial \Lambda}{\partial\dot{x}^\mu}\right)-\frac{\dif}{\dif\tau}(\lambda u_\mu)=0	\\
+		u^\mu u_\mu-c^2=0
 	\end{array} \right.
 $$
 $$
-	U^\mu \frac{\dif}{\dif\tau}(\lambda U_\mu)=U^\mu\left(\frac{\partial\Lambda}{\partial x^\mu}-\frac{\dif}{\dif\tau}\left(\frac{\partial \Lambda}{\partial U^\mu}\right)\right)
+	u^\mu \frac{\dif}{\dif\tau}(\lambda u_\mu)=u^\mu\left(\frac{\partial\Lambda}{\partial x^\mu}-\frac{\dif}{\dif\tau}\left(\frac{\partial \Lambda}{\partial u^\mu}\right)\right)
 $$
 $$
 	\begin{array}{lr@{\;}l}
-		\text{D'où}&\frac{\dif \lambda}{\dif\tau}&=U^\mu\left(\frac{\partial\Lambda}{\partial x^\mu}-\frac{\dif}{\dif\tau}\left(\frac{\partial \Lambda}{\partial U^\mu}\right)\right)\\
-		\text{Donc}&\lambda &=\bigintsss\dif\tau\,\left( U^\mu \frac{\partial\Lambda}{\partial x^\mu}-U^\mu \frac{\dif}{\dif\tau}\left(\frac{\partial \Lambda}{\partial U^\mu}\right)\right)\\
-		&&=\bigintsss\dif\tau\,\left(U^\mu \frac{\partial \Lambda}{\partial U^\mu}+ \frac{\dif U^\mu}{\dif\tau}\frac{\partial\Lambda}{\partial U^\mu}-\frac{\dif U^\mu}{\dif\tau}\frac{\partial\Lambda}{\partial U^\mu}-U^\mu \frac{\dif}{\dif\tau}\left(\frac{\partial \Lambda}{\partial U^\mu}\right) \right)\\
-		&&=\bigintsss\dif\tau\,\frac{\dif\Lambda(x^\mu ,U^\mu)}{\dif\tau} - \bigintsss\dif\tau\,\frac{\dif}{\dif\tau}\left(U^\mu\frac{\partial \Lambda}{\partial U^\mu} \right) \\
-		&&=\Lambda-U^\nu\frac{\partial \Lambda}{\partial U^\nu}
+		\text{D'où}&\frac{\dif \lambda}{\dif\tau}&=u^\mu\left(\frac{\partial\Lambda}{\partial x^\mu}-\frac{\dif}{\dif\tau}\left(\frac{\partial \Lambda}{\partial u^\mu}\right)\right)\\
+		\text{Donc}&\lambda &=\bigintsss\dif\tau\,\left( u^\mu \frac{\partial\Lambda}{\partial x^\mu}-u^\mu \frac{\dif}{\dif\tau}\left(\frac{\partial \Lambda}{\partial u^\mu}\right)\right)\\
+		&&=\bigintsss\dif\tau\,\left(u^\mu \frac{\partial \Lambda}{\partial u^\mu}+ \frac{\dif u^\mu}{\dif\tau}\frac{\partial\Lambda}{\partial u^\mu}-\frac{\dif u^\mu}{\dif\tau}\frac{\partial\Lambda}{\partial u^\mu}-u^\mu \frac{\dif}{\dif\tau}\left(\frac{\partial \Lambda}{\partial u^\mu}\right) \right)\\
+		&&=\bigintsss\dif\tau\,\frac{\dif\Lambda(x^\mu ,u^\mu)}{\dif\tau} - \bigintsss\dif\tau\,\frac{\dif}{\dif\tau}\left(u^\mu\frac{\partial \Lambda}{\partial u^\mu} \right) \\
+		&&=\Lambda-u^\nu\frac{\partial \Lambda}{\partial u^\nu}
 	\end{array}
 $$
 Les équations d'Euler-Lagrange deviennent :
 $$
-	\frac{\partial\Lambda}{\partial x^\mu}-\frac{\dif}{\dif\tau}\left(\frac{\partial \Lambda}{\partial U^\mu}\right)-\frac{\dif}{\dif\tau}\left(\left(\Lambda-U^\mu\frac{\partial\Lambda}{\partial U^\mu}\right) U^\mu\right)=0
+	\frac{\partial\Lambda}{\partial x^\mu}-\frac{\dif}{\dif\tau}\left(\frac{\partial \Lambda}{\partial u^\mu}\right)-\frac{\dif}{\dif\tau}\left(\left(\Lambda-u^\mu\frac{\partial\Lambda}{\partial u^\mu}\right) u^\mu\right)=0
 $$
 
 Soit $\theta$ un paramètre affine convenable. Alors, pour tout $\sigma \in \mathcal{C}^1$ tel que $\frac{\dif\sigma}{\dif\theta}=\lambda>0$, on impose que :
@@ -75,8 +75,8 @@ $$
 	\end{array}
 $$
 
-$ \Lambda(x^\mu,\dot{x}^\mu)$ est une fonction homogène du premier degré par rapport à la vitesse, \emph{i.e.} pour tout $\lambda>0, \Lambda(x^\mu,\lambda\dot{x}^\mu)=\lambda\Lambda(x^\mu,\dot{x}^\mu)$
-Le théorème d'Euler assure que $\Lambda(x^\mu,\dot{x}^\mu)=\dot{x}^\mu\frac{\partial\Lambda}{\partial\dot{x}^\mu}$
+{\txt $ \Lambda(x^\mu,\dot{x}^\mu)$ est une fonction homogène du premier degré par rapport à la vitesse, \emph{i.e.} pour tout $\lambda>0, \Lambda(x^\mu,\lambda\dot{x}^\mu)=\lambda\Lambda(x^\mu,\dot{x}^\mu)$.
+Le théorème d'Euler assure que $\Lambda(x^\mu,\dot{x}^\mu)=\dot{x}^\mu\frac{\partial\Lambda}{\partial\dot{x}^\mu}$}
 
 Regardons :
 $$
@@ -89,5 +89,62 @@ $$
 $$
 
 \begin{conc}
-	On retrouve (modulo 
+	Modulo la remarque de Dirac (\og  $u^\mu u_\mu-c^2=0$ est une équation faible \fg (\emph{NDR : définition d'une équation faible introuvable sur internet}) \emph{i.e.} on peut faire comme si elle n'existait pas pour les calculs, et s'en souvenir à la fin pour normaliser les résultats), on retrouve les équations d'Euler-Lagrange :
+$$
+	\frac{\dif}{\dif \theta}\left(\frac{\partial\Lambda}{\partial \dot{x}^\mu}\right)-\frac{\partial\Lambda}{\partial x^\mu}=0
+$$
 \end{conc}
+
+Il reste à expliciter $\Lambda(x^\mu,\dot{x}^\mu)$. On s'appuit sur les faits suivants :
+\begin{itemize}
+	\item on doit retrouver le principe fondamental de la dynamique ;
+	\item $\Lambda$ doit tendre vers sa formulation non relativiste dans la limite non relativiste ;
+	\item $\Lambda$ doit s'écrire sous forme covariante (pour assurer l'invariance de Lorentz). 
+\end{itemize}
+
+{\txt Dans le cas d'une particule libre, on sait expliciter le Lagrangien lorsque l'on distingue les conditions temporelle et spatiales, et $\mathcal{L}_{NR}=\frac{1}{2}m\vec{v}^2+\mathrm{cte}$.}
+$$
+	\begin{array}{r@{\;}l}
+		\mathcal{S}=\bigintsss_{t_1}^{t_2} \! \dif t\,\mathcal{L}\!\left(x,t,\frac{\dif x}{\dif t}\right) &= \bigintsss_{\theta_1}^{\theta_2} \!\dif \theta\,\frac{\dif t}{\dif\theta}\mathcal{L}\!\left(x^{\alpha},\frac{\dif x^{\alpha}}{\dif \theta}\frac{\dif\theta}{\dif t}\right)\\
+		&\equiv  \bigintsss_{\theta_1}^{\theta_2} \!\dif \theta\,\Lambda\!\left(x^{\mu},\frac{\dif x^{\mu}}{\dif \theta}\right)
+	\end{array}
+$$
+\emph{i.e.} $\frac{\dif t}{\dif\theta}\mathcal{L}\!\left(x^{\alpha},\frac{\dif x^{\alpha}}{\dif \theta}\frac{\dif\theta}{\dif t}\right) =\Lambda\!\left(x^{\mu},\frac{\dif x^{\mu}}{\dif \theta}\right)$ et on choisit $\tau=\theta$, $\frac{\dif t}{\dif \tau}=\gamma$.
+$\mathcal{L}$ ne peut dépendre que des vitesses, et $\mathcal{L}=-mc^2\sqrt{1-\frac{v^2}{c^2}}$ est covariant.
+
+$$
+	\begin{array}{r@{\;}l}
+		\mathcal{L}&\xrightarrow{\text{non relativiste}}-mc^2+\frac{1}{2}m\vec{v}^2=\mathcal{L}_{NR}\\
+		\mathcal{L}&=-mc\sqrt{c^2-\vec{v}^2}\\
+			&=-\frac{mc}{\gamma}(\gamma^2c^2-\gamma^2\vec{v}^2)^{\frac{1}{2}}\\
+			&=\frac{mc}{\gamma}\sqrt{\frac{\dif x^{\alpha}}{\dif\tau}\frac{\dif x_{\alpha}}{\dif\tau}}
+	\end{array}$$
+
+Soit finalement : $\Lambda(x^\mu,\dot{x}^\mu)=-mc\sqrt{\frac{\dif x^{\alpha}}{\dif\tau}\frac{\dif x_{\alpha}}{\dif\tau}}$ est covariant.
+
+Retrouve-t-on le principe fondamental de la dynamique ? Les équations d'Euler-Lagrange donnent :
+$$
+	\begin{array}{r@{\;}l}
+		0&=\frac{\dif}{\dif \tau}\left(\frac{\partial\Lambda}{\partial\dot{x}^\mu}\right)-\frac{\partial\Lambda}{\partial x^\mu}\\
+			&=\frac{\dif}{\dif\tau}\frac{\partial}{\partial\dot{x}^\mu}\left(-mc\sqrt{g_{\alpha\beta}\dot{x}^{\alpha}\dot{x}^{\beta}}\right)\\
+			&=-mc\frac{\dif}{\dif\tau}\left(\frac{1}{2\sqrt{g_{\alpha\beta}\dot{x}^{\alpha}\dot{x}^{\beta}}}( g_{\alpha\beta}\dot{x}^{\beta}\delta_{\alpha\mu}+g_{\alpha\beta}\dot{x}^{\alpha}\delta_{\beta\mu})\right)\\
+			&=-mc\frac{\dif}{\dif\tau}\frac{1}{2\sqrt{g_{\alpha\beta}\dot{x}^{\alpha}\dot{x}^{\beta}}}g_{\mu\beta}\dot{x}^{\beta}\\
+			&=-mc\frac{\dif}{\dif\tau}\frac{\dot{x}^\mu}{\sqrt{g_{\alpha\beta}\dot{x}^{\alpha}\dot{x}^{\beta}}}
+	\end{array}
+$$
+Soit directement : $\frac{\dif\dot{x^\mu}}{\dif\tau}=0$, en accord avec le principe fondamental de la dynamique $\frac{\dif P^\mu}{\dif\tau}=0$.
+
+\begin{remarks}\hspace*{1pt}
+	\begin{itemize}
+		\item 
+		$$
+			\begin{array}{r@{\;}l}
+				\dot{x}^\mu\frac{\partial\Lambda}{\partial\dot{x}^\mu}&=\frac{\dot{x}^\mu\dot{x}_\mu}{\sqrt{g_{\alpha\beta}\dot{x}^{\alpha}\dot{x}^{\beta}}}\\
+					&=mc\sqrt{g_{\alpha\beta}\dot{x}^{\alpha}\dot{x}^{\beta}}\\
+					&=\Lambda
+			\end{array}
+		$$
+		\item Le point clé pour calculer les géodésiques en relativité générale 
+		
+	\end{itemize}
+\end{remarks}
