@@ -116,8 +116,8 @@ $$
 	\begin{array}{r@{\;}l}
 		\mathcal{L}&\xrightarrow{\text{non relativiste}}-mc^2+\frac{1}{2}m\vec{v}^2=\mathcal{L}_{NR}\\
 		\mathcal{L}&=-mc\sqrt{c^2-\vec{v}^2}\\
-			&=-\frac{mc}{\gamma}(\gamma^2c^2-\gamma^2\vec{v}^2)^{\frac{1}{2}}\\
-			&=\frac{mc}{\gamma}\sqrt{\frac{\dif x^{\alpha}}{\dif\tau}\frac{\dif x_{\alpha}}{\dif\tau}}
+			&=-\frac{mc}{\gamma}\sqrt{\gamma^2c^2-\gamma^2\vec{v}^2}\\
+			&=-\frac{mc}{\gamma}\sqrt{\frac{\dif x^{\alpha}}{\dif\tau}\frac{\dif x_{\alpha}}{\dif\tau}}
 	\end{array}$$
 
 Soit finalement : $\Lambda(x^\mu,\dot{x}^\mu)=-mc\sqrt{\frac{\dif x^{\alpha}}{\dif\tau}\frac{\dif x_{\alpha}}{\dif\tau}}$ est covariant.
@@ -128,8 +128,8 @@ $$
 		0&=\frac{\dif}{\dif \tau}\left(\frac{\partial\Lambda}{\partial\dot{x}^\mu}\right)-\frac{\partial\Lambda}{\partial x^\mu}\\
 			&=\frac{\dif}{\dif\tau}\frac{\partial}{\partial\dot{x}^\mu}\left(-mc\sqrt{g_{\alpha\beta}\dot{x}^{\alpha}\dot{x}^{\beta}}\right)\\
 			&=-mc\frac{\dif}{\dif\tau}\left(\frac{1}{2\sqrt{g_{\alpha\beta}\dot{x}^{\alpha}\dot{x}^{\beta}}}( g_{\alpha\beta}\dot{x}^{\beta}\delta_{\alpha\mu}+g_{\alpha\beta}\dot{x}^{\alpha}\delta_{\beta\mu})\right)\\
-			&=-mc\frac{\dif}{\dif\tau}\frac{1}{2\sqrt{g_{\alpha\beta}\dot{x}^{\alpha}\dot{x}^{\beta}}}g_{\mu\beta}\dot{x}^{\beta}\\
-			&=-mc\frac{\dif}{\dif\tau}\frac{\dot{x}^\mu}{\sqrt{g_{\alpha\beta}\dot{x}^{\alpha}\dot{x}^{\beta}}}
+			&=-mc\frac{\dif}{\dif\tau}\frac{1}{\sqrt{g_{\alpha\beta}\dot{x}^{\alpha}\dot{x}^{\beta}}}g_{\mu\beta}\dot{x}^{\beta}\\
+			&=-mc\frac{\dif}{\dif\tau}\frac{\dot{x}_\mu}{\sqrt{g_{\alpha\beta}\dot{x}^{\alpha}\dot{x}^{\beta}}}
 	\end{array}
 $$
 Soit directement : $\frac{\dif\dot{x^\mu}}{\dif\tau}=0$, en accord avec le principe fondamental de la dynamique $\frac{\dif P^\mu}{\dif\tau}=0$.
@@ -179,3 +179,11 @@ $$
 
 \section{Champ de mécanique analytique}
 On a été capable de retrouver la formulation lagrangienne autant en mécanique classique qu'en mécanique relativiste pour un ensemble de particules éventuellement placé dans un champ. Mais on a également été capable d'expliciter les lois de conservation (pour l'impulsion, l'énergie) lorsque le système considéré est l'ensemble constitué de la particule et du champ. Peut-on formuler sous forme lagrangienne les lois de la dynamique lorsque l'on n'a pas un ensemble dénombrable de degrés de liberté ?
+
+\subsection{Champ en mécanique classique analytique}
+\subsubsection{Du discret au continu}
+
+Soit une cha\^ine d'oscillateurs harmoniques
+
+%%TIKZPICTURE
+

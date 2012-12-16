@@ -47,29 +47,29 @@ $$}
 et donc 
 $$
 	\begin{array}{r@{\;}l}
-		\nab\cdot\vec{E}(x,y,z,t)&=\vec{\nabla '}\cdot\vec{E}(x(x',y',z',t'),y(x',y',z',t'),z(x',y',z',t'),t(x',y',z',t'))\\ 
-		\nab\cdot\vec{E}&=\vec{\nabla '}\cdot\vec{E}
+		\nab\cdot\vec{E}(x,y,z,t)&=\nab'\cdot\vec{E}(x(x',y',z',t'),y(x',y',z',t'),z(x',y',z',t'),t(x',y',z',t'))\\ 
+		\nab\cdot\vec{E}&=\nab'\cdot\vec{E}
 	\end{array}
 $$
 \subsubsection*{Maxwell-Faraday}
 $$
 	\begin{array}{r@{\;}l}
-		\nab\times\vec{E}(\vec{r},t)&=-\frac{\partial \vec{B}}{t}\\
+		\nab\times\vec{E}(\vec{r},t)&=-\frac{\partial \vec{B}}{\partial t}\\
 			&=\vec{\nabla '}\times\vec{E}\\
-			&=-\frac{\partial \vec{B}}{t'} + (\vec{v}\cdot\vec{\nabla '})\vec{B}\\[15pt]
+			&=-\frac{\partial \vec{B}}{\partial t'} + (\vec{v}\cdot\vec{\nabla '})\vec{B}\\[15pt]
 		\nab\times(\vec{a}\times\vec{b})&=\vec{a}(\nab\cdot\vec{b})
 				-\vec{b}(\nab\cdot\vec{a})
 				+(\vec{b}\cdot\nab)\vec{a}
 				-(\vec{a}\cdot\nab)\vec{b}\\
-		(\vec{v}\cdot\vec{\nabla '})\vec{B}&=\underbrace{\vec{v}(\vec{\nabla '}\cdot\vec{B})}_{=0}
-				-\underbrace{\vec{v}(\vec{\nabla '}\cdot\vec{B})}_{=0}
-				+\underbrace{(\vec{B}\cdot\vec{\nabla '})\vec{v}}_{=0}
+		(\vec{v}\cdot\vec{\nabla '})\vec{B} & = \vec{v}\underbrace{(\vec{\nabla '}\cdot\vec{B})}_{=0}
+				-\vec{B}\underbrace{(\vec{\nabla '}\cdot\vec{v})}_{=0}
+				+\underbrace{(\vec{B}\cdot\vec{\nabla '})}_{=0} \vec{v}
 				-\vec{\nabla '}\times(\vec{v}\times\vec{B})\\
-		\vec{\nabla '}\times\vec{E}&=-\frac{\partial \vec{B}}{t'}-\vec{\nabla '}\times(\vec{v}\times\vec{B})
+		\vec{\nabla '}\times\vec{E}&=-\frac{\partial \vec{B}}{\partial t'}-\vec{\nabla '}\times(\vec{v}\times\vec{B})
 	\end{array}
 $$
 $$
-	\boxed{\vec{\nabla '}\times(\vec{E}+\vec{v}\times\vec{B})=-\frac{\partial \vec{B}}{t'}}	
+	\boxed{\vec{\nabla '}\times(\vec{E}+\vec{v}\times\vec{B})=-\frac{\partial \vec{B}}{\partial t'}}	
 $$
 \subsubsection*{Maxwell-Gauss}
 $$
@@ -82,14 +82,14 @@ $$
 		\nab\times\vec{B}&=\mu_0\vec{j}+\mu_0\epsilon_0\frac{\partial \vec{E}}{\partial t}\\
 			&=\vec{\nabla '}\times\vec{B}\\
 			&=\mu_0\vec{j}+\mu_0\epsilon_0\frac{\partial \vec{E}}{\partial t'}-\mu_0\epsilon_0(\vec{v}\cdot\vec{\nabla '})\vec{E}\\[15pt]
-		(\vec{v}\cdot\vec{\nabla '})\vec{E}&=\underbrace{\vec{v}(\vec{\nabla '}\cdot\vec{E})}_{=\frac{\rho}{\epsilon_0}}
-				-\underbrace{\vec{v}(\vec{\nabla '}\cdot\vec{E})}_{=0}
-				+\underbrace{(\vec{E}\cdot\vec{\nabla '})\vec{v}}_{=0}
-				-\vec{\nabla '}\times(\vec{v}\times\vec{E})
+		(\vec{v}\cdot\vec{\nabla '})\vec{E}& = \vec{v} \underbrace{(\vec{\nabla '}\cdot\vec{E})}_{=\frac{\rho}{\epsilon_0}}
+				- \vec{E} \underbrace{(\vec{\nabla '}\cdot\vec{v})}_{=0}
+				+ \underbrace{(\vec{E}\cdot\vec{\nabla '})}_{=0} \vec{v}
+				- \vec{\nabla '}\times(\vec{v}\times\vec{E})
 	\end{array}
 $$
 $$
-	\boxed{\vec{\nabla '}\times(\vec{B}+\frac{\vec{v}\times\vec{E}}{c^2})=\mu_0(\vec{j}-\rho\vec{v})+\epsilon_0\mu_0\frac{\partial \vec{E}}{t'}}	
+	\boxed{\vec{\nabla '}\times(\vec{B}+\frac{\vec{v}\times\vec{E}}{c^2})=\mu_0(\vec{j}-\rho\vec{v})+\epsilon_0\mu_0\frac{\partial \vec{E}}{\partial t'}}	
 $$
 
 \subsubsection*{Conservation de la charge}
@@ -141,7 +141,7 @@ $$}
 
 \subsubsection*{Maxwell-Faraday}
 $$
-	\nab\times\vec{E}=-\frac{\partial \vec{B}}{t}
+	\nab\times\vec{E}=-\frac{\partial \vec{B}}{\partial t}
 $$
 $$
 	\left\{ \begin{array}{l}
@@ -160,7 +160,7 @@ $$
 $$
 $$
 	\begin{array}{r@{\;}l}
-		\text{Maxwell-Flux donne : }{\nabla}\cdot\vec{B}=0&=\partial_xBx+\partial_yB_y+\partial_zB_z\\
+		\text{Maxwell-Flux donne : }{\nab}\cdot\vec{B}=0&=\partial_xBx+\partial_yB_y+\partial_zB_z\\
 		&=-\frac{\beta\gamma}{c}\partial_{t'}B_x+\gamma\partial_{x'}B_x+\partial_{y'}B_y+\partial_zB_z\\
 		\beta\gamma c\partial_{x'}B_x&=\gamma\beta^2\partial_{t'}B_x-\beta c\partial_{y'}B_y-\beta c\partial_{z'}B_z\\[10pt]\indent
 		\gamma&=\frac{1}{\sqrt{1-\beta^2}}\\
@@ -202,12 +202,13 @@ $$
 %  \end{array}
 %\]
 
-Remarques : 
+\begin{remarks}\hspace*{1em} 
 \begin{itemize}
 	\item On reconna\^it dans la transformation de $(c\rho,\vec{j})$ celle correspondant à un quadrivecteur
 	\item Transformation inverse : permuter les variables primées et non primées, et changer le signe de $\beta$
 	\item C'est Lorenz qui choisit l'invariance des équations de Maxwell sans les sources en 1904, et Poincaré avec les sources en 1905 en exploitant la transformation de $(c\rho,\vec{j})$
 \end{itemize}
+\end{remarks}
 
 \section{Potentiels et jauges}
 \subsection{Potentiels}
@@ -215,14 +216,15 @@ Remarques :
 $$
 	\begin{array}{r@{\;}l}
 		\vec{B}&=\nab\times\vec{A}\\
-		\vec{E}&=-\nab\phi-\partial_t\vec{A}\\
-		\text{car } \nab\cdot(\nab\times\vec{Z})&=0\\
-		\text{et }\nab\times(\nab Z)&=\vec{0}
+		\vec{E}&=-\nab\phi-\partial_t\vec{A}
 	\end{array}
 $$
-	
+$$
+	\text{car } \nab\cdot(\nab\times\vec{Z})=0
+	\text{ et }\nab\times(\nab Z)=\vec{0}
+$$
+
 	Les deux autres équations deviennent alors :
-	
 $$
 	\begin{array}{r@{\;}l}
 		\nab\vec{E}=\frac{\rho}{\epsilon_0}&=\nab\cdot(-\nab\phi-\partial_t\vec{A})\\
@@ -251,7 +253,7 @@ $$
 	Si $\lambda$ est suffisament régulier,\\
 $$
 		\begin{array}{r@{\;}l}
-			\nab\times(\vec{A')}&=(\vec{A}+\nab\times(\nab\lambda)\\ 
+			\nab\times(\vec{A')}&=(\vec{A}+\nab\times(\nab\lambda))\\ 
 			&=\vec{B}
 		\end{array}
 $$
@@ -351,7 +353,7 @@ $$
 		\end{array}
 $$
 $$
-		\nab\cdot\vec{A}=0=\nab\cdot\vec{A}+\nab^2\lambda
+		\nab\cdot\vec{A'}=0=\nab\cdot\vec{A}+\nab^2\lambda
 $$
 	Il suffit de résoudre l'équation de Poisson $\nab^2\lambda=-\nab\cdot\vec{A}$ \\\qedhere
 	\end{proof}
@@ -371,7 +373,7 @@ $$
 			\nab^2\vec{A}-\frac{1}{c^2}\partial_t^2\vec{A}=-\mu_0\vec{j_t}\\
 			\text{\hspace{1cm} avec }\vec{j_t}=\frac{1}{4\pi}\nab\times\nab\times\bigintsss_V\frac{\vec{j}(\vec{r'},t)}{\parallel\vec{r}-\vec{r'}\parallel}\,\dif^3\vec{r'}
 $$
-			\item {\txt Cette jauge s'appelle aussi jauge de radiation, car si on a un ensemble de charges dans un volume fini de l'espace, alors on peut montrer que le champ $\vec{E}$, $\vec{B}$ contient deux composantes, une en $\frac{1}{r}$ et l'autre en $\frac{1}{R^2}$ lorsque $R\rightarrow+\infty$. Si les charges ne sont pas accélérées, \emph{i.e.} c'est un problème de statique, alors seul le terme en $\frac{1}{r^2}$ subsiste. Le terme en $\frac{1}{R}$ est dit de radiation. Dans cette jauge, il provient exclusivement de l'équation sur $\vec{A}$ (car sur $\phi$, c'est une équation de Poissson). C'est une jauge particulièrement bien adaptée pour la quantification du champ électromagnétique.}
+			\item {\txt Cette jauge s'appelle aussi jauge de radiation, car si on a un ensemble de charges dans un volume fini de l'espace, alors on peut montrer que le champ $\vec{E}$, $\vec{B}$ contient deux composantes, une en $\frac{1}{r}$ et l'autre en $\frac{1}{r^2}$ lorsque $r\rightarrow+\infty$. Si les charges ne sont pas accélérées, \emph{i.e.} c'est un problème de statique, alors seul le terme en $\frac{1}{r^2}$ subsiste. Le terme en $\frac{1}{r}$ est dit de radiation. Dans cette jauge, il provient exclusivement de l'équation sur $\vec{A}$ (car sur $\phi$, c'est une équation de Poissson). C'est une jauge particulièrement bien adaptée pour la quantification du champ électromagnétique.}
 			\item Comme précédemment, on a :
 $$
 	-\square(\underbrace{\nab\cdot\vec{A}}_{\text{jauge}})=\mu_0(\underbrace{\partial_t\rho+\nab\cdot\vec{j}}_{\text{conservation  charge}})\text{\hspace{1cm}où }\square=\nab^2-\frac{1}{c^2}\partial_t^2

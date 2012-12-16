@@ -37,7 +37,7 @@ On cherche à construire un quadrivecteur à partir de $\rho$ et $\vec{j}$. Ains
 $$
 	\vec{j}=\begin{cases}
 		\rho\vec{v}&\text{si }\vec{r}\in \dif V\\
-		0&\text{sinon}
+		\vec{0}&\text{sinon}
 	\end{cases}
 $$
 
@@ -74,7 +74,7 @@ Pendant un intervalle de temps $\dif t$ dans $\mathcal{R}$, la charge se déplac
 Pour un boost de Lorentz, on a :
 $$
 	\begin{mat}
-		ct' \\ x' \\ t' \\ z'
+		ct' \\ x' \\ y' \\ z'
 	\end{mat}
 	=
 	\begin{mat}
@@ -125,11 +125,11 @@ $$
 \subsubsection{Quadrivecteur potentiel}
 En jauge de Lorenz ($\nab\cdot\vec{A}+\frac{1}{c^2}\partial_t\phi=0$), les équations satisfaites par les potentiels sont :
 $$
-	\left\{ \begin{array}{r@{\;}l}
-		\nab^2\phi - \frac{1}{c^2}\partial_t^2\phi&=-\frac{\rho}{\epsilon_0}\\
-		\nab^2\vec{A}-\frac{1}{c^2}\partial_t^2\vec{A}&=-\mu_0\vec{j}\\
-		\square\,\frac{\phi}{c}&=-\frac{\rho}{c\epsilon_0}=-\mu_0\rho c\\
-		\square\,\vec{A}&=-\mu_0\vec{j}
+	\left\{ \begin{array}{l}
+		\nab^2\phi - \frac{1}{c^2}\partial_t^2\phi=-\frac{\rho}{\epsilon_0}\\
+		\nab^2\vec{A}-\frac{1}{c^2}\partial_t^2\vec{A}=-\mu_0\vec{j}\\
+		\square\,\frac{\phi}{c}=-\frac{\rho}{c\epsilon_0}=-\mu_0\rho c\\
+		\square\,\vec{A}=-\mu_0\vec{j}
 	\end{array} \right.
 $$
 {\txt On est amené à considérer $(\frac{\phi}{c},\vec{A})$ comme les composantes contravariantes d'un quadrivecteur, le quadri-potentiel.}
@@ -165,11 +165,12 @@ $$
 $$
 $$
 	\begin{array}{r@{\;}l@{\;}l}
-		B_x&=\partial_yA_z-\partial_zA_y=\partial_2\phi^3-\partial_3\phi^2&=-(\partial_3\phi^2-\partial_2\phi^3)\\
-		B_y&=&=-(\partial_3\phi^1-\partial_1\phi^3)\\
-		B_z&=&=-(\partial_1\phi^2-\partial_2\phi^1)\\	E_x&=-\partial_x\phi-\partial_tA_x=\partial_1\phi^0-\partial_0\phi^1&=-(\partial_0\phi^1-\partial_1\phi^0)\\
-		E_y&=&=-(\partial_0\phi^2-\partial_2\phi^0)\\
-		E_z&=&=-(\partial_0\phi^3-\partial_3\phi^0)
+		B_x & = \partial_y A_z - \partial_z A_y = \partial_2 \phi^3 - \partial_3 \phi^2 & = - (\partial_3 \phi^2 - \partial_2 \phi^3) \\
+		B_y & = \partial_x A_z - \partial_z A_x = \partial_1 \phi^3 - \partial_3 \phi^1 & = - (\partial_3 \phi^1 - \partial_1 \phi^3) \\
+		B_z & = \partial_y A_x - \partial_x A_y = \partial_2 \phi^1 - \partial_1 \phi^2 & = - (\partial_1 \phi^2 - \partial_2 \phi^1) \\	
+		E_x & = - \partial_x \phi - \partial_t A_x = \partial_1 \phi^0 - \partial_0 \phi^1 & = - (\partial_0 \phi^1 - \partial_1 \phi^0) \\
+		E_y & = - \partial_y \phi - \partial_t A_y = \partial_2 \phi^0 - \partial_0 \phi^2 & = - (\partial_0 \phi^2 - \partial_2 \phi^0) \\
+		E_z & = - \partial_z \phi - \partial_t A_z = \partial_3 \phi^0 - \partial_0 \phi^3 & = - (\partial_0 \phi^3 - \partial_3 \phi^0)
 	\end{array}
 $$
 
@@ -194,7 +195,7 @@ $$
 		-\frac{E_z}{c} & -B_y & B_x & 0
 	\end{mat}
 $$
-On retrouve les équations de Maxwell :
+On exprime alors les équations de Maxwell sous forme covariante :
 
 \begin{minipage}{0.35\linewidth}
 $$\nab\cdot\vec{E}=\frac{\rho}{\epsilon_0} \text{\hspace{1.5cm}}$$
@@ -402,7 +403,7 @@ $$
 $$
 
 \begin{app}
-	On cherche le champ électromagnétique vu par un observateur fixe $P$ fixe (dans $\mathcal{R}$) par rapport auquel une charge $q$ se déplace à la vitesse $\vec{v}=\text{constante}$. On introduit $\mathcal{R'}$ tel que la particule se trouve en $0'$. $\mathcal{R'}$ est en translation rectiligne uniforme par rapport à $\mathcal{R}$ à la vitesse $\vec{v}=\vec{v_{\mathcal{R'}/\mathcal{R}}}$. Les coordonnées de $P$ dans $\mathcal{R}$ sont : $(ct=ct,x=0,y=0,z=0)$.
+	On cherche le champ électromagnétique vu par un observateur fixe $P$ fixe (dans $\mathcal{R}$) par rapport auquel une charge $q$ se déplace à la vitesse $\vec{v}=\text{constante}$. On introduit $\mathcal{R'}$ tel que la particule se trouve en $O'$. $\mathcal{R'}$ est en translation rectiligne uniforme par rapport à $\mathcal{R}$ à la vitesse $\vec{v}=\vec{v_{\mathcal{R'}/\mathcal{R}}}$. Les coordonnées de $P$ dans $\mathcal{R}$ sont : $(ct=ct,x=0,y=b,z=0)$.
 \begin{center}
 	\begin{minipage}{0.45\textwidth}
 %		\begin{figure}[H]
@@ -410,6 +411,7 @@ $$
 %			\input{schemas/repere.pdf_tex}
 %			\caption*{Changement de coordonnées}
 %		\end{figure}
+%%TIKZPICTURE
 	\end{minipage}
 	\begin{minipage}{0.45\textwidth}
 		{\renewcommand*{\arraystretch}{1.2}$$
@@ -443,7 +445,7 @@ $$
 $$
 $$
 	\text{Soit en P : }\left\{ \begin{array}{r@{\;}l}
-		\vec{B}&=\vec{0}\\
+		\vec{B}'&=\vec{0}\\
 		E'_x&=\frac{q}{4\pi\epsilon_0}\frac{-vt'}{\sqrt{(-vt')^2+b^2}^3}\\
 		E'_y&=\frac{q}{4\pi\epsilon_0}\frac{b}{\sqrt{(-vt')^2+b^2}^3}\\
 		E'_z&=0
@@ -453,16 +455,16 @@ et donc, pour le champ électromagnétique dans $\mathcal{R}$ au point $P$ :
 $$
 	\left\{ \begin{array}{r@{\;}l}
 		E_x&=\frac{q}{4\pi\epsilon_0}\frac{-\gamma vt}{\sqrt{(\gamma vt)^2+b^2}^3}\\
-		E_y&=\gamma E'_y=\frac{q}{4\pi\epsilon_0}\frac{\gamma b}{\sqrt{(\gamma vt)^2+b^2}^3}\kern 1cm \text{car }B'=0\\
+		E_y&=\gamma E'_y=\frac{q}{4\pi\epsilon_0}\frac{\gamma b}{\sqrt{(\gamma vt)^2+b^2}^3}\kern 1cm \text{car }\vec{B}'=0\\
 		E_z&=0
 	\end{array} \right.	
 $$
 $$
 	\begin{array}{r@{\;}l}
 		B_x&=B'_x=0\\
-		\vec{B_{\perp}}&=\gamma\left(\vec{B'_{\perp}}-\frac{\vec{ v_{\mathcal{R}/\mathcal{R'}}}\times\vec{E'_{\perp}}}{c^2}\right)\\
-		&=\gamma\frac{\vec{ v_{\mathcal{R}/\mathcal{R'}}}\times\vec{E'_{\perp}}}{c^2}\\
-		&=\frac{\vec{v}\times\vec{E}}{c^2}\\
+		\vec{B_{\perp}}&=\gamma\left(\vec{B'_{\perp}}-\frac{\vec{ v}_{\mathcal{R}/\mathcal{R'}}\times\vec{E'_{\perp}}}{c^2}\right)\\
+		&=-\gamma\frac{\vec{ v}_{\mathcal{R}/\mathcal{R'}}\times\vec{E'_{\perp}}}{c^2}\\
+		&=-\frac{\vec{v}\times\vec{E}}{c^2}\\
 		B_y&=0\\
 		B_z&=\frac{1}{4\pi\epsilon_0 c^2}\frac{\gamma qvb}{\sqrt{b^2+(\gamma vt)^2}^3}
 	\end{array}
