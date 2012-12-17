@@ -278,7 +278,7 @@ $$
 $$
 Comme le résultat est vrai pour tout $u$, on obtient finalement l'équation de la dynamique des champs :
 $$
-	\boxed{\frac{\partial \mathcal{L}}{\partial u}-\frac{\partial}{\partial x_i}\frac{\partial \mathcal{L}}{\partial(\partial_{x_i}u}-\frac{\partial}{\partial t}\frac{\partial \mathcal{L}}{\partial(\partial_{t}u)}=0}
+	\boxed{\frac{\partial \mathcal{L}}{\partial u}-\frac{\partial}{\partial x_i}\frac{\partial \mathcal{L}}{\partial(\partial_{x_i}u)}-\frac{\partial}{\partial t}\frac{\partial \mathcal{L}}{\partial(\partial_{t}u)}=0}
 $$
 
 Dans le cas du 2.1.1,
@@ -336,3 +336,180 @@ $$
 \end{remark}
 
 \subsection{Lagrangien du champ électromagnétique}
+Le but est de trouver $\mathcal{L}$ pour que l'équation de la dynamique corresponde aux équations de Maxwell. Comme ces dernières sont invariantes sous une transformation de Lorentz, on cherche $\mathcal{L}$ vérifiant cette condition. Or, 
+$$
+	S=\bigintssss\!\dif t\,\dif x\,\dif y\,\dif z\,\mathcal{L}=\bigintssss\!\dif^4x\,\mathcal{L}
+$$
+est un invariant, et $\dif^4x$ aussi, donc $\mathcal{L}$ doit être un invariant de Lorentz. On va donc l'écrire sous forme tensorielle.
+
+Les équations de Maxwell sont en outre linéaires en $\vec{E}$ et en $\vec{B}$, donc $\mathcal{L}$ doit être quadratique en $\vec{E}$ et $\vec{B}$. On est amené à considérer $c^2\vec{B}^2-\vec{E}^2$, qu'on réécrit sous forme tensorielle avec
+$$
+	F_{\mu\nu}F^{\mu\nu}=\frac{2}{c^2}(c^2\vec{B}^2-\vec{E}^2)
+$$
+
+\begin{remark}
+	$\vec{E}\cdot\vec{B}$ est aussi quadratique et invariant, mais on serait coincé par exemple dans les situations purement électrostatiques.
+\end{remark}
+
+$\mathcal{L}$ est une densité volumique d'énergie. On considère donc :
+$$
+	\mathcal{L}=-\frac{1}{4\mu_0}F_{\mu\nu}F^{\mu\nu}
+$$
+
+Vérifions-que cette forme de $\mathcal{L}$ convient :
+$$
+		\mathcal{L}=-\frac{1}{4\mu_0}g_{\mu\lambda}g_{\nu\sigma}
+			(\partial^{\lambda}\phi^{\sigma}-\partial^{\sigma}\phi^{\lambda})
+			(\partial^\mu \phi^\nu-\partial^\nu \phi^\mu)
+			=\mathcal{L}(\partial\phi)
+$$
+$$
+	\begin{array}{r@{\;}l}
+		\frac{\partial\mathcal{L}}{\partial\left(\frac{\partial\phi^{\alpha}}{\partial x_{\beta}}\right)}
+			&=-\frac{g_{\mu\lambda}g_{\nu\sigma}}{4\mu_0}\left(
+			(\delta_{\beta\delta}\delta_{\alpha\sigma}-\delta_{\beta\sigma}\delta_{\alpha\lambda})F^{\mu\nu}+
+			F^{\lambda\sigma}(\delta_{\beta\mu}\delta_{\alpha\nu}-\delta_{\beta\nu}\delta_{\alpha\mu})\right)\\
+			&=-\frac{1}{4\mu_0}\left(
+			(g_{\mu\beta}g_{\nu\alpha}-g_{\mu\alpha}g_{\nu\beta})F^{\mu\nu}+
+			F_{\mu\nu}(\delta_{\beta\mu}\delta_{\alpha\nu}-\delta_{\beta\nu}\delta_{\alpha\mu})\right)\\
+			&=-\frac{1}{4\mu_0}(F_{\beta\alpha}-F_{\alpha\beta}+F_{\beta\alpha}-F{\alpha\beta})\\
+			&=\frac{1}{\mu_0}F_{\alpha\beta}\\
+		\multicolumn{2}{l}{\frac{\partial\mathcal{L}}{\partial \phi^{\alpha}}=0}
+	\end{array}
+$$
+
+L'équation de la dynamique est donc :
+$$
+	\frac{\partial}{\partial x_{\beta}}\frac{\partial\mathcal{L}}{\partial\left(\frac{\partial\phi^{\alpha}}{\partial x_{\beta}}\right)}-\underbrace{\frac{\partial\mathcal{L}}{\partial \phi^{\alpha}}}_{=0}=0
+$$
+soit
+$$
+	\partial^{\beta}\left(\frac{1}{\mu_0}F_{\alpha\beta}\right)=0
+$$
+\emph{i.e.} on retrouve $\partial_{\alpha}F^{\alpha\beta}=0$, les équations de Maxwell avec sources (mais ici, sans sources).
+
+Les équations homogènes sont automatiquement satisfaites en introduisant le quadripotentiel : $F^{\mu\nu}=\partial^{\mu}\phi^{\nu}-\partial^{\nu}\phi^\mu$.
+
+$$
+	\begin{array}{r@{\;}l}
+		\partial_\alpha F_{\beta\gamma} + \partial_\beta F_{\gamma\alpha} + \partial_\gamma F_{\alpha\beta}
+		&= \partial_{\alpha}(g_{\beta\mu}g_{\gamma\nu}F^{\mu\nu})
+			+ \partial_{\beta}(g_{\gamma\mu}g_{\alpha\nu}F^{\mu\nu})
+			+ \partial_{\gamma}(g_{\alpha\mu}g_{\beta\nu}F^{\mu\nu})\\
+		&= g_{\beta\mu}g_{\gamma\nu}\partial_\alpha (\partial^{\mu}\phi^{\nu}-\partial^{\nu}\phi^\mu)
+			+ g_{\gamma\mu}g_{\alpha\nu}\partial_{\beta} (\partial^{\mu}\phi^{\nu}-\partial^{\nu}\phi^\mu)
+			+ g_{\alpha\mu}g_{\beta\nu}\partial_{\gamma}(\partial^{\mu}\phi^{\nu}-\partial^{\nu}\phi^\mu)\\
+		&= \partial_{\alpha}\partial_{\beta}\phi_{\gamma}
+			- \partial_{\alpha}\partial_{\gamma}\phi_{\beta}
+			+ \partial_{\beta}\partial_{\gamma}\phi_{\alpha}
+			- \partial_{\beta}\partial_{\alpha}\phi_{\gamma}
+			+ \partial_{\alpha}\partial_{\gamma}\phi_{\beta}
+			- \partial_{\gamma}\partial_{\beta}\phi_{\alpha}\\
+		 &= 0
+	\end{array}
+$$
+
+\subsection{Lagrangien du système \{champs + particules\}}
+On a déjà écrit le Lagrangien pour une particule (ou un système de particules), et on passe à la description volumique en remplaçant 
+$$
+	\begin{array}{r@{\;}ccl}
+		&q&\text{ par }&\rho\defeq q_i\delta(\vec{r}-\vec{r}_i)\\
+		\text{et }&q\frac{\dif x^\alpha}{\dif \tau}&\text{ par }&\rho U^\alpha=J^\alpha
+	\end{array}
+$$
+
+L'action s'écrit alors :
+$$
+	S=S_{\text{particule libre}}+\bigintsss\!\dif t\,\dif x\,\dif y\,\dif z\left(-\frac{1}{4\mu_0}F_{\mu\nu}F^{\mu\nu}-A^\mu J_\mu\right)
+$$
+avec 
+$$
+	S_{\text{particule libre}}=\sum_{\text{particules}}\bigintsss\!\dif\tau\left(-mc\sqrt{g_{\alpha\beta}\frac{\dif x^\alpha}{\dif\tau}\frac{\dif x^\beta}{\dif\tau}}\right)
+$$
+
+Retrouve-t-on les équations de Maxwell avec sources et les équations de Lorentz ?
+$$
+	\begin{array}{c}
+		\frac{\partial\mathcal{L}}{\partial\left(\frac{\partial A^{\alpha}}{\partial x_{\beta}}\right)}=\frac{1}{\mu_0}F_{\alpha\beta}\\
+		\frac{\partial \mathcal{L}}{\partial A^\alpha}=-J_\alpha
+	\end{array}
+$$
+
+L'équation de la dynamique prend la forme suivante :
+$$
+	\begin{array}{r@{\;}l}
+		0&=\frac{\partial}{\partial x_{\beta}}\frac{\partial\mathcal{L}}{\partial\left(\frac{\partial A^\alpha}{\partial x_{\beta}}\right)}-\frac{\partial\mathcal{L}}{\partial A^\alpha}\\
+		&=\partial^\beta\frac{1}{\mu_0}F_{\alpha\beta}+J_\alpha\\
+		&=-\partial^\beta\frac{1}{\mu_0}F_{\beta\alpha}+J_\alpha
+	\end{array}
+$$
+$$
+	\boxed{\partial^\beta F_{\beta\alpha}=\mu_0 J_\alpha}
+$$
+On a donc retrouvé les équations de Maxwell avec sources. Les équations de Maxwell homogènes restent vérifiées. L'équation de Lorentz est également satisfaite car on a montré que 
+$$
+aze	
+$$
+et le terme supplémentaire $-\frac{1}{4\mu_0}F_{\mu\nu}F^{\mu\nu}$ ne fait pas intervenir les $(x^\alpha,U^\alpha)$, donc la démonstration précédente est toujours valable.
+
+\begin{remarks}\hspace*{1em}
+	\begin{itemize}
+		\item La densité lagrangienne n'est pas unique, tout comme en mécanique analytique classique, et on peut ajouter n'importe quel terme de la forme $\partial_\mu F^\mu(x^\alpha,A^\beta)$.
+		\item On peut poursuivre le travail pour obtenir la forme hamiltonienne.
+	\end{itemize}
+\end{remarks}
+
+\section{Lois de conservation}
+\subsection{Théorème de Noether}
+Dans le cas discret, on considère une transformation infinitésimale $q_i\longrightarrow q_i'$ et on sait que si $\delta L=\left.\frac{\dif L}{\dif \epsilon}\right|_{\epsilon=0}=0$, on est capable d'exhiber une quantité conservée $K(q,\dot{q})$, \emph{i.e.}
+$$
+	\frac{\dif K(q,\dot{q})}{\dif t}=0
+$$
+Le pendant en théorie des champs est que l'on effectue des transformations infinitésimales sur les champs $\psi$, que le rôle de $\dif t$ est joué par $\dif^4x$, et que si l'on est capable de trouver
+$$
+	\phi^\alpha(\psi,x) \text{ tel que } \left.\frac{\dif \mathcal{L}}{\dif\epsilon}\right|_{\epsilon=0}=\partial_\alpha \phi^\alpha
+$$
+alors
+$$
+	\partial_\alpha G^\alpha=0 \text{ avec } G^\alpha=\frac{\partial \mathcal{L}}{\partial\left(\frac{\partial\psi_\rho}{\partial x^\alpha}\right)}\delta\psi_\rho-\phi^\alpha
+$$
+Le pendant de la charge de Noether est donc un courant dont la quadri-divergence est nulle.
+
+\subsection{Applications}
+\subsubsection{Invariance de jauge et conservation de la charge}
+L'action s'écrit :
+$$
+	S=\underbrace{S_{\text{particule libre}}}_{\text{indépendant de la jauge}}
+	+\bigintsss\!\dif t\,\dif x\,\dif y\,\dif z\left(\vphantom{\frac{1}{4}}\right.
+	-\underbrace{\frac{1}{4\mu_0}F_{\mu\nu}F^{\mu\nu}}_{\text{indépendant de la jauge}}
+	-\underbrace{A^\mu J_\mu}_{\text{dépend de la jauge}}\left.\vphantom{\frac{1}{4}}\right)
+$$
+
+Considérons la transformation infinitésimale suivante :
+$$
+	\left\{\begin{array}{r@{\longrightarrow}l}
+		\frac{\phi}{c}&\frac{\phi}{c}-\partial_t\Lambda\\
+		\vec{A}&\vec{A}+\nab\Lambda
+	\end{array}\right.
+$$
+
+On s'intéresse uniquement à la partie dépendant de la jauge :
+$$
+	\begin{array}{r@{\;}l}
+		-A^\mu J_\mu \longrightarrow & -A^\mu J_\mu+(\partial_t\Lambda)J_0-\nab\Lambda\cdot(-\vec{j})\\
+			=&-A^\mu J_\mu+\underbrace{\partial_\mu(\Lambda J^\mu)}_{\mathclap{\text{de la forme }\partial_\mu\Gamma^\mu\text{, ne contribue pas}}}-\Lambda\partial_\mu J^\mu\\
+	\end{array}
+$$
+donc, d'après le théorème de Noether,
+$$
+	\phi^\alpha\defeq-J^\alpha
+$$
+et la quadri-divergence de $G$ est nulle, avec
+$$
+	G^\alpha=\underbrace{\frac{\partial \mathcal{L}}{\partial\left(\frac{\partial A_\rho}{\partial x^\alpha}\right)}}_{=0}\delta A_\rho-\phi^\alpha
+$$
+\emph{i.e.} $G^\alpha=J^\alpha$ et le théorème assure que $\partial_\alpha J^\alpha=0$, on retrouve l'équation de conservation de la charge.
+
+\subsubsection{Tenseur énergie-impulsion du champ électromagnétique}
+
+{\small \it cf. TD}
