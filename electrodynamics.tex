@@ -15,6 +15,11 @@
 \usepackage[hang,small,bf]{caption}
 \usepackage{float}
 
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathmorphing,arrows}
+
+\usepackage{mathtools}
+
 %\usepackage{calc}
 %\newlength\dlf
 %\newcommand\alignedbox[2]{
@@ -29,6 +34,14 @@
 %  \endgroup
 %}
 
+\tikzset{
+	spring/.style={decorate,
+		decoration={coil,amplitude=3pt, segment length=4pt, post length=7pt, pre length=7pt}} 
+	}	
+	
+
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
 
 \newenvironment{mat}[1][1]
 {\renewcommand*{\arraystretch}{#1} \begin{pmatrix}}

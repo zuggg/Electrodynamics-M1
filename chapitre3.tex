@@ -20,7 +20,7 @@ et $t$ joue un rôle particulier incompatible avec la relativité. En effet, si 
 	
 {\txt \emph{Retour sur la notion de trajectoire }: c'est une courbe paramétrée par un unique paramètre pour lequel la seule contrainte est d'en faire une fonction monotone. En mécanique classique, le choix naturel est $t$. En mécanique relativiste, on introduit un paramètre $\theta$ tel que l'évolution de $\theta$ soit monotone le long de la trajectoire (entendue comme la ligne d'univers suivie par la particule dans l'espace de Minkowski). On impose que $\theta$ soit un invariant de Lorentz. On pourrait prendre le temps propre $\tau$ mais rien ne nous y oblige, et un tel choix ne permettrait pas de décrire une particule sans masse. À partir de là, on introduit un Lagrangien $\Lambda(x^\mu,\frac{\dif x^\mu}{\dif\theta})$ et une action $\mathcal{S}$ :}
 $$
-	\mathcal{S}=\bigintsss_{\text{\tiny évènement 1}}^{\text{\tiny évènement 2}} \Lambda(x^\mu,\frac{\dif x^\mu}{\dif\theta})\,\dif\theta
+	\mathcal{S}\defeq\bigintsss_{\text{\tiny évènement 1}}^{\text{\tiny évènement 2}} \Lambda(x^\mu,\frac{\dif x^\mu}{\dif\theta})\,\dif\theta
 $$
 {\txt On pose $\dot{x}=\frac{\dif x}{\dif\theta}$. Il est nécessaire que $S$ soit un invariant de Lorentz pour que la notion d'extrémalisation de $\mathcal{S}$ reste valable quel que soit le référentiel considéré. $\Lambda(x^\mu,\dot{x}^\mu)$ est donc un invariant de Lorentz. Le but est alors de l'expliciter sous forme covariante pour que les équations d'Euler-Lagrange soient équivalentes au principe fondamental de la dynamique :}
 $$
@@ -106,7 +106,7 @@ Il reste à expliciter $\Lambda(x^\mu,\dot{x}^\mu)$. On s'appuit sur les faits s
 $$
 	\begin{array}{r@{\;}l}
 		\mathcal{S}=\bigintsss_{t_1}^{t_2} \! \dif t\,\mathcal{L}\!\left(x,t,\frac{\dif x}{\dif t}\right) &= \bigintsss_{\theta_1}^{\theta_2} \!\dif \theta\,\frac{\dif t}{\dif\theta}\mathcal{L}\!\left(x^{\alpha},\frac{\dif x^{\alpha}}{\dif \theta}\frac{\dif\theta}{\dif t}\right)\\
-		&\equiv  \bigintsss_{\theta_1}^{\theta_2} \!\dif \theta\,\Lambda\!\left(x^{\mu},\frac{\dif x^{\mu}}{\dif \theta}\right)
+		&\defeq  \bigintsss_{\theta_1}^{\theta_2} \!\dif \theta\,\Lambda\!\left(x^{\mu},\frac{\dif x^{\mu}}{\dif \theta}\right)
 	\end{array}
 $$
 \emph{i.e.} $\frac{\dif t}{\dif\theta}\mathcal{L}\!\left(x^{\alpha},\frac{\dif x^{\alpha}}{\dif \theta}\frac{\dif\theta}{\dif t}\right) =\Lambda\!\left(x^{\mu},\frac{\dif x^{\mu}}{\dif \theta}\right)$ et on choisit $\tau=\theta$, $\frac{\dif t}{\dif \tau}=\gamma$.
@@ -161,11 +161,11 @@ Tout comme en mécanique classique, on introduit
 \begin{itemize}
 	\item le moment conjugué
 	$$
-		p_{\alpha}=\frac{\partial\Gamma}{\partial\dot{x}^{\alpha}}\text{\hspace{10pt}où 	}\dot{x}^{\alpha}=\frac{\dif x^{\alpha}}{\dif\theta}
+		p_{\alpha}\defeq\frac{\partial\Gamma}{\partial\dot{x}^{\alpha}}\text{\hspace{10pt}où 	}\dot{x}^{\alpha}=\frac{\dif x^{\alpha}}{\dif\theta}
 	$$
 	\item le hamiltonien
 	$$
-		\mathcal{H}(x^\mu,p^\mu)=p^{\alpha}\dot{x}_{\alpha}-\Lambda
+		\mathcal{H}(x^\mu,p^\mu)\defeq p^{\alpha}\dot{x}_{\alpha}-\Lambda
 	$$
 \end{itemize}
 et on retrouve l'équation de Hamilton :
@@ -183,7 +183,156 @@ On a été capable de retrouver la formulation lagrangienne autant en mécanique
 \subsection{Champ en mécanique classique analytique}
 \subsubsection{Du discret au continu}
 
-Soit une cha\^ine d'oscillateurs harmoniques
+Soit une cha\^ine d'oscillateurs harmoniques unidimensionnels :
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1]
+	\begin{scope}
+	\clip (1.2,1) rectangle (10.8,-1);		
+		\foreach \x in {0,2,...,12}
+			{
+			\draw[spring,red,-*] (\x,0) -- +(2,0);
+			\node at (\x+1,10 pt) {$k$};
+			\node at ((\x +1.95,-8 pt) {$m$};
+			}
+	\end{scope}
+			
+	\draw [->] (1,-1) -- (11,-1) node [right] {$z$};
 
-%%TIKZPICTURE
+	\draw (2,-1cm-1pt) -- (2,-1cm+1pt) node [below] {$z_{i-2}$};
+	\draw (4,-1cm-1pt) -- (4,-1cm+1pt) node [below] {$z_{i-1}$};
+	\draw (6,-1cm-1pt) -- (6,-1cm+1pt) node [below] {$z_{i}$};
+	\draw (8,-1cm-1pt) -- (8,-1cm+1pt) node [below] {$z_{i+1}$};
+	\draw (10,-1cm-1pt) -- (10,-1cm+1pt) node [below] {$z_{i+2}$};
+\end{tikzpicture}
+\caption*{Chaîne d'oscillateurs harmoniques}
+\end{figure}
 
+Pour tout $i$, on définit $z_{i+1}^0-z_i^0\eqdef b$ comme la longueur à vide des ressorts.
+$$
+	\begin{array}{r@{\;}l}
+		U&=\sum \frac{1}{2}k(u_{i+1}-u_i)^2 \text{ où } u_i=z_i-z_i^0\\
+		T&=\sum \frac{1}{2}m\dot{u}_i\\
+		L&=T-U=\sum b\left(\frac{1}{2}\frac{m}{b}\dot{u}_i^2-\frac{1}{2}kb\left(\frac{u_{i+1}-u_i}{b}\right)^2\right)=\sum L_i
+	\end{array}
+$$
+Les équations d'Euler-Lagrange donnent :
+$$
+	\begin{array}{c}
+		\frac{\dif }{\dif t}\frac{\partial L}{\partial \dot{u}_i}-\frac{\partial L}{\partial u_i}=0\\
+		m\ddot{u}_i+kb\left(\frac{u_i-u_{i+1}}{b^2}+\frac{u_i-u_{i-1}}{b^2}\right)=0
+	\end{array}
+$$
+Que deviennent $L$ et les équations d'Euler-Lagrange dans la limite où $b\longrightarrow 0$ ?
+\begin{itemize}
+	\item $\frac{m}{b}\longrightarrow \mu$ la masse linéique.
+	\item La loi de Hooke stipule que dans la limite élastique, l'allongement par unité de longueur est proportionnel à la force appliquée $F=Ya$, où $Y$ est le module d'Young et $a$ l'allongement par unité de longueur.
+\end{itemize}
+Ici, on a :
+$$
+	F=k(u_{i+1}-u_i)=kb\frac{u_{i+1}-u_i}{b}
+$$
+L'allongement linéique est $\frac{u_{i+1}-u_i}{b}$, donc $kb\longrightarrow Y$. Le Lagrangien devient donc :
+$$
+	L=\sum bL_i\longrightarrow\bigintsss \!\dif z\left(\frac{1}{2}\mu \dot{u}^2-\frac{1}{2}Y\left(\frac{\partial u}{\partial z}\right)^2\right) = \bigintsss\!\dif z\,\mathcal{L}\left(u,\dot{u},\frac{\partial u}{\partial z}\right)
+$$
+
+$\mathcal{L}$, la densité lagrangienne, dépend d'une fonction $u$ ainsi que de ses dérivées temporelle $\partial_t u$ et spatiale $\partial_z u$. On parle alors de fonctionnelle.
+
+Les équations d'Euler-Lagrange se transforment en équation de propagation :
+$$
+	\mu \ddot{u}-Y\frac{\partial^2u}{\partial z^2}=0
+$$
+
+\subsubsection{Densité lagrangienne et équation de champ}
+La généralisation en cas tridimensionnel est immédiate, \emph{i.e.} pour un champ $u(x,y,z,t)$, on a :
+\begin{itemize}
+	\item une densité lagrangienne $\mathcal{L}(u,\partial_x u,\partial_y u,\partial_z u,\partial_t u)$,
+	\item un Lagrangien $L=\bigintssss \!\dif x\,\dif y\,\dif z\, \mathcal{L}$,
+	\item et un principe de Hamilton $\delta\!\!\bigintssss\!\dif t\, L = 0$.
+\end{itemize}
+À partir de cela, il est possible de déterminer l'équation correspondant à la dynamique du champ.
+$$
+	\begin{array}{r@{\;}l}
+		0&=\delta\!\!\bigintssss\!\dif t\,\dif x\,\dif y\,\dif z\,\mathcal{L}(u,\partial_x u,\partial_y u,\partial_z u,\partial_t u)\\
+			&=\bigintsss\!\dif t\,\dif x\,\dif y\,\dif z \left(\frac{\partial \mathcal{L}}{\partial u}\delta u
+				+ \frac{\partial \mathcal{L}}{\partial(\partial_x u)}\delta(\partial_x u)
+				+ \frac{\partial \mathcal{L}}{\partial(\partial_y u)}\delta(\partial_y u)
+				+ \frac{\partial \mathcal{L}}{\partial(\partial_z u)}\delta(\partial_z u)
+				+ \frac{\partial \mathcal{L}}{\partial(\partial_t u)}\delta(\partial_t u)\right)
+	\end{array}
+$$
+Or,
+$$
+	\bigintsss_{t_1}^{t_2}\!\dif t\frac{\partial \mathcal{L}}{\partial(\partial_t u)}\delta(\partial_t u)
+		=\underbrace{\left[\frac{\partial \mathcal{L}}{\partial(\partial_t u)}\delta u\right]^{t_2}_{t_1}}_{\mathclap{=0\text{ car on fixe les extrémités}}}
+			-\bigintsss^{t_2}_{t_1}\!\dif t\left(\frac{\partial}{\partial t}\left(\frac{\partial \mathcal{L}}{\partial(\partial_t u)}\right)\right)\delta u
+$$
+soit, en suivant le même raisonnement pour les termes en dérivées spatiales,
+$$
+	0=\bigintsss\!\dif t\,\dif x\,\dif y\,\dif z\left(\frac{\partial \mathcal{L}}{\partial u}
+		-\frac{\partial}{\partial x}\left(\frac{\partial \mathcal{L}}{\partial(\partial_x u)}\right)
+		-\frac{\partial}{\partial y}\left(\frac{\partial \mathcal{L}}{\partial(\partial_y u)}\right)
+		-\frac{\partial}{\partial z}\left(\frac{\partial \mathcal{L}}{\partial(\partial_z u)}\right)
+		-\frac{\partial}{\partial t}\left(\frac{\partial \mathcal{L}}{\partial(\partial_t u)}\right)\right)\delta u
+$$
+Comme le résultat est vrai pour tout $u$, on obtient finalement l'équation de la dynamique des champs :
+$$
+	\boxed{\frac{\partial \mathcal{L}}{\partial u}-\frac{\partial}{\partial x_i}\frac{\partial \mathcal{L}}{\partial(\partial_{x_i}u}-\frac{\partial}{\partial t}\frac{\partial \mathcal{L}}{\partial(\partial_{t}u)}=0}
+$$
+
+Dans le cas du 2.1.1,
+$$
+	\begin{array}{c}
+		\mathcal{L}(u,\partial_xu,\partial_tu)=\frac{1}{2}\mu(\partial_tu)^2-\frac{1}{2}Y(\partial_xu)^2\\
+		\partial_t(\mu\partial_tu)-\partial_x(Y\partial_xu)=0=\mu\partial_t^2u-Y\partial_x^2u=0
+	\end{array}
+$$
+On retrouve l'équation de propagation.
+
+\begin{remarks}\hspace*{1em}
+\begin{itemize}
+	\item En notant que les variables temporelle et spatiales jouent un r\^ole équivalent, et en posant $x^0=t$, $x^1=x$, $x^2=y$ et $x^3=z$, on peut réécrire l'équation de la dynamique sous la forme suivante :
+	$$
+		\boxed{\frac{\partial}{\partial x^{\alpha}}\frac{\partial\mathcal{L}}{\partial\left(\frac{\partial u}{\partial x^{\alpha}}\right)}-\frac{\partial\mathcal{L}}{\partial u}=0}
+	$$
+	\item On peut bien entendu généraliser ce résultat au cas où le champ n'est pas un champ scalaire, mais par exemple un champ vectoriel. Le formalisme tensoriel est alors particulière bien adapté, avec le fait que l'intervalle entre deux évènements en mécanique classique s'écrit :
+	$$
+		\dif s^2=\dif x^2+\dif y^2+\dif z^2\text{, \emph{i.e.} }g_{0i}=g_{i0}=0\kern 1em \forall i
+	$$
+	\item On peut noter qu'un système à $N$ degrés de liberté donne $N$ équations du mouvement, alors qu'un système avec une infinité non dénombrable de degrés de liberté (soit un champ) donne une unique équation. La différence réside dans le fait que les $N$ équations d'Euler-Lagrange sont des équations différentielles ordinaires, alors que l'équation de la dynamique des champs est une EDP.
+\end{itemize}
+\end{remarks}
+
+\subsubsection{Densité hamiltonienne et densité de moment}
+En faisant l'analogie du passage du Lagrangien au Hamiltonien, ou en remarquant qu'une équation du second ordre peut se réécrire sous la forme de deux équations du premiers ordre, on introduit :
+$$
+	\Pi_t=\frac{\partial\mathcal{L}}{\partial\left(\frac{\partial u}{\partial t}\right)}
+$$
+la densité de moment, et 
+$$
+	\mathcal{H}(u,\partial_xu,\partial_yu,\partial_zu,\Pi_t)=\Pi_t\frac{\partial u}{\partial t}-\mathcal{L}
+$$
+la densité hamiltonienne.
+Le Hamiltonien correspondant s'écrit alors :
+$$
+	H=\bigintssss\!\dif x\,\dif y\,\dif z\,\mathcal{H}(u,\partial_xu,\partial_yu,\partial_zu,\Pi_t)
+$$
+
+On arrive, de la même façon, aux équations de Hamilton :
+$$
+	\left\{\begin{array}{r@{\;}l}
+		\frac{\partial \mathcal{H}}{\partial\Pi_t}&=\frac{\partial u}{\partial t}\\
+		\frac{\partial \mathcal{H}}{\partial u}&=-\frac{\partial \Pi_t}{\partial t}
+	\end{array}\right.
+$$
+
+\begin{remark}
+	Tout comme on a $\frac{\dif A}{\dif t}=[H,A]$ si $A$ ne dépend pas explicitement du temps, on a :
+	$$
+		\frac{\dif A}{\dif t}=\bigintssss\!\dif x\,\dif y\,\dif z\,[\mathcal{H},A]
+	$$
+	qui est le point de départ pour la quantification des champs.
+\end{remark}
+
+\subsection{Lagrangien du champ électromagnétique}

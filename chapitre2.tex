@@ -161,7 +161,7 @@ La jauge est covariante.
 	Les quadrivecteurs ont quatre composantes, alors que $\vec{E}$ et $\vec{B}$ n'en ont chacun que trois. Il est nécessaire de considérer un tenseur d'ordre supérieur ou égal à 2. On part de l'expression de $\vec{E}$ et $\vec{B}$ avec les potentiels :
 
 $$
-	\vec{B}\nab\times\vec{A}\text{\hspace{1cm}et\hspace{1cm}}\vec{E}=-\nab\phi-\partial_t\vec{A}
+	\vec{B}=\nab\times\vec{A}\text{\hspace{1cm}et\hspace{1cm}}\vec{E}=-\nab\phi-\partial_t\vec{A}
 $$
 $$
 	\begin{array}{r@{\;}l@{\;}l}
@@ -406,12 +406,23 @@ $$
 	On cherche le champ électromagnétique vu par un observateur fixe $P$ fixe (dans $\mathcal{R}$) par rapport auquel une charge $q$ se déplace à la vitesse $\vec{v}=\text{constante}$. On introduit $\mathcal{R'}$ tel que la particule se trouve en $O'$. $\mathcal{R'}$ est en translation rectiligne uniforme par rapport à $\mathcal{R}$ à la vitesse $\vec{v}=\vec{v_{\mathcal{R'}/\mathcal{R}}}$. Les coordonnées de $P$ dans $\mathcal{R}$ sont : $(ct=ct,x=0,y=b,z=0)$.
 \begin{center}
 	\begin{minipage}{0.45\textwidth}
-%		\begin{figure}[H]
-%			\centering
-%			\input{schemas/repere.pdf_tex}
-%			\caption*{Changement de coordonnées}
-%		\end{figure}
-%%TIKZPICTURE
+
+	\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[scale=2]
+		\draw[thick,->] (0,0) node [above left]{$O$} -- (1,0) node[above right]{$x$};
+		\draw[thick,->] (0,0) -- node [left,midway]{$P$} (0,1) node[above]{$y$};
+		\draw[thick,->] (0,0,0) -- (0,0,1) node[below left]{$z$};
+		\draw[thick] (-1pt,0.5) -- (1pt,0.5);
+		
+		\draw[red,dashed,->] (0.2,0) node [above right]{$O'$} -- (1.2,0) node[right]{$x'$};
+		\draw[red,dashed,->] (0.2,0) -- (0.2,1) node[above]{$y'$};
+		\draw[red,dashed,->] (0.2,0,0) -- (0.2,0,1) node[below left]{$z'$};
+		
+		\draw[thick,red,->] (0.2,0) -- (0.8,0) node [below,midway]{$\vec{v}$};
+	\end{tikzpicture}
+	\caption*{Changement de référentiels}
+	\end{figure}
 	\end{minipage}
 	\begin{minipage}{0.45\textwidth}
 		{\renewcommand*{\arraystretch}{1.2}$$
