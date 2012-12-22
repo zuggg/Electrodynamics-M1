@@ -243,3 +243,114 @@ L'indicatrice de rayonnement est la surface correspondant à $\frac{\dif\mathcal
 \end{tikzpicture}
 \caption*{Indicatrice de rayonnement}
 \end{figure}
+
+\subsubsection{Cas relativiste}
+
+L'énergie qui est reçue entre les instants $t$ et $t+\dif t$ a été émise entre les instants $t'$ et $t'+\dif t'$, avec $t=t'+\frac{R(t')}{c}$
+$$
+	\begin{array}{r@{\;}l}
+		t+\dif t&=t'+\dif t'+\frac{R(t'+\dif t')}{c}\\
+			&=t'+\dif t'\left(1+\frac{1}{c}\frac{\dif R(t')}{\dif t'}\right)+\frac{R(t')}{c}
+	\end{array}
+$$
+avec
+$$
+	\frac{\dif R}{\dif t'}=\frac{\dif}{\dif t'}\|\vec{r}-\vec{r}_q(t')\|=-\vec{v}_q(t)\cdot\vec{n}
+$$
+et
+$$
+	\vec{n}=\frac{\vec{r}-\vec{r}_q}{\|\vec{r}-\vec{r}_q\|}
+$$
+soit 
+$$
+	\dif t = \dif t'\left.(1-\vec{\beta}\cdot\vec{n})\right|_\text{ret}
+$$
+
+On s'intéresse à la puissance émise, et on a donc :
+$$
+	\frac{\dif \mathcal{P}}{\dif S}=\frac{q^2}{16\pi^2\epsilon_0c}\frac{\|\vec{n}\times((\vec{n}-\vec{\beta})\times\dot{\vec{\beta}})\|}{R^2(1-\vec{n}\cdot\vec{\beta})^5}
+$$
+Soit $\theta=(\dot{\vec{v}},\vec{n})$ et $\psi=(\dot{\vec{\beta}},\vec{\beta})$
+$$
+	\frac{\dif \mathcal{P}}{\dif S}=...
+$$
+et
+$$
+	\mathcal{P}_\text{tot}=\bigintsss_0^{2\pi}\!\dif\phi\bigintsss_0^\pi\!\dif\theta\,\sin(\theta)\frac{\dif\mathcal{P}(t')}{\dif\Omega}
+$$
+
+{\txt $\mathcal{P}_\text{tot}$ est un invariant relativiste, et on a donc cherché à donner une formulation covariante de la formule de Larmor en introduisant uniquement $\vec{\beta}$ et $\dot{\vec{\beta}}$}. On s'inspire donc de :
+$$
+	\text{Larmor : }\mathcal{P_\text{tot}}=\frac{q^2\dot{\vec{v}}^2}{6\pi\epsilon_0c^3}=\frac{q^2}{6\pi\epsilon_0c^3m^2}\dot{\vec{p}}\,^2
+$$
+car $\vec{p}=m\vec{v}$ en mécanique non relativiste. Considérons l'expression :
+$$
+	\mathcal{P}_\text{tot}=\frac{q^2}{6\pi\epsilon_0c^3m^2}\frac{\dif p_\mu}{\dif\tau}\frac{\dif p^\mu}{\dif\tau}
+$$
+avec le quadrivecteur énergie-impulsion
+$$
+	p^\mu=\left(\frac{E}{c},\vec{p}\right)
+$$
+
+$$
+	\frac{\dif p^0}{\dif\tau}=\frac{\dif p^0}{\dif t}\frac{\dif t}{\dif \tau}=\gamma\frac{\dif p^0}{\dif t}
+$$
+avec
+$$
+	p^0=\frac{E}{c}=\frac{\sqrt{p^2+m^2c^4}}{c}
+$$
+On a alors :
+$$
+	\begin{array}{r@{\;}l}
+		\frac{\dif E}{\dif t}&=\frac{pc^2}{\sqrt{p^2c^2+m^2c^4}}\frac{\dif p}{\dif t}\\
+			&=\beta c\frac{\dif p}{\dif t}
+	\end{array}
+$$
+soit
+$$
+	\begin{array}{r@{\;}l}
+		\mathcal{P}_\text{tot}&=\frac{q^2}{6\pi\epsilon_0m^2c^3}\left(\left(\frac{\dif\vec{p}}{\dif\tau}\right)^{\!\!2}-\beta^2\left(\frac{\dif\vec{p}}{\dif\tau}\right)^{\!\!2}\right)\\
+			&\xrightarrow[\beta\longrightarrow 0]{}\frac{q^2}{6\pi\epsilon_0m^2c^3}\left(\frac{\dif\vec{p}}{\dif\tau}\right)^{\!\!2}\\
+			&=\frac{q^2}{6\pi\epsilon_0m^2c^3}\left(\frac{\dif\vec{p}}{\dif t}\right)^{\!\!2}
+	\end{array}
+$$
+\vspace{1cm}
+$$
+	\begin{array}{r@{\;}l}
+		\frac{\dif p^0}{\dif\tau}&=\frac{\dif p^0}{\dif t}\frac{\dif t}{\dif\tau}\\
+			&=\gamma\frac{\dif p^0}{\dif t}\\
+			&=\gamma mc\frac{\dif\gamma}{\dif t}\\
+			&=\gamma mc\gamma^3\vec{\beta}\cdot\dot{\vec{\beta}}
+	\end{array}
+$$
+\vspace{1cm}
+$$
+	\begin{array}{r@{\;}l}
+		\frac{\dif\gamma m\vec{v}}{\dif \tau}&=\gamma\frac{\dif\gamma m\vec{v}}{\dif t}\\
+			&=\gamma m\vec{v}\frac{\dif\gamma}{\dif t}+\gamma^2m\frac{\dif\vec{v}}{\dif t}\\
+			&=\gamma^4m\vec{v}(\vec{\beta}\cdot\dot{\vec{\beta}})+\gamma^2mc\dot{\vec{\beta}}
+	\end{array}
+$$
+d'où
+$$
+	\begin{array}{r@{\;}l}
+		\mathcal{P}_\text{tot}&=-\frac{q^2}{6\pi\epsilon_0m^2c^2}\left(
+			\gamma^8m^2c^2(\vec{\beta}\cdot\dot{\vec{\beta}})^2
+			-(\gamma^2mc)^2(\gamma^2\vec{\beta}(\vec{\beta}\cdot\dot{\vec{\beta}})+\dot{\vec{\beta}})^2
+			\right)\\
+		&=\frac{q^2}{6\pi\epsilon_0c}\left(
+			\gamma^4\left(\gamma^2\vec{\beta}(\vec{\beta}\cdot\dot{\vec{\beta}})+\dot{\vec{\beta}}\right)^2
+			-\gamma^8(\vec{\beta}\cdot\dot{\vec{\beta}})^2\right)\\
+		&=\frac{q^2}{6\pi\epsilon_0c}\left(\gamma^6(\vec{\beta}\cdot\dot{\vec{\beta}})^2
+			+\gamma^4\dot{\vec{\beta}}^2\right)\\
+		&=\frac{q^2}{6\pi\epsilon_0c}\gamma^6\dot{\vec{\beta}}\,^2\left(
+			1-\beta^2\sin^2(\psi)\right)\\
+		\multicolumn{2}{l}{\boxed{\mathcal{P}_\text{tot}=\gamma^6\left(\dot{\vec{\beta}}\,^2-
+			(\vec{\beta}\times\dot{\vec{\beta}})^2\right)}}
+	\end{array}
+$$
+On a donc bien trouvé une expression covariante de $\mathcal{P}_\text{tot}$.
+
+\begin{remark}
+En général, on ne contrôle pas (via la force de Lorentz) $\vec{\beta}$ et $\dot{\vec{\beta}}$, mais $\vec{p}$ et $\dot{\vec{p}}$. On réexprime ces formules en faisant apparaître l'impulsion.
+\end{remark}
