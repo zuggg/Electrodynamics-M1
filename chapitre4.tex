@@ -352,5 +352,233 @@ $$
 On a donc bien trouvé une expression covariante de $\mathcal{P}_\text{tot}$.
 
 \begin{remark}
-En général, on ne contrôle pas (via la force de Lorentz) $\vec{\beta}$ et $\dot{\vec{\beta}}$, mais $\vec{p}$ et $\dot{\vec{p}}$. On réexprime ces formules en faisant apparaître l'impulsion.
+En général, on ne contrôle pas (via la force de Lorentz) $\vec{\beta}$ et $\dot{\vec{\beta}}$, mais $\vec{p}$ et $\dot{\vec{p}}$. On réexprime ces formules en faisant apparaître l'impulsion. 
+
+
+\begin{minipage}{0.5\linewidth}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=3,inner sep=1pt]
+	\newcommand*{\anglex}{124.4748}
+	\draw [thick,name path=arc] (0,0) arc (140:100:3);
+	\path [name path=abs] (0.6,0) -- (0.6,1);
+	\begin{scope}[name intersections={of=arc and abs, by=x}]
+		\node at (x) [circle,draw,fill]{};
+		\draw[->] (x) -- +(\anglex-90:1) node[above]{$\vec{v}$};
+		\draw[->,red,thick] (x) -- +(\anglex-90:0.5) node[above]{$\vec{e}_1$};
+		\draw[->,red,thick] (x) -- +(\anglex-180:0.5) node[right]{$\vec{e}_2$};
+	\end{scope}
+\end{tikzpicture}
+\caption*{Repère de Frenet}
+\end{figure}
+\end{minipage}
+\begin{minipage}{0.45\linewidth}
+$$
+	\begin{array}{l}
+		\vec{v}=v_{\para}\vec{e}_1\\
+		\frac{\dif\vec{e}_1}{\dif t}=\frac{v_{\para}}{R}\vec{e}_2
+	\end{array}
+$$
+où $R$ désigne le rayon de courbure local.
+\end{minipage}
+
+\hspace{0.5cm}
+$$
+	\begin{array}{r@{\;}l}
+		\frac{\dif\gamma mv_{\para}\vec{e}_1}{\dif t}&=
+			\frac{\dif\gamma mv_{\para}}{\dif t}\vec{e}_1+\frac{\gamma mv_{\para}^2}{R}\vec{e}_2\\
+			&=(mv_{\para}\gamma^3\vec{\beta}\cdot\dot{\vec{\beta}}+\gamma m\dot{v}_{\para})\vec{e}_1
+				+\gamma m\frac{v_{\para}^2}{R}\vec{e}_2\\
+			&=(\gamma^3mv_{\para}^2\dot{v}_{\para}+\gamma m\dot{v}_{\para})\vec{e}_1
+				+\gamma m \frac{v_{\para}^2}{R}\vec{e}_2\\
+			&=\gamma m\dot{v}_{\para}(1+\gamma^2v_{\para}^2)\vec{e}_1
+				+\gamma m \frac{v_{\para}^2}{R}\vec{e}_2\\
+			&=\gamma^3m\dot{v}_{\para}\vec{e}_1+\gamma m \frac{v_{\para}^2}{R}\vec{e}_2\\
+			&=\dot{p}_{\para}\vec{e}_1+\dot{p}_{\perp}\vec{e_2}
+	\end{array}
+$$
+
+En utilisant ce résultat dans le calcul de la puissance, on trouve alors :
+$$
+	\begin{array}{r@{\;}l}
+		\mathcal{P}_\text{tot}&=
+			\frac{q^2\gamma^4}{6\pi\epsilon_0c}\left(\dot{\vec{\beta}}^2
+			+\gamma^2(\vec{\beta}\cdot\dot{\vec{\beta}})^2\right)\\
+		&=\frac{q^2\gamma^4}{6\pi\epsilon_0c}\left(\frac{\dot{v}_{\para}^2}{c^2}+\frac{1}{c^2}\left(\frac{v_{\para}^2}{R}\right)^2
+			+\gamma^2\left(\frac{v_{\para}\dot{v}_{\para}}{c^2}\right)^2\right)
+	\end{array}
+$$
+Or, avec les relations suivantes
+$$
+	\begin{array}{r@{\;}l}
+		\dot{v}_{\para}&=\frac{\dot{p}_{\para}}{\gamma^3m}\\
+		\frac{v_{\para}^2}{R}&=\frac{\dot{p}_{\perp}}{\gamma m}
+	\end{array}
+$$
+on a :
+$$
+	\begin{array}{r@{\;}l}
+		\mathcal{P}_\text{tot}&=\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\left(
+			\left(\frac{\dot{p}_{\para}}{\gamma^3m}\right)^2
+			+\left(\frac{\dot{p}_{\perp}}{\gamma m}\right)^2
+			+\gamma^2\beta^2\left(\frac{\dot{p}_{\para}}{\gamma^3m}\right)^2\right)\\
+		&=\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\left(
+			\gamma^2\left(\frac{\dot{p}_{\para}}{\gamma^3m}\right)^2
+			+\left(\frac{\dot{p}_{\perp}}{\gamma m}\right)^2\right)\\
+		\multicolumn{2}{l}{\boxed{\mathcal{P}_\text{tot}=\frac{q^2}{6\pi\epsilon_0c^3}\left(\dot{p}_{\para}^2+\gamma^2\dot{p}_{\perp}^2\right)}}
+	\end{array}
+$$
+
+Cette formule indique qu'il est plus rentable de faire accélérer les particules selon une trajectoire circulaire plutôt que le long d'une droite.
 \end{remark}
+
+\subsubsection*{Distance angulaire dans le cas où $\vec{\beta}$ et $\dot{\vec{\beta}}$ sont parallèles}
+$$
+	\theta=(\vec{n},\vec{\beta}) (=(\vec{n},\dot{\vec{\beta}}))
+$$
+
+On obtient alors :
+$$
+	\frac{\dif\mathcal{P}}{\dif\Omega}=\frac{q^2}{16\pi^2\epsilon_0c}\frac{\dot{\beta}^2\sin(\theta)}{\left(1-\beta\cos(\theta)\right)^5}
+$$
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.8]
+	\newcommand*{\bet}{0.9}
+	\draw[->] (-1,0) -- (8,0);
+	\draw[color=red,domain=0:360,samples=200,smooth] plot (canvas polar cs:angle=\x,radius={5*abs(sin(\x))/(1-\bet*cos(\x))^(2)/sqrt((1-\bet*cos(\x))});
+	\node at (canvas polar cs:angle=20,radius={5*abs(sin(20))/(1-\bet*cos(20))^(2)/sqrt((1-\bet*cos(20))}) [red,above right]{$\beta=\bet$};
+	
+	\renewcommand*{\bet}{0.8};
+	\draw[color=blue,domain=0:360,samples=200,smooth] plot (canvas polar cs:angle=\x,radius={5*abs(sin(\x))/(1-\bet*cos(\x))^(2)/sqrt((1-\bet*cos(\x))});
+	\node at (canvas polar cs:angle=20,radius={5*abs(sin(20))/(1-\bet*cos(20))^(2)/sqrt((1-\bet*cos(20))}) [blue,above right]{$\beta=\bet$};
+	
+	\renewcommand*{\bet}{0.6};
+	\draw[color=green!50!black,domain=0:360,samples=200,smooth] plot (canvas polar cs:angle=\x,radius={5*abs(sin(\x))/(1-\bet*cos(\x))^(2)/sqrt((1-\bet*cos(\x))});
+	\node at (canvas polar cs:angle=20,radius={5*abs(sin(20))/(1-\bet*cos(20))^(2)/sqrt((1-\bet*cos(20))}) [green!50!black,above right]{$\beta=\bet$};
+\end{tikzpicture}
+\caption*{Diagramme de rayonnement pour plusieurs valeurs de $\beta$.}
+\end{figure}
+
+Dans la limite non relativiste, on a : 
+$$
+	\frac{\dif \mathcal{P}}{\dif\Omega}\xrightarrow[\beta\longrightarrow 0]{}\frac{q^2\dot{\beta}^2}{16\pi^2\epsilon_0c}\sin^2(\theta)
+$$
+
+Dans la limite ultra-relativiste :
+$$
+	\left\{\begin{array}{l}
+		\beta\longrightarrow 1^-\\
+		\theta\simeq 0
+	\end{array}\right.
+$$
+$$
+	\begin{array}{l}
+		\beta\simeq 1-\frac{1}{2\gamma^2}\\
+		\Rightarrow \frac{\dif\mathcal{P}(t')}{\dif\Omega}\simeq\frac{q^2\dot{\beta}^2}{16\pi^2\epsilon_0c}32\gamma^{10}\frac{\theta^2}{(1+\gamma^2\theta^2)^5}\\
+		\Rightarrow \text{applications aux accélérateurs de particules}
+	\end{array}
+$$
+
+\subsubsection*{Distance angulaire dans le cas où $\vec{\beta}$ et $\dot{\vec{\beta}}$ sont perpendiculaires}
+
+\begin{minipage}{0.3\linewidth}
+	\begin{figure}[H]
+		\centering
+		\tdplotsetmaincoords{60}{110}
+
+		%define polar coordinates for some vector
+		%TODO: look into using 3d spherical coordinate system
+		\pgfmathsetmacro{\rvec}{.8}
+		\pgfmathsetmacro{\thetavec}{30}
+		\pgfmathsetmacro{\phivec}{60}
+		
+		%start tikz picture, and use the tdplot_main_coords style to implement the display 
+		%coordinate transformation provided by 3dplot
+		\begin{tikzpicture}[scale=3,tdplot_main_coords]
+		
+		%set up some coordinates 
+		%-----------------------
+		\coordinate (O) at (0,0,0);
+		
+		%determine a coordinate (P) using (r,\theta,\phi) coordinates.  This command
+		%also determines (Pxy), (Pxz), and (Pyz): the xy-, xz-, and yz-projections
+		%of the point (P).
+		%syntax: \tdplotsetcoord{Coordinate name without parentheses}{r}{\theta}{\phi}
+		\tdplotsetcoord{P}{\rvec}{\thetavec}{\phivec}
+		
+		\draw[thick,->] (0,0,0) -- (1,0,0);
+		\draw[thick,->] (0,0,0) -- (0,1,0);
+		\draw[thick,->] (0,0,0) -- (0,0,1) node[anchor=south]{$\vec{\beta}$};
+		
+		%draw a vector from origin to point (P) 
+		\draw[-stealth,color=red] (O) -- (P) node[above right]{$\vec{n}$};
+		
+		%draw projection on xy plane, and a connecting line
+		\draw[dashed, color=red] (O) -- (Pxy);
+		\draw[dashed, color=red] (P) -- (Pxy);
+		
+		%draw the angle \phi, and label it
+		%syntax: \tdplotdrawarc[coordinate frame, draw options]{center point}{r}{angle}{label options}{label}
+		\tdplotdrawarc{(O)}{0.2}{0}{\phivec}{anchor=north}{$\phi$}
+		
+		%set the rotated coordinate system so the x'-y' plane lies within the
+		%"theta plane" of the main coordinate system
+		%syntax: \tdplotsetthetaplanecoords{\phi}
+		\tdplotsetthetaplanecoords{\phivec}
+		
+		%draw theta arc and label, using rotated coordinate system
+		\tdplotdrawarc[tdplot_rotated_coords]{(0,0,0)}{0.5}{0}{\thetavec}{anchor=south west}{$\theta$}
+		
+		%draw some dashed arcs, demonstrating direct arc drawing
+		\draw[dashed,tdplot_rotated_coords] (\rvec,0,0) arc (0:90:\rvec);
+		\draw[dashed] (\rvec,0,0) arc (0:90:\rvec);
+		\end{tikzpicture}
+	\end{figure}
+\end{minipage}
+\begin{minipage}{0.65\linewidth}
+	$$
+		\frac{\dif\mathcal{P}(t')}{\dif\Omega}=\frac{q^2}{16\pi^2\epsilon_0c}\frac{\dot{\beta}^2}{(1-\beta\cos(\theta))^3}\left(1-\frac{\sin^2(\theta)\cos^2(\phi)}{\gamma^2(1-\beta\cos(\theta))^2}\right)
+	$$
+	
+	Dans la limite ultra-relativiste, $\phi\simeq\frac{\pi}{2}$. Donc :
+	$$
+		\begin{array}{l}
+			\frac{\dif\mathcal{P}}{\dif\Omega}\simeq\frac{q^2\dot{\beta}^2}{16\pi^2\epsilon_0c}
+			\frac{8\gamma^3}{(1+\gamma^2\theta^2)^3}\\
+			\Rightarrow \text{applications : cyclotron/synchrotron}
+		\end{array}
+	$$
+\end{minipage}
+
+
+
+\subsection{Distribution spectrale}
+\emph{cf. polycopié.}
+
+\section{Rayonnement dans quelques cas typiques}
+\subsection{Rayonnement synchrotron}
+On s'intéresse au mouvement d'une charge dans un champ $\vec{B}$. Lorsque le mouvement est non-relativiste, le rayonnement porte le nom de rayonnement cyclotron.
+$$
+	\begin{array}{l}
+		\frac{\dif\mathcal{P}(t')}{\dif\Omega}=\frac{q^2}{16\pi^2\epsilon_0c^3}
+			\frac{|\dot{\vec{v}}|^2}{(1-\beta\cos(\theta))^3}
+			\left(1-\frac{\sin^2(\theta)\cos^2(\phi)}{\gamma^2(1-\beta\cos(\theta))^2}\right)\\
+		\text{avec }|\dot{\vec{v}}|=\frac{qB}{\gamma m}|v_{\perp}|\defeq\omega_0|v_{\perp}|\\
+		\text{avec }\omega_0=\frac{qB}{\gamma m}\text{ la fréquence de Larmor}
+	\end{array}
+$$
+$$
+	\begin{array}{l}
+		\mathcal{P}_\text{tot}(t')\overset{\text{NR}}{=}\frac{q^2}{6\pi\epsilon_0c^2}\|\dot{\vec{v}}\|^2\\
+		\mathcal{P}_\text{tot}(t')\overset{\text{uR}}{=}\frac{q^2}{6\pi\epsilon_0c^2}\|\dot{\vec{v}}\|^2\gamma^4
+	\end{array}
+$$
+
+$$
+	\frac{\dif^2I}{\dif\Omega\dif\omega}=\frac{q^2}{6\pi^2\epsilon_0c}\left\|\bigintsss_0^{+\infty}\!
+		\dif t\, e^{i\omega\left(t-\frac{\vec{n}\cdot\vec{r}}{c}\right)}
+		\frac{\vec{n}\times\left((\vec{n}-\vec{\beta})\times\dot{\vec{\beta}}\right)}{(1-\vec{n}\cdot\vec{\beta})^2}
+		\right\|^2
+$$
